@@ -55,9 +55,9 @@ import java.util.regex.Pattern;
  * This is where the magic lives. All the scanning/filtration logic resides
  * here, but it should not be called directly. All scanning should be done
  * through a <code>AntiSamy.scan()</code> method.
- * 
+ *
  * @author Arshan Dabirsiaghi
- * 
+ *
  */
 public class AntiSamyDOMScanner extends AbstractAntiSamyScanner {
 
@@ -245,7 +245,7 @@ public class AntiSamyDOMScanner extends AbstractAntiSamyScanner {
 
         boolean isElement = node instanceof Element;
         NodeList eleChildNodes = node.getChildNodes();
-        if (isElement && eleChildNodes.getLength() == 0) {
+        if (isElement && eleChildNodes.getLength() == 0 && !policy.isAllowUnknownTag()) {
             if (removeDisallowedEmpty(node)){
                 return;
             }
@@ -284,6 +284,8 @@ public class AntiSamyDOMScanner extends AbstractAntiSamyScanner {
 
         if ((tagRule == null && policy.isEncodeUnknownTag()) || (tagRule != null && tagRule.isAction( "encode"))) {
             encodeTag(currentStackDepth, ele, tagName, eleChildNodes);
+        }else if(tagRule==null && policy.isAllowUnknownTag()){
+            actionTruncate(ele, tagName, eleChildNodes);
         } else if (tagRule == null || tagRule.isAction( Policy.ACTION_FILTER)) {
             actionFilter(currentStackDepth, ele, tagName, tagRule, eleChildNodes);
         } else if (tagRule.isAction( Policy.ACTION_VALIDATE)) {
@@ -643,7 +645,7 @@ public class AntiSamyDOMScanner extends AbstractAntiSamyScanner {
 
                     }
 
-                } else { /*
+                } else if(!policy.isAllowUnknownAttributes()){ /*
                      * the attribute they specified isn't in our policy
                      * - remove it (whitelisting!)
                      */
@@ -727,8 +729,8 @@ public class AntiSamyDOMScanner extends AbstractAntiSamyScanner {
 		Node parent = node.getParentNode();
 		parent.removeChild(node);
 		String tagName = parent.getNodeName();
-		if(	parent instanceof Element && 
-			parent.getChildNodes().getLength() == 0 && 
+		if(	parent instanceof Element &&
+			parent.getChildNodes().getLength() == 0 &&
 			!isAllowedEmptyTag(tagName)) {
 			removeNode(parent);
 		}

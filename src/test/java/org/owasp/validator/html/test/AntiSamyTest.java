@@ -1,8 +1,8 @@
 /*
  * Copyright (c) 2007-2011, Arshan Dabirsiaghi, Jason Li
- * 
+ *
  * All rights reserved.
- * 
+ *
  * Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
  *                                                  1
  * Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
@@ -33,17 +33,14 @@ import static org.junit.Assert.fail;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Collections;
+import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.apache.commons.codec.binary.Base64;
 import org.junit.Before;
 import org.junit.Test;
-import org.owasp.validator.html.AntiSamy;
-import org.owasp.validator.html.CleanResults;
-import org.owasp.validator.html.Policy;
-import org.owasp.validator.html.PolicyException;
-import org.owasp.validator.html.ScanException;
+import org.owasp.validator.html.*;
 import org.owasp.validator.html.model.Attribute;
 import org.owasp.validator.html.model.Tag;
 
@@ -113,7 +110,7 @@ public class AntiSamyTest {
 
     @Test
     public void scriptAttacks() throws ScanException, PolicyException {
-    	
+
         assertTrue(!as.scan("test<script>alert(document.cookie)</script>", policy, AntiSamy.DOM).getCleanHTML().contains("script"));
         assertTrue(!as.scan("test<script>alert(document.cookie)</script>", policy, AntiSamy.SAX).getCleanHTML().contains("script"));
 
@@ -1180,18 +1177,18 @@ public class AntiSamyTest {
     	assertIsGoodOnsiteURL("../../di.cgi?foo&amp;3D~");
     	assertIsGoodOnsiteURL("/foo/bar/1/sdf;jsessiond=1f1f12312_123123");
     }
-    
+
     void assertIsGoodOnsiteURL(String url) throws ScanException, PolicyException {
     	String html = as.scan("<a href=\"" + url + "\">X</a>", policy, AntiSamy.DOM).getCleanHTML();
     	assertTrue(html.contains("href=\""));
 	}
-    
+
 	@Test
     public void issue10() throws ScanException, PolicyException {
     	assertFalse(as.scan("<a href=\"javascript&colon;alert&lpar;1&rpar;\">X</a>", policy, AntiSamy.DOM).getCleanHTML().contains("javascript"));
         assertFalse(as.scan("<a href=\"javascript&colon;alert&lpar;1&rpar;\">X</a>", policy, AntiSamy.SAX).getCleanHTML().contains("javascript"));
     }
-    
+
     @Test
     public void issue147() throws ScanException, PolicyException {
         URL url = getClass().getResource("/antisamy-tinymce.xml");
@@ -1276,7 +1273,7 @@ public class AntiSamyTest {
     	assertFalse(as.scan(test, policy, AntiSamy.DOM).getCleanHTML().contains("alert"));
     	assertFalse(as.scan(test, policy, AntiSamy.SAX).getCleanHTML().contains("alert"));
     }
-    
+
     /*
      * Mailing list user sent this in. Didn't work, but good test to leave in.
      */
@@ -1290,5 +1287,25 @@ public class AntiSamyTest {
     	assertFalse(saxResults.getCleanHTML().contains("<%/"));
     	assertFalse(domResults.getCleanHTML().contains("<%/"));
     }
+
+    @Test
+    public void testXss5() throws Exception {
+        Policy policy = Policy.getInstance(this.getClass().getResourceAsStream("/antixss.xml"));
+       // String content = "<img//onerror='alert(1'  src='/adss'> <TABLE> && ,:  # %23 SD SSDADA";
+        String content="<img /onerror=alert(1' > ?=+ adad &   sda %6d a ";
+        Locale defaultLocal = Locale.getDefault();
+        Locale.setDefault(Locale.ENGLISH);
+        AntiSamyExt as = new AntiSamyExt();
+        try {
+            CleanResults cr = as.scan(content, policy);
+            System.out.println(cr.getCleanHTML());
+        }
+        catch (Exception ex) {
+        }
+        finally {
+            Locale.setDefault(defaultLocal);
+        }
+    }
+
 
 }

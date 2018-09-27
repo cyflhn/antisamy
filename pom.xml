@@ -1,45 +1,31 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.owasp.antisamy</groupId>
+    <groupId>com.focustech.antisamy</groupId>
     <artifactId>antisamy</artifactId>
     <packaging>jar</packaging>
-    <version>1.5.7</version>
+    <version>0.1-SNAPSHOT</version>
 
     <distributionManagement>
-        <snapshotRepository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
         <repository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+            <id>mic-releases</id>
+            <name>Team MIC Release Repository</name>
+            <url>http://maven.mic.com/nexus/content/repositories/mic-releases/</url>
         </repository>
+        <snapshotRepository>
+            <id>mic-snapshots</id>
+            <name>Team MIC Snapshot Repository</name>
+            <url>http://maven.mic.com/nexus/content/repositories/mic-snapshots/</url>
+            <uniqueVersion>false</uniqueVersion>
+        </snapshotRepository>
     </distributionManagement>
- 
-    <name>OWASP AntiSamy</name>
+
+    <name>FOCUS OWASP AntiSamy</name>
     <description>A library for performing fast, configurable cleansing of HTML coming from untrusted sources.</description>
-    <url>https://github.com/nahsra/antisamy</url>
 
-    <developers>
-      <developer>
-        <id>nahsra</id>
-        <name>Arshan Dabirsiaghi</name>
-        <email>arshan.dabirsiaghi@gmail.com</email>
-      </developer>
-    </developers>
-
-    <licenses>
-      <license>
-        <name>BSD 3</name>
-        <url>https://opensource.org/licenses/BSD-3-Clause</url>
-      </license>
-    </licenses>
-   
-     <scm>
-        <connection>scm:git:git@github.com:nahsra/antisamy.git</connection>
-        <url>scm:git:git@github.com:nahsra/antisamy.git</url>
-        <developerConnection>scm:git:git@github.com:nahsra/antisamy.git</developerConnection>
-    </scm>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <jdk.version>1.6</jdk.version>
+    </properties>
 
     <dependencies>
         <dependency>
@@ -53,9 +39,9 @@
             <version>1.9.1</version>
         </dependency>
         <dependency>
-            <groupId>net.sourceforge.nekohtml</groupId>
+            <groupId>com.focustech.nekohtml</groupId>
             <artifactId>nekohtml</artifactId>
-            <version>1.9.22</version>
+            <version>0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
@@ -65,23 +51,23 @@
             <version>4.12</version>
         </dependency>
         <dependency>
-		    <groupId>commons-codec</groupId>
-		    <artifactId>commons-codec</artifactId>
-		    <version>1.10</version>
-		    <scope>test</scope>
-		</dependency>
-		<dependency>
-		    <groupId>commons-io</groupId>
-		    <artifactId>commons-io</artifactId>
-		    <version>2.2</version>
-		    <scope>test</scope>
-		</dependency>
-		<dependency>
-		    <groupId>org.apache.httpcomponents</groupId>
-		    <artifactId>httpclient</artifactId>
-		    <version>4.3.6</version>
-		</dependency>
-		<dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>1.10</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.3.6</version>
+        </dependency>
+        <dependency>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-server</artifactId>
             <version>7.6.14.v20131031</version>
@@ -92,6 +78,22 @@
             <artifactId>jetty-servlet</artifactId>
             <version>7.6.14.v20131031</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+            <version>1.11.3</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.4</version>
+        </dependency>
+        <dependency>
+            <groupId>xalan</groupId>
+            <artifactId>serializer</artifactId>
+            <version>2.7.2</version>
         </dependency>
     </dependencies>
     <build>
@@ -110,6 +112,7 @@
                     </archive>
                 </configuration>
             </plugin>
+            <!--
                <plugin>
                <groupId>org.apache.maven.plugins</groupId>
                <artifactId>maven-gpg-plugin</artifactId>
@@ -123,26 +126,37 @@
                  </execution>
                </executions>
              </plugin>
+             -->
             <plugin>
-               <artifactId>maven-javadoc-plugin</artifactId>
-               <executions>
-                 <execution>
-                   <id>attach-javadocs</id>
-                   <phase>package</phase>
-                   <goals><goal>jar</goal></goals>
-                 </execution>
-               </executions>
-             </plugin>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <phase>package</phase>
+                        <goals><goal>jar</goal></goals>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
-            <artifactId>maven-source-plugin</artifactId>
-            <executions>
-              <execution>
-                <id>attach-sources</id>
-                <phase>package</phase>
-                <goals><goal>jar-no-fork</goal></goals>
-              </execution>
-            </executions>
-        </plugin>
+                <artifactId>maven-source-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <phase>package</phase>
+                        <goals><goal>jar-no-fork</goal></goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>${jdk.version}</source>
+                    <target>${jdk.version}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 </project>

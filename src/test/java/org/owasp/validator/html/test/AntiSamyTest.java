@@ -1292,7 +1292,8 @@ public class AntiSamyTest {
     public void testXss5() throws Exception {
         Policy policy = Policy.getInstance(this.getClass().getResourceAsStream("/antixss.xml"));
        // String content = "<img//onerror='alert(1'  src='/adss'> <TABLE> && ,:  # %23 SD SSDADA";
-        String content="<img /onerror=alert(1' > ?=+ adad &   sda %6d a ";
+        //String content="<img /onerror=alert(1' > ?=+ adad &   sda %6d a ";
+        String content="Theis is <new> prldadsdas<body/onhashchange=alert(1)> add //&& sd%3 ^><a href=#>clickit <img / onerror='adssd'>";
         Locale defaultLocal = Locale.getDefault();
         Locale.setDefault(Locale.ENGLISH);
         AntiSamyExt as = new AntiSamyExt();

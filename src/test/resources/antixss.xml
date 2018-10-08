@@ -2835,4 +2835,76 @@ http://www.w3.org/TR/html401/struct/global.html
         </literal-list>
     </allowed-empty-tags>
 
+	<event-attributes>
+		<attribute name="onerror" />
+		<attribute name="onfocus" />
+		<attribute name="onhaschange" />
+		<attribute name="onload" />
+		<attribute name="onmessage" />
+		<attribute name="onoffline" />
+		<attribute name="ononline" />
+		<attribute name="onpagehide" />
+		<attribute name="onpageshow" />
+		<attribute name="onpopstate" />
+		<attribute name="onredo" />
+		<attribute name="onresize" />
+		<attribute name="onstorage" />
+		<attribute name="onundo" />
+		<attribute name="onunload" />
+		<attribute name="onblur" />
+		<attribute name="onchange" />
+		<attribute name="oncontextmenu" />
+		<attribute name="onfocus" />
+		<attribute name="onformchange" />
+		<attribute name="onforminput" />
+		<attribute name="oninput" />
+		<attribute name="oninvalid" />
+		<attribute name="onreset" />
+		<attribute name="onselect" />
+		<attribute name="onsubmit" />
+		<attribute name="onkeydown" />
+		<attribute name="onkeypress" />
+		<attribute name="onkeyup" />
+		<attribute name="onclick" />
+		<attribute name="ondblclick" />
+		<attribute name="ondrag" />
+		<attribute name="ondragend" />
+		<attribute name="ondragenter" />
+		<attribute name="ondragleave" />
+		<attribute name="ondragover" />
+		<attribute name="ondragstart" />
+		<attribute name="ondrop" />
+		<attribute name="onmousedown" />
+		<attribute name="onmousemove" />
+		<attribute name="onmouseout" />
+		<attribute name="onmouseover" />
+		<attribute name="onmouseup" />
+		<attribute name="onmousewheel" />
+		<attribute name="onscroll" />
+		<attribute name="onabort" />
+		<attribute name="oncanplay" />
+		<attribute name="oncanplaythrough" />
+		<attribute name="ondurationchange" />
+		<attribute name="onemptied" />
+		<attribute name="onended" />
+		<attribute name="onerror" />
+		<attribute name="onloadeddata" />
+		<attribute name="onloadedmetadata" />
+		<attribute name="onloadstart" />
+		<attribute name="onpause" />
+		<attribute name="onplay" />
+		<attribute name="onplaying" />
+		<attribute name="onprogress" />
+		<attribute name="onratechange" />
+		<attribute name="onreadystatechange" />
+		<attribute name="onseeked" />
+		<attribute name="onseeking" />
+		<attribute name="onstalled" />
+		<attribute name="onsuspend" />
+		<attribute name="ontimeupdate" />
+		<attribute name="onvolumechange" />
+		<attribute name="onwaiting" />
+
+	</event-attributes>
+
 </anti-samy-rules>

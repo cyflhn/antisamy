@@ -285,7 +285,7 @@ public class AntiSamyDOMScanner extends AbstractAntiSamyScanner {
         if ((tagRule == null && policy.isEncodeUnknownTag()) || (tagRule != null && tagRule.isAction( "encode"))) {
             encodeTag(currentStackDepth, ele, tagName, eleChildNodes);
         }else if(tagRule==null && policy.isAllowUnknownTag()){
-            actionTruncate(currentStackDepth, ele, tagName, eleChildNodes);
+            actionValidate(currentStackDepth, ele, tagName, eleChildNodes);
         } else if (tagRule == null || tagRule.isAction( Policy.ACTION_FILTER)) {
             actionFilter(currentStackDepth, ele, tagName, tagRule, eleChildNodes);
         } else if (tagRule.isAction( Policy.ACTION_VALIDATE)) {
@@ -469,22 +469,9 @@ public class AntiSamyDOMScanner extends AbstractAntiSamyScanner {
         return false;
     }
 
-    private void actionTruncate(int currentStackDepth,Element ele, String tagName, NodeList eleChildNodes) throws ScanException {
-        /*
-    * Remove all attributes. This is for tags like i, b, u, etc. Purely
-    * formatting without any need for attributes. It also removes any
-    * children.
-    */
+    private void actionValidate(int currentStackDepth,Element ele, String tagName, NodeList eleChildNodes) throws ScanException {
 
-        NamedNodeMap nnmap = ele.getAttributes();
-
-        while (nnmap.getLength() > 0) {
-
-            addError(ErrorMessageUtil.ERROR_ATTRIBUTE_NOT_IN_POLICY, new Object[]{tagName, HTMLEntityEncoder.htmlEntityEncode(nnmap.item(0).getNodeName())});
-
-            ele.removeAttribute(nnmap.item(0).getNodeName());
-
-        }
+        if (processAttributes(ele, tagName, null, currentStackDepth)) return;
 
         processChildren(eleChildNodes,currentStackDepth);
     }
@@ -536,7 +523,7 @@ public class AntiSamyDOMScanner extends AbstractAntiSamyScanner {
             String name = attribute.getNodeName();
             String value = attribute.getNodeValue();
 
-            Attribute attr = tag.getAttributeByName(name.toLowerCase());
+            Attribute attr = tag != null? tag.getAttributeByName(name.toLowerCase()): null;
 
             /**
              * If we there isn't an attribute by that name in our policy
@@ -666,16 +653,20 @@ public class AntiSamyDOMScanner extends AbstractAntiSamyScanner {
 
                     }
 
-                } else if(!policy.isAllowUnknownAttributes()){ /*
+                } else if(!policy.isAllowUnknownAttributes()){
+                    attr = policy.getEventAttributeByName(name.toLowerCase());
+                    /*
                      * the attribute they specified isn't in our policy
                      * - remove it (whitelisting!)
                      */
+                    if(attr != null){
+                        addError(ErrorMessageUtil.ERROR_ATTRIBUTE_NOT_IN_POLICY, new Object[]{tagName, HTMLEntityEncoder.htmlEntityEncode(name), HTMLEntityEncoder.htmlEntityEncode(value)});
 
-                    addError(ErrorMessageUtil.ERROR_ATTRIBUTE_NOT_IN_POLICY, new Object[]{tagName, HTMLEntityEncoder.htmlEntityEncode(name), HTMLEntityEncoder.htmlEntityEncode(value)});
+                        ele.removeAttribute(attribute.getNodeName());
 
-                    ele.removeAttribute(attribute.getNodeName());
+                        currentAttributeIndex--;
+                    }
 
-                    currentAttributeIndex--;
 
                 } // end if attribute is or is not found in policy file
 

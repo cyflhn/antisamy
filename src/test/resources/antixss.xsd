@@ -15,6 +15,7 @@
 			<xsd:element name="tag-rules" type="TagRules" minOccurs="1" maxOccurs="1"/>
 			<xsd:element name="css-rules" type="CSSRules" minOccurs="1" maxOccurs="1"/>
             <xsd:element name="allowed-empty-tags" type="AllowedEmptyTags" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="event-attributes" type="AttributeList" maxOccurs="1" minOccurs="0"/>
 
 		</xsd:sequence>
 

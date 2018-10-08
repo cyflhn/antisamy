@@ -97,6 +97,7 @@ public class Policy {
     protected final Map<String, String> directives;
     private final Map<String, Attribute> globalAttributes;
     private final Map<String, Attribute> dynamicAttributes;
+    private final Map<String, Attribute> eventAttributes;
 
     private final TagMatcher allowedEmptyTagsMatcher;
     private final TagMatcher requiresClosingTagsMatcher;
@@ -111,6 +112,7 @@ public class Policy {
     protected static class ParseContext {
         Map<String, AntiSamyPattern> commonRegularExpressions = new HashMap<String, AntiSamyPattern>();
         Map<String, Attribute> commonAttributes = new HashMap<String, Attribute>();
+        Map<String, Attribute> eventAttributes = new HashMap<String, Attribute>();
         Map<String, Tag> tagRules = new HashMap<String, Tag>();
         Map<String, Property> cssRules = new HashMap<String, Property>();
         Map<String, String> directives = new HashMap<String, String>();
@@ -213,6 +215,7 @@ public class Policy {
         this.directives = Collections.unmodifiableMap(parseContext.directives);
         this.globalAttributes = Collections.unmodifiableMap(parseContext.globalAttributes);
         this.dynamicAttributes = Collections.unmodifiableMap(parseContext.dynamicAttributes);
+        this.eventAttributes = Collections.unmodifiableMap(parseContext.eventAttributes);
     }
 
     protected Policy(Policy old, Map<String, String> directives, Map<String, Tag> tagRules) {
@@ -224,6 +227,7 @@ public class Policy {
         this.directives = directives;
         this.globalAttributes = old.globalAttributes;
         this.dynamicAttributes = old.dynamicAttributes;
+        this.eventAttributes = old.eventAttributes;
     }
 
     protected static ParseContext getSimpleParseContext(Element topLevelElement) throws PolicyException {
@@ -314,6 +318,7 @@ public class Policy {
 
         parseCommonRegExps(getFirstChild(topLevelElement, "common-regexps"), parseContext.commonRegularExpressions);
         parseDirectives(getFirstChild(topLevelElement, "directives"), parseContext.directives);
+        parseEventAttributes(getFirstChild(topLevelElement, "event-attributes"), parseContext.eventAttributes);
         parseCommonAttributes(getFirstChild(topLevelElement, "common-attributes"), parseContext.commonAttributes, parseContext.commonRegularExpressions);
         parseGlobalAttributes(getFirstChild(topLevelElement, "global-tag-attributes"), parseContext.globalAttributes, parseContext.commonAttributes);
         parseDynamicAttributes(getFirstChild(topLevelElement, "dynamic-tag-attributes"), parseContext.dynamicAttributes, parseContext.commonAttributes);
@@ -538,6 +543,27 @@ public class Policy {
     }
 
 
+    private static void parseEventAttributes(Element root, Map<String, Attribute> commonAttributes1) {
+        for (Element ele : getByTagName(root, "attribute")) {
+
+            String onInvalid = getAttributeValue(ele, "onInvalid");
+            String name = getAttributeValue(ele, "name");
+
+            final String onInvalidStr;
+            if (onInvalid != null && onInvalid.length() > 0) {
+                onInvalidStr = onInvalid;
+            } else {
+                onInvalidStr = DEFAULT_ONINVALID;
+            }
+            String description = getAttributeValue(ele, "description");
+            Attribute attribute = new Attribute(getAttributeValue(ele, "name"), Collections.EMPTY_LIST, Collections.EMPTY_LIST, onInvalidStr, description);
+
+
+            commonAttributes1.put(name.toLowerCase(), attribute);
+        }
+    }
+
+
     private static void parseCommonAttributes(Element root, Map<String, Attribute> commonAttributes1, Map<String, AntiSamyPattern> commonRegularExpressions1) {
         for (Element ele : getByTagName(root, "attribute")) {
 
@@ -638,7 +664,7 @@ public class Policy {
         }
         return allowedRegExp;
     }
-    
+
     private static void parseTagRules(Element root, Map<String, Attribute> commonAttributes1, Map<String, AntiSamyPattern> commonRegularExpressions1, Map<String, Tag> tagRules1) throws PolicyException {
 
         if (root == null) return;
@@ -757,6 +783,11 @@ public class Policy {
      */
     public Attribute getGlobalAttributeByName(String name) {
         return globalAttributes.get(name.toLowerCase());
+
+    }
+
+    public Attribute getEventAttributeByName(String name) {
+        return eventAttributes.get(name.toLowerCase());
 
     }
 

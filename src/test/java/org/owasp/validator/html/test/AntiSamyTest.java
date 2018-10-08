@@ -38,6 +38,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.apache.commons.codec.binary.Base64;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.owasp.validator.html.*;
@@ -1290,22 +1291,62 @@ public class AntiSamyTest {
 
     @Test
     public void testXss5() throws Exception {
-        Policy policy = Policy.getInstance(this.getClass().getResourceAsStream("/antixss.xml"));
-       // String content = "<img//onerror='alert(1'  src='/adss'> <TABLE> && ,:  # %23 SD SSDADA";
+        // String content = "<img//onerror='alert(1'  src='/adss'> <TABLE> && ,:  # %23 SD SSDADA";
         //String content="<img /onerror=alert(1' > ?=+ adad &   sda %6d a ";
-        String content="Theis is <new> prldadsdas<body/onhashchange=alert(1)> add //&& sd%3 ^><a href=#>clickit <img / onerror='adssd'>";
+        String content="<svg 1 onload='alert(1)'>";
+        Assert.assertTrue(testXss(content));
+        content="<svg/ a , onload='alert(1)'>";
+        Assert.assertTrue(testXss(content));
+
+        content="<img /onerror=alert(1' > ?=+ adad &   sda %6d a ";
+        Assert.assertTrue(testXss(content));
+        content="<img//onerror='alert(1'  src='/adss'> <TABLE> && ,:  # %23 SD SSDADA";
+        Assert.assertTrue(testXss(content));
+
+        content="<img//onerror='alert(1'  src='/adss' sad <script></script>";
+        Assert.assertTrue(testXss(content));
+
+        content="<svg/onload='alert(1)'>";
+        Assert.assertTrue(testXss(content));
+    }
+
+
+    @Test
+    public void testXss6() throws Exception {
+        // String content = "<img//onerror='alert(1'  src='/adss'> <TABLE> && ,:  # %23 SD SSDADA";
+        //String content="<img /onerror=alert(1' > ?=+ adad &   sda %6d a ";
+        String content="< svg 1 onload=daddsda adsd dads@dadsd > 1";
+        Assert.assertFalse(testXss(content));
+        content="ass<dads a , onload 'alert(1)' >";
+        Assert.assertFalse(testXss(content));
+
+        content="ass<dads a , onload  'alert(1)' 1>232";
+        Assert.assertFalse(testXss(content));
+
+        content="when 1<ass a , aaaa='alert(1)' ss 1>232";
+        Assert.assertFalse(testXss(content));
+
+
+    }
+
+    private boolean testXss(String content) throws PolicyException {
+        Policy policy = Policy.getInstance(this.getClass().getResourceAsStream("/antixss.xml"));
+
         Locale defaultLocal = Locale.getDefault();
         Locale.setDefault(Locale.ENGLISH);
         AntiSamyExt as = new AntiSamyExt();
         try {
             CleanResults cr = as.scan(content, policy);
+            System.out.println(cr.getNumberOfErrors());
             System.out.println(cr.getCleanHTML());
+            return cr.getNumberOfErrors()>0;
         }
         catch (Exception ex) {
         }
         finally {
             Locale.setDefault(defaultLocal);
         }
+        return false;
     }
 
 

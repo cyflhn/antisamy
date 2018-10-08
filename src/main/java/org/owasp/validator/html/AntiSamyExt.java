@@ -1,5 +1,6 @@
 package org.owasp.validator.html;
 
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -30,7 +31,7 @@ public class AntiSamyExt extends AntiSamy {
                                 ? cleanResults.getCleanHTML() : " ");
                         if (cleanResults.getNumberOfErrors() > 0) {
                             xssInjected = true;
-                            results.addErrorMessages(cleanResults.getErrorMessages());
+                            results.addErrorMessages(Arrays.asList(value));
                         }
                     }
                     else {

@@ -1311,6 +1311,9 @@ public class AntiSamyTest {
 
         content="chen\"></div><svg/onload=\"confirm(99)\">";
         Assert.assertTrue(testXss(content));
+
+        content="Miss chen\"></div><svg/onload=\"confirm(99)\"Miss chen\"></div><svg/onload=\"confirm(99)\"Miss chen\"></div><svg/onload=\"confirm(99)\"Miss chen\"></div><svg/onload=\"confirm(99)\"";
+        Assert.assertTrue(testXss(content));
     }
 
 

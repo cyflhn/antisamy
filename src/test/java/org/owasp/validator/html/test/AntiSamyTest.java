@@ -1308,6 +1308,9 @@ public class AntiSamyTest {
 
         content="<svg/onload='alert(1)'>";
         Assert.assertTrue(testXss(content));
+
+        content="chen\"></div><svg/onload=\"confirm(99)\">";
+        Assert.assertTrue(testXss(content));
     }
 
 

@@ -1,34 +1,22 @@
 /*
- * Copyright (c) 2007-2011, Arshan Dabirsiaghi, Jason Li
- *
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
- *                                                  1
- * Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
- * Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
- * Neither the name of OWASP nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
- * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
- * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
- * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
- * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
- * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
- * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- * PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ * Copyright (c) 2007-2011, Arshan Dabirsiaghi, Jason Li All rights reserved. Redistribution and use in source and
+ * binary forms, with or without modification, are permitted provided that the following conditions are met: 1
+ * Redistributions of source code must retain the above copyright notice, this list of conditions and the following
+ * disclaimer. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the
+ * following disclaimer in the documentation and/or other materials provided with the distribution. Neither the name of
+ * OWASP nor the names of its contributors may be used to endorse or promote products derived from this software without
+ * specific prior written permission. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
+ * FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+ * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+ * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
+ * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
 package org.owasp.validator.html.test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 import java.io.IOException;
 import java.net.URL;
@@ -45,10 +33,9 @@ import org.owasp.validator.html.*;
 import org.owasp.validator.html.model.Attribute;
 import org.owasp.validator.html.model.Tag;
 
-
 /**
- * This class tests AntiSamy functionality and the basic policy file which
- * should be immune to XSS and CSS phishing attacks.
+ * This class tests AntiSamy functionality and the basic policy file which should be immune to XSS and CSS phishing
+ * attacks.
  *
  * @author Arshan Dabirsiaghi
  */
@@ -72,69 +59,81 @@ public class AntiSamyTest {
             "AqC2sr44HVueGzgW13zHvJkqOEBWA8XA66ZEb3EoL1ehypSnJ07cFoWZlO8kf3k57L1fuHFWJ6quEdLXQaT9SJKHlUaYQvanvjbBlqWwaH3hODNsBGoK0DatpoQ+FxcSkdVE/ki3rbEUuJiZzU0BnDxH+Q6FiNsBaJuwau29w24MlD28ELJsjCcUVwtTQkaNtUxIlFKHLj0++T+IVrQH8KZlmVLvDefJ6llWbrFNVuh674HfKr/GEUatG6KI4gWNtGKKRYh76mMl5xH5qDfBZqxyRaKylJaDIYbx5xP5I4DDm4gOnxH+h/Pu6dq6FJ/U3eDio/KQ9xwFqTuyjH0BIRBsvWWgbTNURVBheq+am92YBhkj1QmdKTxQ9fQM55O8DpyWzRhky0NevM9j",
             "qkFfS3WfLyj3QTQT9i/s57uOPQCTN1jrab8bwxaxyeYUlz2tEtYyKGGUufua8WzdBT2VvWTvH0JkK0LfUJ+vChvcnMFna+tEaCKCFMIOWMLYVZSJDcYMIqaIr8d0Bi2bpbVf5z4WNma0pbCKaXpkYgeg1Sb8HpKG0p0fAez7Q/QRASlvyM5vuIOH8/CM4fF5Ga6aWkTRG0lfxiyeZ2vi3q7uNmsZF490J79r/6tnPPXIIC4XGnijwho5NmhZG0XcQeyW5KnT7VmGACFdTHOb9oS5WxZZU29/oZ5Y23rBBoSDX/xZ1LNFiZk6Xfl4ih207jzogv+3nOro93JHQydNeKEwxOtbKqEe7WWJLDw/EzVdJTODrhBYKbjUce10XsavuiTvv+H1Qh4lo2Vx",
             "O900/Gn82AjyLYqiWZ4ILXBBv/ZaXpTpQL0p9nv7gwF2MWsS2OWEImcVDa+1ElrjUumG6CVEv/rvax53krqJJDg+4Z/XcHxv58w6hNrXiWqFNjxlu5RZHvj1oQQXnS2n8qw8e/c+8ea2TiDIVr4OmgZz1G9uSPBeOZJvySqdgNPMpgfjZwkL2ez9/x31sLuQxi/FW3DFXU6kGSUjaq8g/iGXlaaAcQ0t9Gy+y005Z9wpr2JWWzishL+1JZp9D4SY/r3NHDphN4MNdLHMNBRPSIgfsaSqfLraIt+zWIycsd+nksVxtPv9wcyXy51E1qlHr6Uygz2VZYD9q9zyxEX4wRP2VEewHYUomL9d1F6gGG5fN3z82bQ4hI9uDirWhneWazUOQBRud5otPOm9",
-            "C3c+d5Q9lyTafPLdelG1TKaLFinw1TOjyI6KkrQyHKkttfnO58WFvScl1TiRcB/iHxKahskoE2+VRLUIhctuDU4sUvQh/g9Arw0LAA4QTxuLFt01XYdigurz4FT15ox2oDGGGrRb3VGjDTXK1OWVJoLMW95EVqyMc9F+Fdej85LHE+8WesIfacjUQtTG1tzYVQTfubZq0+qxXws8QrxMLFtVE38tbeXo+Ok1/U5TUa6FjWflEfvKY3XVcl8RKkXua7fVz/Blj8Gh+dWe2cOxa0lpM75ZHyz9adQrB2Pb4571E4u2xI5un0R0MFJZBQuPDc1G5rPhyk+Hb4LRG3dS0m8IASQUOskv93z978L1+Abu9CLP6d6s5p+BzWxhMUqwQXC/CCpTywrkJ0RG",
-    };
+            "C3c+d5Q9lyTafPLdelG1TKaLFinw1TOjyI6KkrQyHKkttfnO58WFvScl1TiRcB/iHxKahskoE2+VRLUIhctuDU4sUvQh/g9Arw0LAA4QTxuLFt01XYdigurz4FT15ox2oDGGGrRb3VGjDTXK1OWVJoLMW95EVqyMc9F+Fdej85LHE+8WesIfacjUQtTG1tzYVQTfubZq0+qxXws8QrxMLFtVE38tbeXo+Ok1/U5TUa6FjWflEfvKY3XVcl8RKkXua7fVz/Blj8Gh+dWe2cOxa0lpM75ZHyz9adQrB2Pb4571E4u2xI5un0R0MFJZBQuPDc1G5rPhyk+Hb4LRG3dS0m8IASQUOskv93z978L1+Abu9CLP6d6s5p+BzWxhMUqwQXC/CCpTywrkJ0RG",};
 
     private AntiSamy as = new AntiSamy();
     private TestPolicy policy = null;
-
 
     @Before
     public void setUp() throws Exception {
 
         /*
-           * Load the policy. You may have to change the path to find the Policy
-           * file for your environment.
-           */
+         * Load the policy. You may have to change the path to find the Policy file for your environment.
+         */
 
-        //get Policy instance from a URL.
+        // get Policy instance from a URL.
         URL url = getClass().getResource("/antisamy.xml");
         policy = TestPolicy.getInstance(url);
     }
-
 
     @Test
     public void SAX() {
         try {
             CleanResults cr = as.scan("<b>test</i></b>test thsidfshidf<script>sdfsdf", policy, AntiSamy.SAX);
             assertTrue(cr != null && cr.getCleanXMLDocumentFragment() == null && cr.getCleanHTML().length() > 0);
-        } catch (ScanException e) {
+        }
+        catch (ScanException e) {
             e.printStackTrace();
-        } catch (PolicyException e) {
+        }
+        catch (PolicyException e) {
             e.printStackTrace();
         }
     }
 
     /*
-      * Test basic XSS cases.
-      */
+     * Test basic XSS cases.
+     */
 
     @Test
     public void scriptAttacks() throws ScanException, PolicyException {
 
-        assertTrue(!as.scan("test<script>alert(document.cookie)</script>", policy, AntiSamy.DOM).getCleanHTML().contains("script"));
-        assertTrue(!as.scan("test<script>alert(document.cookie)</script>", policy, AntiSamy.SAX).getCleanHTML().contains("script"));
+        assertTrue(!as.scan("test<script>alert(document.cookie)</script>", policy, AntiSamy.DOM).getCleanHTML()
+                .contains("script"));
+        assertTrue(!as.scan("test<script>alert(document.cookie)</script>", policy, AntiSamy.SAX).getCleanHTML()
+                .contains("script"));
 
-        assertTrue(!as.scan("<<<><<script src=http://fake-evil.ru/test.js>", policy, AntiSamy.DOM).getCleanHTML().contains("<script"));
-        assertTrue(!as.scan("<<<><<script src=http://fake-evil.ru/test.js>", policy, AntiSamy.SAX).getCleanHTML().contains("<script"));
+        assertTrue(!as.scan("<<<><<script src=http://fake-evil.ru/test.js>", policy, AntiSamy.DOM).getCleanHTML()
+                .contains("<script"));
+        assertTrue(!as.scan("<<<><<script src=http://fake-evil.ru/test.js>", policy, AntiSamy.SAX).getCleanHTML()
+                .contains("<script"));
 
-        assertTrue(!as.scan("<script<script src=http://fake-evil.ru/test.js>>", policy, AntiSamy.DOM).getCleanHTML().contains("<script"));
-        assertTrue(!as.scan("<script<script src=http://fake-evil.ru/test.js>>", policy, AntiSamy.SAX).getCleanHTML().contains("<script"));
+        assertTrue(!as.scan("<script<script src=http://fake-evil.ru/test.js>>", policy, AntiSamy.DOM).getCleanHTML()
+                .contains("<script"));
+        assertTrue(!as.scan("<script<script src=http://fake-evil.ru/test.js>>", policy, AntiSamy.SAX).getCleanHTML()
+                .contains("<script"));
 
-        assertTrue(!as.scan("<SCRIPT/XSS SRC=\"http://ha.ckers.org/xss.js\"></SCRIPT>", policy, AntiSamy.DOM).getCleanHTML().contains("<script"));
-        assertTrue(!as.scan("<SCRIPT/XSS SRC=\"http://ha.ckers.org/xss.js\"></SCRIPT>", policy, AntiSamy.SAX).getCleanHTML().contains("<script"));
+        assertTrue(!as.scan("<SCRIPT/XSS SRC=\"http://ha.ckers.org/xss.js\"></SCRIPT>", policy, AntiSamy.DOM)
+                .getCleanHTML().contains("<script"));
+        assertTrue(!as.scan("<SCRIPT/XSS SRC=\"http://ha.ckers.org/xss.js\"></SCRIPT>", policy, AntiSamy.SAX)
+                .getCleanHTML().contains("<script"));
 
-        assertTrue(!as.scan("<BODY onload!#$%&()*~+-_.,:;?@[/|\\]^`=alert(\"XSS\")>", policy, AntiSamy.DOM).getCleanHTML().contains("onload"));
-        assertTrue(!as.scan("<BODY onload!#$%&()*~+-_.,:;?@[/|\\]^`=alert(\"XSS\")>", policy, AntiSamy.SAX).getCleanHTML().contains("onload"));
+        assertTrue(!as.scan("<BODY onload!#$%&()*~+-_.,:;?@[/|\\]^`=alert(\"XSS\")>", policy, AntiSamy.DOM)
+                .getCleanHTML().contains("onload"));
+        assertTrue(!as.scan("<BODY onload!#$%&()*~+-_.,:;?@[/|\\]^`=alert(\"XSS\")>", policy, AntiSamy.SAX)
+                .getCleanHTML().contains("onload"));
 
         assertTrue(!as.scan("<BODY ONLOAD=alert('XSS')>", policy, AntiSamy.DOM).getCleanHTML().contains("alert"));
         assertTrue(!as.scan("<BODY ONLOAD=alert('XSS')>", policy, AntiSamy.SAX).getCleanHTML().contains("alert"));
 
-        assertTrue(!as.scan("<iframe src=http://ha.ckers.org/scriptlet.html <", policy, AntiSamy.DOM).getCleanHTML().contains("<iframe"));
-        assertTrue(!as.scan("<iframe src=http://ha.ckers.org/scriptlet.html <", policy, AntiSamy.SAX).getCleanHTML().contains("<iframe"));
+        assertTrue(!as.scan("<iframe src=http://ha.ckers.org/scriptlet.html <", policy, AntiSamy.DOM).getCleanHTML()
+                .contains("<iframe"));
+        assertTrue(!as.scan("<iframe src=http://ha.ckers.org/scriptlet.html <", policy, AntiSamy.SAX).getCleanHTML()
+                .contains("<iframe"));
 
-        assertTrue(!as.scan("<INPUT TYPE=\"IMAGE\" SRC=\"javascript:alert('XSS');\">", policy, AntiSamy.DOM).getCleanHTML().contains("src"));
-        assertTrue(!as.scan("<INPUT TYPE=\"IMAGE\" SRC=\"javascript:alert('XSS');\">", policy, AntiSamy.SAX).getCleanHTML().contains("src"));
+        assertTrue(!as.scan("<INPUT TYPE=\"IMAGE\" SRC=\"javascript:alert('XSS');\">", policy, AntiSamy.DOM)
+                .getCleanHTML().contains("src"));
+        assertTrue(!as.scan("<INPUT TYPE=\"IMAGE\" SRC=\"javascript:alert('XSS');\">", policy, AntiSamy.SAX)
+                .getCleanHTML().contains("src"));
 
         as.scan("<a onblur=\"alert(secret)\" href=\"http://www.google.com\">Google</a>", policy, AntiSamy.DOM);
         as.scan("<a onblur=\"alert(secret)\" href=\"http://www.google.com\">Google</a>", policy, AntiSamy.SAX);
@@ -144,186 +143,276 @@ public class AntiSamyTest {
     @Test
     public void imgAttacks() throws ScanException, PolicyException {
 
-        assertTrue(as.scan("<img src=\"http://www.myspace.com/img.gif\"/>", policy, AntiSamy.DOM).getCleanHTML().contains("<img"));
-        assertTrue(as.scan("<img src=\"http://www.myspace.com/img.gif\"/>", policy, AntiSamy.SAX).getCleanHTML().contains("<img"));
+        assertTrue(as.scan("<img src=\"http://www.myspace.com/img.gif\"/>", policy, AntiSamy.DOM).getCleanHTML()
+                .contains("<img"));
+        assertTrue(as.scan("<img src=\"http://www.myspace.com/img.gif\"/>", policy, AntiSamy.SAX).getCleanHTML()
+                .contains("<img"));
 
-        assertTrue(!as.scan("<img src=javascript:alert(document.cookie)>", policy, AntiSamy.DOM).getCleanHTML().contains("<img"));
-        assertTrue(!as.scan("<img src=javascript:alert(document.cookie)>", policy, AntiSamy.SAX).getCleanHTML().contains("<img"));
+        assertTrue(!as.scan("<img src=javascript:alert(document.cookie)>", policy, AntiSamy.DOM).getCleanHTML()
+                .contains("<img"));
+        assertTrue(!as.scan("<img src=javascript:alert(document.cookie)>", policy, AntiSamy.SAX).getCleanHTML()
+                .contains("<img"));
 
-        assertTrue(!as.scan("<IMG SRC=&#106;&#97;&#118;&#97;&#115;&#99;&#114;&#105;&#112;&#116;&#58;&#97;&#108;&#101;&#114;&#116;&#40;&#39;&#88;&#83;&#83;&#39;&#41;>", policy, AntiSamy.DOM).getCleanHTML().contains("<img"));
-        assertTrue(!as.scan("<IMG SRC=&#106;&#97;&#118;&#97;&#115;&#99;&#114;&#105;&#112;&#116;&#58;&#97;&#108;&#101;&#114;&#116;&#40;&#39;&#88;&#83;&#83;&#39;&#41;>", policy, AntiSamy.SAX)
-                .getCleanHTML().contains("<img"));
+        assertTrue(!as.scan(
+                "<IMG SRC=&#106;&#97;&#118;&#97;&#115;&#99;&#114;&#105;&#112;&#116;&#58;&#97;&#108;&#101;&#114;&#116;&#40;&#39;&#88;&#83;&#83;&#39;&#41;>",
+                policy, AntiSamy.DOM).getCleanHTML().contains("<img"));
+        assertTrue(!as.scan(
+                "<IMG SRC=&#106;&#97;&#118;&#97;&#115;&#99;&#114;&#105;&#112;&#116;&#58;&#97;&#108;&#101;&#114;&#116;&#40;&#39;&#88;&#83;&#83;&#39;&#41;>",
+                policy, AntiSamy.SAX).getCleanHTML().contains("<img"));
 
-        assertTrue(!as
-                .scan(
-                        "<IMG SRC='&#0000106&#0000097&#0000118&#0000097&#0000115&#0000099&#0000114&#0000105&#0000112&#0000116&#0000058&#0000097&#0000108&#0000101&#0000114&#0000116&#0000040&#0000039&#0000088&#0000083&#0000083&#0000039&#0000041'>",
-                        policy, AntiSamy.DOM).getCleanHTML().contains("<img"));
-        assertTrue(!as
-                .scan(
-                        "<IMG SRC='&#0000106&#0000097&#0000118&#0000097&#0000115&#0000099&#0000114&#0000105&#0000112&#0000116&#0000058&#0000097&#0000108&#0000101&#0000114&#0000116&#0000040&#0000039&#0000088&#0000083&#0000083&#0000039&#0000041'>",
-                        policy, AntiSamy.SAX).getCleanHTML().contains("<img"));
+        assertTrue(!as.scan(
+                "<IMG SRC='&#0000106&#0000097&#0000118&#0000097&#0000115&#0000099&#0000114&#0000105&#0000112&#0000116&#0000058&#0000097&#0000108&#0000101&#0000114&#0000116&#0000040&#0000039&#0000088&#0000083&#0000083&#0000039&#0000041'>",
+                policy, AntiSamy.DOM).getCleanHTML().contains("<img"));
+        assertTrue(!as.scan(
+                "<IMG SRC='&#0000106&#0000097&#0000118&#0000097&#0000115&#0000099&#0000114&#0000105&#0000112&#0000116&#0000058&#0000097&#0000108&#0000101&#0000114&#0000116&#0000040&#0000039&#0000088&#0000083&#0000083&#0000039&#0000041'>",
+                policy, AntiSamy.SAX).getCleanHTML().contains("<img"));
 
-        assertTrue(!as.scan("<IMG SRC=\"jav&#x0D;ascript:alert('XSS');\">", policy, AntiSamy.DOM).getCleanHTML().contains("alert"));
-        assertTrue(!as.scan("<IMG SRC=\"jav&#x0D;ascript:alert('XSS');\">", policy, AntiSamy.SAX).getCleanHTML().contains("alert"));
+        assertTrue(!as.scan("<IMG SRC=\"jav&#x0D;ascript:alert('XSS');\">", policy, AntiSamy.DOM).getCleanHTML()
+                .contains("alert"));
+        assertTrue(!as.scan("<IMG SRC=\"jav&#x0D;ascript:alert('XSS');\">", policy, AntiSamy.SAX).getCleanHTML()
+                .contains("alert"));
 
-        String s = as
-                .scan(
-                        "<IMG SRC=&#0000106&#0000097&#0000118&#0000097&#0000115&#0000099&#0000114&#0000105&#0000112&#0000116&#0000058&#0000097&#0000108&#0000101&#0000114&#0000116&#0000040&#0000039&#0000088&#0000083&#0000083&#0000039&#0000041>",
-                        policy, AntiSamy.DOM).getCleanHTML();
+        String s = as.scan(
+                "<IMG SRC=&#0000106&#0000097&#0000118&#0000097&#0000115&#0000099&#0000114&#0000105&#0000112&#0000116&#0000058&#0000097&#0000108&#0000101&#0000114&#0000116&#0000040&#0000039&#0000088&#0000083&#0000083&#0000039&#0000041>",
+                policy, AntiSamy.DOM).getCleanHTML();
         assertTrue(s.length() == 0 || s.contains("&amp;"));
-        s = as
-                .scan(
-                        "<IMG SRC=&#0000106&#0000097&#0000118&#0000097&#0000115&#0000099&#0000114&#0000105&#0000112&#0000116&#0000058&#0000097&#0000108&#0000101&#0000114&#0000116&#0000040&#0000039&#0000088&#0000083&#0000083&#0000039&#0000041>",
-                        policy, AntiSamy.SAX).getCleanHTML();
+        s = as.scan(
+                "<IMG SRC=&#0000106&#0000097&#0000118&#0000097&#0000115&#0000099&#0000114&#0000105&#0000112&#0000116&#0000058&#0000097&#0000108&#0000101&#0000114&#0000116&#0000040&#0000039&#0000088&#0000083&#0000083&#0000039&#0000041>",
+                policy, AntiSamy.SAX).getCleanHTML();
         assertTrue(s.length() == 0 || s.contains("&amp;"));
 
-        as.scan("<IMG SRC=&#x6A&#x61&#x76&#x61&#x73&#x63&#x72&#x69&#x70&#x74&#x3A&#x61&#x6C&#x65&#x72&#x74&#x28&#x27&#x58&#x53&#x53&#x27&#x29>", policy, AntiSamy.DOM);
-        as.scan("<IMG SRC=&#x6A&#x61&#x76&#x61&#x73&#x63&#x72&#x69&#x70&#x74&#x3A&#x61&#x6C&#x65&#x72&#x74&#x28&#x27&#x58&#x53&#x53&#x27&#x29>", policy, AntiSamy.SAX);
+        as.scan("<IMG SRC=&#x6A&#x61&#x76&#x61&#x73&#x63&#x72&#x69&#x70&#x74&#x3A&#x61&#x6C&#x65&#x72&#x74&#x28&#x27&#x58&#x53&#x53&#x27&#x29>",
+                policy, AntiSamy.DOM);
+        as.scan("<IMG SRC=&#x6A&#x61&#x76&#x61&#x73&#x63&#x72&#x69&#x70&#x74&#x3A&#x61&#x6C&#x65&#x72&#x74&#x28&#x27&#x58&#x53&#x53&#x27&#x29>",
+                policy, AntiSamy.SAX);
 
-        assertTrue(!as.scan("<IMG SRC=\"javascript:alert('XSS')\"", policy, AntiSamy.DOM).getCleanHTML().contains("javascript"));
-        assertTrue(!as.scan("<IMG SRC=\"javascript:alert('XSS')\"", policy, AntiSamy.SAX).getCleanHTML().contains("javascript"));
+        assertTrue(!as.scan("<IMG SRC=\"javascript:alert('XSS')\"", policy, AntiSamy.DOM).getCleanHTML()
+                .contains("javascript"));
+        assertTrue(!as.scan("<IMG SRC=\"javascript:alert('XSS')\"", policy, AntiSamy.SAX).getCleanHTML()
+                .contains("javascript"));
 
-        assertTrue(!as.scan("<IMG LOWSRC=\"javascript:alert('XSS')\">", policy, AntiSamy.DOM).getCleanHTML().contains("javascript"));
-        assertTrue(!as.scan("<IMG LOWSRC=\"javascript:alert('XSS')\">", policy, AntiSamy.SAX).getCleanHTML().contains("javascript"));
+        assertTrue(!as.scan("<IMG LOWSRC=\"javascript:alert('XSS')\">", policy, AntiSamy.DOM).getCleanHTML()
+                .contains("javascript"));
+        assertTrue(!as.scan("<IMG LOWSRC=\"javascript:alert('XSS')\">", policy, AntiSamy.SAX).getCleanHTML()
+                .contains("javascript"));
 
-        assertTrue(!as.scan("<BGSOUND SRC=\"javascript:alert('XSS');\">", policy, AntiSamy.DOM).getCleanHTML().contains("javascript"));
-        assertTrue(!as.scan("<BGSOUND SRC=\"javascript:alert('XSS');\">", policy, AntiSamy.SAX).getCleanHTML().contains("javascript"));
+        assertTrue(!as.scan("<BGSOUND SRC=\"javascript:alert('XSS');\">", policy, AntiSamy.DOM).getCleanHTML()
+                .contains("javascript"));
+        assertTrue(!as.scan("<BGSOUND SRC=\"javascript:alert('XSS');\">", policy, AntiSamy.SAX).getCleanHTML()
+                .contains("javascript"));
     }
 
     @Test
     public void hrefAttacks() throws ScanException, PolicyException {
 
-        assertTrue(!as.scan("<LINK REL=\"stylesheet\" HREF=\"javascript:alert('XSS');\">", policy, AntiSamy.DOM).getCleanHTML().contains("href"));
-        assertTrue(!as.scan("<LINK REL=\"stylesheet\" HREF=\"javascript:alert('XSS');\">", policy, AntiSamy.SAX).getCleanHTML().contains("href"));
+        assertTrue(!as.scan("<LINK REL=\"stylesheet\" HREF=\"javascript:alert('XSS');\">", policy, AntiSamy.DOM)
+                .getCleanHTML().contains("href"));
+        assertTrue(!as.scan("<LINK REL=\"stylesheet\" HREF=\"javascript:alert('XSS');\">", policy, AntiSamy.SAX)
+                .getCleanHTML().contains("href"));
 
-        assertTrue(!as.scan("<LINK REL=\"stylesheet\" HREF=\"http://ha.ckers.org/xss.css\">", policy, AntiSamy.DOM).getCleanHTML().contains("href"));
-        assertTrue(!as.scan("<LINK REL=\"stylesheet\" HREF=\"http://ha.ckers.org/xss.css\">", policy, AntiSamy.SAX).getCleanHTML().contains("href"));
+        assertTrue(!as.scan("<LINK REL=\"stylesheet\" HREF=\"http://ha.ckers.org/xss.css\">", policy, AntiSamy.DOM)
+                .getCleanHTML().contains("href"));
+        assertTrue(!as.scan("<LINK REL=\"stylesheet\" HREF=\"http://ha.ckers.org/xss.css\">", policy, AntiSamy.SAX)
+                .getCleanHTML().contains("href"));
 
-        assertTrue(!as.scan("<STYLE>@import'http://ha.ckers.org/xss.css';</STYLE>", policy, AntiSamy.DOM).getCleanHTML().contains("ha.ckers.org"));
-        assertTrue(!as.scan("<STYLE>@import'http://ha.ckers.org/xss.css';</STYLE>", policy, AntiSamy.SAX).getCleanHTML().contains("ha.ckers.org"));
+        assertTrue(!as.scan("<STYLE>@import'http://ha.ckers.org/xss.css';</STYLE>", policy, AntiSamy.DOM).getCleanHTML()
+                .contains("ha.ckers.org"));
+        assertTrue(!as.scan("<STYLE>@import'http://ha.ckers.org/xss.css';</STYLE>", policy, AntiSamy.SAX).getCleanHTML()
+                .contains("ha.ckers.org"));
 
-        assertTrue(!as.scan("<STYLE>BODY{-moz-binding:url(\"http://ha.ckers.org/xssmoz.xml#xss\")}</STYLE>", policy, AntiSamy.DOM).getCleanHTML().contains("ha.ckers.org"));
-        assertTrue(!as.scan("<STYLE>BODY{-moz-binding:url(\"http://ha.ckers.org/xssmoz.xml#xss\")}</STYLE>", policy, AntiSamy.SAX).getCleanHTML().contains("ha.ckers.org"));
+        assertTrue(!as.scan("<STYLE>BODY{-moz-binding:url(\"http://ha.ckers.org/xssmoz.xml#xss\")}</STYLE>", policy,
+                AntiSamy.DOM).getCleanHTML().contains("ha.ckers.org"));
+        assertTrue(!as.scan("<STYLE>BODY{-moz-binding:url(\"http://ha.ckers.org/xssmoz.xml#xss\")}</STYLE>", policy,
+                AntiSamy.SAX).getCleanHTML().contains("ha.ckers.org"));
 
-        assertTrue(!as.scan("<STYLE>li {list-style-image: url(\"javascript:alert('XSS')\");}</STYLE><UL><LI>XSS", policy, AntiSamy.DOM).getCleanHTML().contains("javascript"));
-        assertTrue(!as.scan("<STYLE>li {list-style-image: url(\"javascript:alert('XSS')\");}</STYLE><UL><LI>XSS", policy, AntiSamy.SAX).getCleanHTML().contains("javascript"));
+        assertTrue(!as.scan("<STYLE>li {list-style-image: url(\"javascript:alert('XSS')\");}</STYLE><UL><LI>XSS",
+                policy, AntiSamy.DOM).getCleanHTML().contains("javascript"));
+        assertTrue(!as.scan("<STYLE>li {list-style-image: url(\"javascript:alert('XSS')\");}</STYLE><UL><LI>XSS",
+                policy, AntiSamy.SAX).getCleanHTML().contains("javascript"));
 
-        assertTrue(!as.scan("<IMG SRC='vbscript:msgbox(\"XSS\")'>", policy, AntiSamy.DOM).getCleanHTML().contains("vbscript"));
-        assertTrue(!as.scan("<IMG SRC='vbscript:msgbox(\"XSS\")'>", policy, AntiSamy.SAX).getCleanHTML().contains("vbscript"));
+        assertTrue(!as.scan("<IMG SRC='vbscript:msgbox(\"XSS\")'>", policy, AntiSamy.DOM).getCleanHTML()
+                .contains("vbscript"));
+        assertTrue(!as.scan("<IMG SRC='vbscript:msgbox(\"XSS\")'>", policy, AntiSamy.SAX).getCleanHTML()
+                .contains("vbscript"));
 
-        assertTrue(!as.scan("<META HTTP-EQUIV=\"refresh\" CONTENT=\"0; URL=http://;URL=javascript:alert('XSS');\">", policy, AntiSamy.DOM).getCleanHTML().contains("<meta"));
-        assertTrue(!as.scan("<META HTTP-EQUIV=\"refresh\" CONTENT=\"0; URL=http://;URL=javascript:alert('XSS');\">", policy, AntiSamy.SAX).getCleanHTML().contains("<meta"));
+        assertTrue(!as.scan("<META HTTP-EQUIV=\"refresh\" CONTENT=\"0; URL=http://;URL=javascript:alert('XSS');\">",
+                policy, AntiSamy.DOM).getCleanHTML().contains("<meta"));
+        assertTrue(!as.scan("<META HTTP-EQUIV=\"refresh\" CONTENT=\"0; URL=http://;URL=javascript:alert('XSS');\">",
+                policy, AntiSamy.SAX).getCleanHTML().contains("<meta"));
 
-        assertTrue(!as.scan("<META HTTP-EQUIV=\"refresh\" CONTENT=\"0;url=javascript:alert('XSS');\">", policy, AntiSamy.DOM).getCleanHTML().contains("<meta"));
-        assertTrue(!as.scan("<META HTTP-EQUIV=\"refresh\" CONTENT=\"0;url=javascript:alert('XSS');\">", policy, AntiSamy.SAX).getCleanHTML().contains("<meta"));
+        assertTrue(!as
+                .scan("<META HTTP-EQUIV=\"refresh\" CONTENT=\"0;url=javascript:alert('XSS');\">", policy, AntiSamy.DOM)
+                .getCleanHTML().contains("<meta"));
+        assertTrue(!as
+                .scan("<META HTTP-EQUIV=\"refresh\" CONTENT=\"0;url=javascript:alert('XSS');\">", policy, AntiSamy.SAX)
+                .getCleanHTML().contains("<meta"));
 
-        assertTrue(!as.scan("<META HTTP-EQUIV=\"refresh\" CONTENT=\"0;url=data:text/html;base64,PHNjcmlwdD5hbGVydCgnWFNTJyk8L3NjcmlwdD4K\">", policy, AntiSamy.DOM).getCleanHTML().contains("<meta"));
-        assertTrue(!as.scan("<META HTTP-EQUIV=\"refresh\" CONTENT=\"0;url=data:text/html;base64,PHNjcmlwdD5hbGVydCgnWFNTJyk8L3NjcmlwdD4K\">", policy, AntiSamy.SAX).getCleanHTML().contains("<meta"));
+        assertTrue(!as.scan(
+                "<META HTTP-EQUIV=\"refresh\" CONTENT=\"0;url=data:text/html;base64,PHNjcmlwdD5hbGVydCgnWFNTJyk8L3NjcmlwdD4K\">",
+                policy, AntiSamy.DOM).getCleanHTML().contains("<meta"));
+        assertTrue(!as.scan(
+                "<META HTTP-EQUIV=\"refresh\" CONTENT=\"0;url=data:text/html;base64,PHNjcmlwdD5hbGVydCgnWFNTJyk8L3NjcmlwdD4K\">",
+                policy, AntiSamy.SAX).getCleanHTML().contains("<meta"));
 
-        assertTrue(!as.scan("<IFRAME SRC=\"javascript:alert('XSS');\"></IFRAME>", policy, AntiSamy.DOM).getCleanHTML().contains("iframe"));
-        assertTrue(!as.scan("<IFRAME SRC=\"javascript:alert('XSS');\"></IFRAME>", policy, AntiSamy.SAX).getCleanHTML().contains("iframe"));
+        assertTrue(!as.scan("<IFRAME SRC=\"javascript:alert('XSS');\"></IFRAME>", policy, AntiSamy.DOM).getCleanHTML()
+                .contains("iframe"));
+        assertTrue(!as.scan("<IFRAME SRC=\"javascript:alert('XSS');\"></IFRAME>", policy, AntiSamy.SAX).getCleanHTML()
+                .contains("iframe"));
 
-        assertTrue(!as.scan("<FRAMESET><FRAME SRC=\"javascript:alert('XSS');\"></FRAMESET>", policy, AntiSamy.DOM).getCleanHTML().contains("javascript"));
-        assertTrue(!as.scan("<FRAMESET><FRAME SRC=\"javascript:alert('XSS');\"></FRAMESET>", policy, AntiSamy.SAX).getCleanHTML().contains("javascript"));
+        assertTrue(!as.scan("<FRAMESET><FRAME SRC=\"javascript:alert('XSS');\"></FRAMESET>", policy, AntiSamy.DOM)
+                .getCleanHTML().contains("javascript"));
+        assertTrue(!as.scan("<FRAMESET><FRAME SRC=\"javascript:alert('XSS');\"></FRAMESET>", policy, AntiSamy.SAX)
+                .getCleanHTML().contains("javascript"));
 
-        assertTrue(!as.scan("<TABLE BACKGROUND=\"javascript:alert('XSS')\">", policy, AntiSamy.DOM).getCleanHTML().contains("background"));
-        assertTrue(!as.scan("<TABLE BACKGROUND=\"javascript:alert('XSS')\">", policy, AntiSamy.SAX).getCleanHTML().contains("background"));
+        assertTrue(!as.scan("<TABLE BACKGROUND=\"javascript:alert('XSS')\">", policy, AntiSamy.DOM).getCleanHTML()
+                .contains("background"));
+        assertTrue(!as.scan("<TABLE BACKGROUND=\"javascript:alert('XSS')\">", policy, AntiSamy.SAX).getCleanHTML()
+                .contains("background"));
 
-        assertTrue(!as.scan("<TABLE><TD BACKGROUND=\"javascript:alert('XSS')\">", policy, AntiSamy.DOM).getCleanHTML().contains("background"));
-        assertTrue(!as.scan("<TABLE><TD BACKGROUND=\"javascript:alert('XSS')\">", policy, AntiSamy.SAX).getCleanHTML().contains("background"));
+        assertTrue(!as.scan("<TABLE><TD BACKGROUND=\"javascript:alert('XSS')\">", policy, AntiSamy.DOM).getCleanHTML()
+                .contains("background"));
+        assertTrue(!as.scan("<TABLE><TD BACKGROUND=\"javascript:alert('XSS')\">", policy, AntiSamy.SAX).getCleanHTML()
+                .contains("background"));
 
-        assertTrue(!as.scan("<DIV STYLE=\"background-image: url(javascript:alert('XSS'))\">", policy, AntiSamy.DOM).getCleanHTML().contains("javascript"));
-        assertTrue(!as.scan("<DIV STYLE=\"background-image: url(javascript:alert('XSS'))\">", policy, AntiSamy.SAX).getCleanHTML().contains("javascript"));
+        assertTrue(!as.scan("<DIV STYLE=\"background-image: url(javascript:alert('XSS'))\">", policy, AntiSamy.DOM)
+                .getCleanHTML().contains("javascript"));
+        assertTrue(!as.scan("<DIV STYLE=\"background-image: url(javascript:alert('XSS'))\">", policy, AntiSamy.SAX)
+                .getCleanHTML().contains("javascript"));
 
-        assertTrue(!as.scan("<DIV STYLE=\"width: expression(alert('XSS'));\">", policy, AntiSamy.DOM).getCleanHTML().contains("alert"));
-        assertTrue(!as.scan("<DIV STYLE=\"width: expression(alert('XSS'));\">", policy, AntiSamy.SAX).getCleanHTML().contains("alert"));
+        assertTrue(!as.scan("<DIV STYLE=\"width: expression(alert('XSS'));\">", policy, AntiSamy.DOM).getCleanHTML()
+                .contains("alert"));
+        assertTrue(!as.scan("<DIV STYLE=\"width: expression(alert('XSS'));\">", policy, AntiSamy.SAX).getCleanHTML()
+                .contains("alert"));
 
-        assertTrue(!as.scan("<IMG STYLE=\"xss:expr/*XSS*/ession(alert('XSS'))\">", policy, AntiSamy.DOM).getCleanHTML().contains("alert"));
-        assertTrue(!as.scan("<IMG STYLE=\"xss:expr/*XSS*/ession(alert('XSS'))\">", policy, AntiSamy.SAX).getCleanHTML().contains("alert"));
+        assertTrue(!as.scan("<IMG STYLE=\"xss:expr/*XSS*/ession(alert('XSS'))\">", policy, AntiSamy.DOM).getCleanHTML()
+                .contains("alert"));
+        assertTrue(!as.scan("<IMG STYLE=\"xss:expr/*XSS*/ession(alert('XSS'))\">", policy, AntiSamy.SAX).getCleanHTML()
+                .contains("alert"));
 
-        assertTrue(!as.scan("<STYLE>@im\\port'\\ja\\vasc\\ript:alert(\"XSS\")';</STYLE>", policy, AntiSamy.DOM).getCleanHTML().contains("ript:alert"));
-        assertTrue(!as.scan("<STYLE>@im\\port'\\ja\\vasc\\ript:alert(\"XSS\")';</STYLE>", policy, AntiSamy.SAX).getCleanHTML().contains("ript:alert"));
+        assertTrue(!as.scan("<STYLE>@im\\port'\\ja\\vasc\\ript:alert(\"XSS\")';</STYLE>", policy, AntiSamy.DOM)
+                .getCleanHTML().contains("ript:alert"));
+        assertTrue(!as.scan("<STYLE>@im\\port'\\ja\\vasc\\ript:alert(\"XSS\")';</STYLE>", policy, AntiSamy.SAX)
+                .getCleanHTML().contains("ript:alert"));
 
-        assertTrue(!as.scan("<BASE HREF=\"javascript:alert('XSS');//\">", policy, AntiSamy.DOM).getCleanHTML().contains("javascript"));
-        assertTrue(!as.scan("<BASE HREF=\"javascript:alert('XSS');//\">", policy, AntiSamy.SAX).getCleanHTML().contains("javascript"));
+        assertTrue(!as.scan("<BASE HREF=\"javascript:alert('XSS');//\">", policy, AntiSamy.DOM).getCleanHTML()
+                .contains("javascript"));
+        assertTrue(!as.scan("<BASE HREF=\"javascript:alert('XSS');//\">", policy, AntiSamy.SAX).getCleanHTML()
+                .contains("javascript"));
 
-        assertTrue(!as.scan("<BaSe hReF=\"http://arbitrary.com/\">", policy, AntiSamy.DOM).getCleanHTML().contains("<base"));
-        assertTrue(!as.scan("<BaSe hReF=\"http://arbitrary.com/\">", policy, AntiSamy.SAX).getCleanHTML().contains("<base"));
+        assertTrue(!as.scan("<BaSe hReF=\"http://arbitrary.com/\">", policy, AntiSamy.DOM).getCleanHTML()
+                .contains("<base"));
+        assertTrue(!as.scan("<BaSe hReF=\"http://arbitrary.com/\">", policy, AntiSamy.SAX).getCleanHTML()
+                .contains("<base"));
 
-        assertTrue(!as.scan("<OBJECT TYPE=\"text/x-scriptlet\" DATA=\"http://ha.ckers.org/scriptlet.html\"></OBJECT>", policy, AntiSamy.DOM).getCleanHTML().contains("<object"));
-        assertTrue(!as.scan("<OBJECT TYPE=\"text/x-scriptlet\" DATA=\"http://ha.ckers.org/scriptlet.html\"></OBJECT>", policy, AntiSamy.SAX).getCleanHTML().contains("<object"));
+        assertTrue(!as.scan("<OBJECT TYPE=\"text/x-scriptlet\" DATA=\"http://ha.ckers.org/scriptlet.html\"></OBJECT>",
+                policy, AntiSamy.DOM).getCleanHTML().contains("<object"));
+        assertTrue(!as.scan("<OBJECT TYPE=\"text/x-scriptlet\" DATA=\"http://ha.ckers.org/scriptlet.html\"></OBJECT>",
+                policy, AntiSamy.SAX).getCleanHTML().contains("<object"));
 
-        assertTrue(!as.scan("<OBJECT classid=clsid:ae24fdae-03c6-11d1-8b76-0080c744f389><param name=url value=javascript:alert('XSS')></OBJECT>", policy, AntiSamy.DOM).getCleanHTML().contains("javascript"));
+        assertTrue(!as.scan(
+                "<OBJECT classid=clsid:ae24fdae-03c6-11d1-8b76-0080c744f389><param name=url value=javascript:alert('XSS')></OBJECT>",
+                policy, AntiSamy.DOM).getCleanHTML().contains("javascript"));
 
-        CleanResults cr = as.scan("<OBJECT classid=clsid:ae24fdae-03c6-11d1-8b76-0080c744f389><param name=url value=javascript:alert('XSS')></OBJECT>", policy, AntiSamy.SAX);
+        CleanResults cr = as.scan(
+                "<OBJECT classid=clsid:ae24fdae-03c6-11d1-8b76-0080c744f389><param name=url value=javascript:alert('XSS')></OBJECT>",
+                policy, AntiSamy.SAX);
         // System.out.println(cr.getErrorMessages().get(0));
         assertTrue(!cr.getCleanHTML().contains("javascript"));
 
-        assertTrue(!as.scan("<EMBED SRC=\"http://ha.ckers.org/xss.swf\" AllowScriptAccess=\"always\"></EMBED>", policy, AntiSamy.DOM).getCleanHTML().contains("<embed"));
-        assertTrue(!as.scan("<EMBED SRC=\"http://ha.ckers.org/xss.swf\" AllowScriptAccess=\"always\"></EMBED>", policy, AntiSamy.SAX).getCleanHTML().contains("<embed"));
+        assertTrue(!as.scan("<EMBED SRC=\"http://ha.ckers.org/xss.swf\" AllowScriptAccess=\"always\"></EMBED>", policy,
+                AntiSamy.DOM).getCleanHTML().contains("<embed"));
+        assertTrue(!as.scan("<EMBED SRC=\"http://ha.ckers.org/xss.swf\" AllowScriptAccess=\"always\"></EMBED>", policy,
+                AntiSamy.SAX).getCleanHTML().contains("<embed"));
 
-        assertTrue(!as
-                .scan(
-                        "<EMBED SRC=\"data:image/svg+xml;base64,PHN2ZyB4bWxuczpzdmc9Imh0dH A6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcv MjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hs aW5rIiB2ZXJzaW9uPSIxLjAiIHg9IjAiIHk9IjAiIHdpZHRoPSIxOTQiIGhlaWdodD0iMjAw IiBpZD0ieHNzIj48c2NyaXB0IHR5cGU9InRleHQvZWNtYXNjcmlwdCI+YWxlcnQoIlh TUyIpOzwvc2NyaXB0Pjwvc3ZnPg==\" type=\"image/svg+xml\" AllowScriptAccess=\"always\"></EMBED>",
-                        policy, AntiSamy.DOM).getCleanHTML().contains("<embed"));
-        assertTrue(!as
-                .scan(
-                        "<EMBED SRC=\"data:image/svg+xml;base64,PHN2ZyB4bWxuczpzdmc9Imh0dH A6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcv MjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hs aW5rIiB2ZXJzaW9uPSIxLjAiIHg9IjAiIHk9IjAiIHdpZHRoPSIxOTQiIGhlaWdodD0iMjAw IiBpZD0ieHNzIj48c2NyaXB0IHR5cGU9InRleHQvZWNtYXNjcmlwdCI+YWxlcnQoIlh TUyIpOzwvc2NyaXB0Pjwvc3ZnPg==\" type=\"image/svg+xml\" AllowScriptAccess=\"always\"></EMBED>",
-                        policy, AntiSamy.SAX).getCleanHTML().contains("<embed"));
+        assertTrue(!as.scan(
+                "<EMBED SRC=\"data:image/svg+xml;base64,PHN2ZyB4bWxuczpzdmc9Imh0dH A6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcv MjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hs aW5rIiB2ZXJzaW9uPSIxLjAiIHg9IjAiIHk9IjAiIHdpZHRoPSIxOTQiIGhlaWdodD0iMjAw IiBpZD0ieHNzIj48c2NyaXB0IHR5cGU9InRleHQvZWNtYXNjcmlwdCI+YWxlcnQoIlh TUyIpOzwvc2NyaXB0Pjwvc3ZnPg==\" type=\"image/svg+xml\" AllowScriptAccess=\"always\"></EMBED>",
+                policy, AntiSamy.DOM).getCleanHTML().contains("<embed"));
+        assertTrue(!as.scan(
+                "<EMBED SRC=\"data:image/svg+xml;base64,PHN2ZyB4bWxuczpzdmc9Imh0dH A6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcv MjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hs aW5rIiB2ZXJzaW9uPSIxLjAiIHg9IjAiIHk9IjAiIHdpZHRoPSIxOTQiIGhlaWdodD0iMjAw IiBpZD0ieHNzIj48c2NyaXB0IHR5cGU9InRleHQvZWNtYXNjcmlwdCI+YWxlcnQoIlh TUyIpOzwvc2NyaXB0Pjwvc3ZnPg==\" type=\"image/svg+xml\" AllowScriptAccess=\"always\"></EMBED>",
+                policy, AntiSamy.SAX).getCleanHTML().contains("<embed"));
 
-        assertTrue(!as.scan("<SCRIPT a=\">\" SRC=\"http://ha.ckers.org/xss.js\"></SCRIPT>", policy, AntiSamy.DOM).getCleanHTML().contains("<script"));
-        assertTrue(!as.scan("<SCRIPT a=\">\" SRC=\"http://ha.ckers.org/xss.js\"></SCRIPT>", policy, AntiSamy.SAX).getCleanHTML().contains("<script"));
+        assertTrue(!as.scan("<SCRIPT a=\">\" SRC=\"http://ha.ckers.org/xss.js\"></SCRIPT>", policy, AntiSamy.DOM)
+                .getCleanHTML().contains("<script"));
+        assertTrue(!as.scan("<SCRIPT a=\">\" SRC=\"http://ha.ckers.org/xss.js\"></SCRIPT>", policy, AntiSamy.SAX)
+                .getCleanHTML().contains("<script"));
 
-        assertTrue(!as.scan("<SCRIPT a=\">\" '' SRC=\"http://ha.ckers.org/xss.js\"></SCRIPT>", policy, AntiSamy.DOM).getCleanHTML().contains("<script"));
-        assertTrue(!as.scan("<SCRIPT a=\">\" '' SRC=\"http://ha.ckers.org/xss.js\"></SCRIPT>", policy, AntiSamy.SAX).getCleanHTML().contains("<script"));
+        assertTrue(!as.scan("<SCRIPT a=\">\" '' SRC=\"http://ha.ckers.org/xss.js\"></SCRIPT>", policy, AntiSamy.DOM)
+                .getCleanHTML().contains("<script"));
+        assertTrue(!as.scan("<SCRIPT a=\">\" '' SRC=\"http://ha.ckers.org/xss.js\"></SCRIPT>", policy, AntiSamy.SAX)
+                .getCleanHTML().contains("<script"));
 
-        assertTrue(!as.scan("<SCRIPT a=`>` SRC=\"http://ha.ckers.org/xss.js\"></SCRIPT>", policy, AntiSamy.DOM).getCleanHTML().contains("<script"));
-        assertTrue(!as.scan("<SCRIPT a=`>` SRC=\"http://ha.ckers.org/xss.js\"></SCRIPT>", policy, AntiSamy.SAX).getCleanHTML().contains("<script"));
+        assertTrue(!as.scan("<SCRIPT a=`>` SRC=\"http://ha.ckers.org/xss.js\"></SCRIPT>", policy, AntiSamy.DOM)
+                .getCleanHTML().contains("<script"));
+        assertTrue(!as.scan("<SCRIPT a=`>` SRC=\"http://ha.ckers.org/xss.js\"></SCRIPT>", policy, AntiSamy.SAX)
+                .getCleanHTML().contains("<script"));
 
-        assertTrue(!as.scan("<SCRIPT a=\">'>\" SRC=\"http://ha.ckers.org/xss.js\"></SCRIPT>", policy, AntiSamy.DOM).getCleanHTML().contains("<script"));
-        assertTrue(!as.scan("<SCRIPT a=\">'>\" SRC=\"http://ha.ckers.org/xss.js\"></SCRIPT>", policy, AntiSamy.SAX).getCleanHTML().contains("<script"));
+        assertTrue(!as.scan("<SCRIPT a=\">'>\" SRC=\"http://ha.ckers.org/xss.js\"></SCRIPT>", policy, AntiSamy.DOM)
+                .getCleanHTML().contains("<script"));
+        assertTrue(!as.scan("<SCRIPT a=\">'>\" SRC=\"http://ha.ckers.org/xss.js\"></SCRIPT>", policy, AntiSamy.SAX)
+                .getCleanHTML().contains("<script"));
 
-        assertTrue(!as.scan("<SCRIPT>document.write(\"<SCRI\");</SCRIPT>PT SRC=\"http://ha.ckers.org/xss.js\"></SCRIPT>", policy, AntiSamy.DOM).getCleanHTML().contains("script"));
-        assertTrue(!as.scan("<SCRIPT>document.write(\"<SCRI\");</SCRIPT>PT SRC=\"http://ha.ckers.org/xss.js\"></SCRIPT>", policy, AntiSamy.SAX).getCleanHTML().contains("script"));
+        assertTrue(
+                !as.scan("<SCRIPT>document.write(\"<SCRI\");</SCRIPT>PT SRC=\"http://ha.ckers.org/xss.js\"></SCRIPT>",
+                        policy, AntiSamy.DOM).getCleanHTML().contains("script"));
+        assertTrue(
+                !as.scan("<SCRIPT>document.write(\"<SCRI\");</SCRIPT>PT SRC=\"http://ha.ckers.org/xss.js\"></SCRIPT>",
+                        policy, AntiSamy.SAX).getCleanHTML().contains("script"));
 
-        assertTrue(!as.scan("<SCRIPT SRC=http://ha.ckers.org/xss.js", policy, AntiSamy.DOM).getCleanHTML().contains("<script"));
-        assertTrue(!as.scan("<SCRIPT SRC=http://ha.ckers.org/xss.js", policy, AntiSamy.SAX).getCleanHTML().contains("<script"));
+        assertTrue(!as.scan("<SCRIPT SRC=http://ha.ckers.org/xss.js", policy, AntiSamy.DOM).getCleanHTML()
+                .contains("<script"));
+        assertTrue(!as.scan("<SCRIPT SRC=http://ha.ckers.org/xss.js", policy, AntiSamy.SAX).getCleanHTML()
+                .contains("<script"));
 
-        assertTrue(!as
-                .scan(
-                        "<div/style=&#92&#45&#92&#109&#111&#92&#122&#92&#45&#98&#92&#105&#92&#110&#100&#92&#105&#110&#92&#103:&#92&#117&#114&#108&#40&#47&#47&#98&#117&#115&#105&#110&#101&#115&#115&#92&#105&#92&#110&#102&#111&#46&#99&#111&#46&#117&#107&#92&#47&#108&#97&#98&#115&#92&#47&#120&#98&#108&#92&#47&#120&#98&#108&#92&#46&#120&#109&#108&#92&#35&#120&#115&#115&#41&>",
-                        policy, AntiSamy.DOM).getCleanHTML().contains("style"));
-        assertTrue(!as
-                .scan(
-                        "<div/style=&#92&#45&#92&#109&#111&#92&#122&#92&#45&#98&#92&#105&#92&#110&#100&#92&#105&#110&#92&#103:&#92&#117&#114&#108&#40&#47&#47&#98&#117&#115&#105&#110&#101&#115&#115&#92&#105&#92&#110&#102&#111&#46&#99&#111&#46&#117&#107&#92&#47&#108&#97&#98&#115&#92&#47&#120&#98&#108&#92&#47&#120&#98&#108&#92&#46&#120&#109&#108&#92&#35&#120&#115&#115&#41&>",
-                        policy, AntiSamy.SAX).getCleanHTML().contains("style"));
+        assertTrue(!as.scan(
+                "<div/style=&#92&#45&#92&#109&#111&#92&#122&#92&#45&#98&#92&#105&#92&#110&#100&#92&#105&#110&#92&#103:&#92&#117&#114&#108&#40&#47&#47&#98&#117&#115&#105&#110&#101&#115&#115&#92&#105&#92&#110&#102&#111&#46&#99&#111&#46&#117&#107&#92&#47&#108&#97&#98&#115&#92&#47&#120&#98&#108&#92&#47&#120&#98&#108&#92&#46&#120&#109&#108&#92&#35&#120&#115&#115&#41&>",
+                policy, AntiSamy.DOM).getCleanHTML().contains("style"));
+        assertTrue(!as.scan(
+                "<div/style=&#92&#45&#92&#109&#111&#92&#122&#92&#45&#98&#92&#105&#92&#110&#100&#92&#105&#110&#92&#103:&#92&#117&#114&#108&#40&#47&#47&#98&#117&#115&#105&#110&#101&#115&#115&#92&#105&#92&#110&#102&#111&#46&#99&#111&#46&#117&#107&#92&#47&#108&#97&#98&#115&#92&#47&#120&#98&#108&#92&#47&#120&#98&#108&#92&#46&#120&#109&#108&#92&#35&#120&#115&#115&#41&>",
+                policy, AntiSamy.SAX).getCleanHTML().contains("style"));
 
-        assertTrue(!as.scan("<a href='aim: &c:\\windows\\system32\\calc.exe' ini='C:\\Documents and Settings\\All Users\\Start Menu\\Programs\\Startup\\pwnd.bat'>", policy, AntiSamy.DOM).getCleanHTML().contains("aim.exe"));
-        assertTrue(!as.scan("<a href='aim: &c:\\windows\\system32\\calc.exe' ini='C:\\Documents and Settings\\All Users\\Start Menu\\Programs\\Startup\\pwnd.bat'>", policy, AntiSamy.SAX)
-                .getCleanHTML().contains("aim.exe"));
+        assertTrue(!as.scan(
+                "<a href='aim: &c:\\windows\\system32\\calc.exe' ini='C:\\Documents and Settings\\All Users\\Start Menu\\Programs\\Startup\\pwnd.bat'>",
+                policy, AntiSamy.DOM).getCleanHTML().contains("aim.exe"));
+        assertTrue(!as.scan(
+                "<a href='aim: &c:\\windows\\system32\\calc.exe' ini='C:\\Documents and Settings\\All Users\\Start Menu\\Programs\\Startup\\pwnd.bat'>",
+                policy, AntiSamy.SAX).getCleanHTML().contains("aim.exe"));
 
-        assertTrue(!as.scan("<!--\n<A href=\n- --><a href=javascript:alert:document.domain>test-->", policy, AntiSamy.DOM).getCleanHTML().contains("javascript"));
-        assertTrue(!as.scan("<!--\n<A href=\n- --><a href=javascript:alert:document.domain>test-->", policy, AntiSamy.SAX).getCleanHTML().contains("javascript"));
+        assertTrue(
+                !as.scan("<!--\n<A href=\n- --><a href=javascript:alert:document.domain>test-->", policy, AntiSamy.DOM)
+                        .getCleanHTML().contains("javascript"));
+        assertTrue(
+                !as.scan("<!--\n<A href=\n- --><a href=javascript:alert:document.domain>test-->", policy, AntiSamy.SAX)
+                        .getCleanHTML().contains("javascript"));
 
-        assertTrue(!as.scan("<a></a style=\"\"xx:expr/**/ession(document.appendChild(document.createElement('script')).src='http://h4k.in/i.js')\">", policy, AntiSamy.DOM).getCleanHTML().contains("document"));
-        assertTrue(!as.scan("<a></a style=\"\"xx:expr/**/ession(document.appendChild(document.createElement('script')).src='http://h4k.in/i.js')\">", policy, AntiSamy.SAX).getCleanHTML().contains("document"));
+        assertTrue(!as.scan(
+                "<a></a style=\"\"xx:expr/**/ession(document.appendChild(document.createElement('script')).src='http://h4k.in/i.js')\">",
+                policy, AntiSamy.DOM).getCleanHTML().contains("document"));
+        assertTrue(!as.scan(
+                "<a></a style=\"\"xx:expr/**/ession(document.appendChild(document.createElement('script')).src='http://h4k.in/i.js')\">",
+                policy, AntiSamy.SAX).getCleanHTML().contains("document"));
     }
 
     /*
-      * Test CSS protections.
-      */
+     * Test CSS protections.
+     */
 
     @Test
     public void cssAttacks() throws ScanException, PolicyException {
 
-        assertTrue(!as.scan("<div style=\"position:absolute\">", policy, AntiSamy.DOM).getCleanHTML().contains("position"));
-        assertTrue(!as.scan("<div style=\"position:absolute\">", policy, AntiSamy.SAX).getCleanHTML().contains("position"));
+        assertTrue(!as.scan("<div style=\"position:absolute\">", policy, AntiSamy.DOM).getCleanHTML()
+                .contains("position"));
+        assertTrue(!as.scan("<div style=\"position:absolute\">", policy, AntiSamy.SAX).getCleanHTML()
+                .contains("position"));
 
-        assertTrue(!as.scan("<style>b { position:absolute }</style>", policy, AntiSamy.DOM).getCleanHTML().contains("position"));
-        assertTrue(!as.scan("<style>b { position:absolute }</style>", policy, AntiSamy.SAX).getCleanHTML().contains("position"));
+        assertTrue(!as.scan("<style>b { position:absolute }</style>", policy, AntiSamy.DOM).getCleanHTML()
+                .contains("position"));
+        assertTrue(!as.scan("<style>b { position:absolute }</style>", policy, AntiSamy.SAX).getCleanHTML()
+                .contains("position"));
 
-        assertTrue(!as.scan("<div style=\"z-index:25\">test</div>", policy, AntiSamy.DOM).getCleanHTML().contains("z-index"));
-        assertTrue(!as.scan("<div style=\"z-index:25\">test</div>", policy, AntiSamy.SAX).getCleanHTML().contains("z-index"));
+        assertTrue(!as.scan("<div style=\"z-index:25\">test</div>", policy, AntiSamy.DOM).getCleanHTML()
+                .contains("z-index"));
+        assertTrue(!as.scan("<div style=\"z-index:25\">test</div>", policy, AntiSamy.SAX).getCleanHTML()
+                .contains("z-index"));
 
         assertTrue(!as.scan("<style>z-index:25</style>", policy, AntiSamy.DOM).getCleanHTML().contains("z-index"));
         assertTrue(!as.scan("<style>z-index:25</style>", policy, AntiSamy.SAX).getCleanHTML().contains("z-index"));
@@ -331,9 +420,8 @@ public class AntiSamyTest {
     }
 
     /*
-      * Test a bunch of strings that have tweaked the XML parsing capabilities of
-      * NekoHTML.
-      */
+     * Test a bunch of strings that have tweaked the XML parsing capabilities of NekoHTML.
+     */
     @Test
     public void IllegalXML() throws PolicyException {
 
@@ -345,7 +433,8 @@ public class AntiSamyTest {
                 as.scan(testStr, policy, AntiSamy.DOM);
                 as.scan(testStr, policy, AntiSamy.SAX);
 
-            } catch (ScanException ex) {
+            }
+            catch (ScanException ex) {
                 // still success!
             }
         }
@@ -372,7 +461,8 @@ public class AntiSamyTest {
 
         try {
             assertTrue(as.scan("<style>", policy, AntiSamy.DOM) != null);
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
             e.printStackTrace();
             fail("Couldn't parse malformed HTML: " + e.getMessage());
         }
@@ -382,14 +472,14 @@ public class AntiSamyTest {
     public void issue12() throws ScanException, PolicyException {
 
         /*
-           * issues 12 (and 36, which was similar). empty tags cause display
-           * problems/"formjacking"
-           */
-
+         * issues 12 (and 36, which was similar). empty tags cause display problems/"formjacking"
+         */
 
         Pattern p = Pattern.compile(".*<strong(\\s*)/>.*");
-        String s1 = as.scan("<br ><strong></strong><a>hello world</a><b /><i/><hr>", policy, AntiSamy.DOM).getCleanHTML();
-        String s2 = as.scan("<br ><strong></strong><a>hello world</a><b /><i/><hr>", policy, AntiSamy.SAX).getCleanHTML();
+        String s1 =
+                as.scan("<br ><strong></strong><a>hello world</a><b /><i/><hr>", policy, AntiSamy.DOM).getCleanHTML();
+        String s2 =
+                as.scan("<br ><strong></strong><a>hello world</a><b /><i/><hr>", policy, AntiSamy.SAX).getCleanHTML();
 
         assertFalse(p.matcher(s1).matches());
 
@@ -425,11 +515,12 @@ public class AntiSamyTest {
         assertEquals(crSax, expected);
     }
 
-
     @Test
     public void issue28() throws ScanException, PolicyException {
-        String s1 = as.scan("<div style=\"font-family: Geneva, Arial, courier new, sans-serif\">Test</div>", policy, AntiSamy.DOM).getCleanHTML();
-        String s2 = as.scan("<div style=\"font-family: Geneva, Arial, courier new, sans-serif\">Test</div>", policy, AntiSamy.SAX).getCleanHTML();
+        String s1 = as.scan("<div style=\"font-family: Geneva, Arial, courier new, sans-serif\">Test</div>", policy,
+                AntiSamy.DOM).getCleanHTML();
+        String s2 = as.scan("<div style=\"font-family: Geneva, Arial, courier new, sans-serif\">Test</div>", policy,
+                AntiSamy.SAX).getCleanHTML();
         assertTrue(s1.contains("font-family"));
         assertTrue(s2.contains("font-family"));
     }
@@ -453,7 +544,8 @@ public class AntiSamyTest {
         /* followup - does the patch fix multiline CSS? */
         String s2 = "<style type=\"text/css\"><![CDATA[\r\nP {\r\n margin-bottom: 0.08in;\r\n}\r\n]]></style>";
         cr = as.scan(s2, policy, AntiSamy.DOM);
-        assertEquals("<style type=\"text/css\"><![CDATA[P {\n\tmargin-bottom: 0.08in;\n}\n]]></style>", cr.getCleanHTML());
+        assertEquals("<style type=\"text/css\"><![CDATA[P {\n\tmargin-bottom: 0.08in;\n}\n]]></style>",
+                cr.getCleanHTML());
 
         /* next followup - does non-CDATA parsing still work? */
 
@@ -499,12 +591,18 @@ public class AntiSamyTest {
     public void issue37() throws ScanException, PolicyException {
 
         String dirty = "<a onblur=\"try {parent.deselectBloggerImageGracefully();}" + "catch(e) {}\""
-                + "href=\"http://www.charityadvantage.com/ChildrensmuseumEaston/images/BookswithBill.jpg\"><img" + "style=\"FLOAT: right; MARGIN: 0px 0px 10px 10px; WIDTH: 150px; CURSOR:"
-                + "hand; HEIGHT: 100px\" alt=\"\"" + "src=\"http://www.charityadvantage.com/ChildrensmuseumEaston/images/BookswithBill.jpg\""
-                + "border=\"0\" /></a><br />Poor Bill, couldn't make it to the Museum's <span" + "class=\"blsp-spelling-corrected\" id=\"SPELLING_ERROR_0\">story time</span>"
-                + "today, he was so busy shoveling! Well, we sure missed you Bill! So since" + "ou were busy moving snow we read books about snow. We found a clue in one"
-                + "book which revealed a snowplow at the end of the story - we wish it had" + "driven to your driveway Bill. We also read a story which shared fourteen"
-                + "<em>Names For Snow. </em>We'll catch up with you next week....wonder which" + "hat Bill will wear?<br />Jane";
+                + "href=\"http://www.charityadvantage.com/ChildrensmuseumEaston/images/BookswithBill.jpg\"><img"
+                + "style=\"FLOAT: right; MARGIN: 0px 0px 10px 10px; WIDTH: 150px; CURSOR:"
+                + "hand; HEIGHT: 100px\" alt=\"\""
+                + "src=\"http://www.charityadvantage.com/ChildrensmuseumEaston/images/BookswithBill.jpg\""
+                + "border=\"0\" /></a><br />Poor Bill, couldn't make it to the Museum's <span"
+                + "class=\"blsp-spelling-corrected\" id=\"SPELLING_ERROR_0\">story time</span>"
+                + "today, he was so busy shoveling! Well, we sure missed you Bill! So since"
+                + "ou were busy moving snow we read books about snow. We found a clue in one"
+                + "book which revealed a snowplow at the end of the story - we wish it had"
+                + "driven to your driveway Bill. We also read a story which shared fourteen"
+                + "<em>Names For Snow. </em>We'll catch up with you next week....wonder which"
+                + "hat Bill will wear?<br />Jane";
 
         Policy mySpacePolicy = Policy.getInstance(getClass().getResource("/antisamy-myspace.xml"));
         CleanResults cr = as.scan(dirty, mySpacePolicy, AntiSamy.DOM);
@@ -570,16 +668,12 @@ public class AntiSamyTest {
         assertEquals(as.scan(s, policy, AntiSamy.SAX).getCleanHTML(), expected);
 
         /*
-        * This test case was failing because of the following code from the
-        * batik CSS library, which throws an exception if any character
-        * other than a '!' follows a beginning token of '<'. The
-        * ParseException is now caught in the node a CssScanner.java and
-        * the outside AntiSamyDOMScanner.java.
-        *
-        * 0398 nextChar(); 0399 if (current != '!') { 0400 throw new
-        * ParseException("character", 0401 reader.getLine(), 0402
-        * reader.getColumn());
-        */
+         * This test case was failing because of the following code from the batik CSS library, which throws an
+         * exception if any character other than a '!' follows a beginning token of '<'. The ParseException is now
+         * caught in the node a CssScanner.java and the outside AntiSamyDOMScanner.java. 0398 nextChar(); 0399 if
+         * (current != '!') { 0400 throw new ParseException("character", 0401 reader.getLine(), 0402
+         * reader.getColumn());
+         */
         s = "<b><u>foo<style><script>alert(1)</script></style>@import 'x';</u>bar";
         as.scan(s, policy, AntiSamy.DOM);
         as.scan(s, policy, AntiSamy.SAX);
@@ -588,7 +682,6 @@ public class AntiSamyTest {
 
     @Test
     public void issue40() throws ScanException, PolicyException {
-
 
         /* issue #40 - handling <style> media attributes right */
 
@@ -617,23 +710,26 @@ public class AntiSamyTest {
         assertEquals("text ", as.scan("text <!-- comment -->", revised, AntiSamy.DOM).getCleanHTML());
         assertEquals("text ", as.scan("text <!-- comment -->", revised, AntiSamy.SAX).getCleanHTML());
 
-        Policy revised2 = policy.cloneWithDirective(Policy.PRESERVE_COMMENTS, "true").cloneWithDirective(Policy.PRESERVE_SPACE, "true").cloneWithDirective(Policy.FORMAT_OUTPUT, "false");
+        Policy revised2 = policy.cloneWithDirective(Policy.PRESERVE_COMMENTS, "true")
+                .cloneWithDirective(Policy.PRESERVE_SPACE, "true").cloneWithDirective(Policy.FORMAT_OUTPUT, "false");
 
         /*
-        * These make sure the regular comments are kept alive and that
-        * conditional comments are ripped out.
-        */
-        assertEquals("<div>text <!-- comment --></div>", as.scan("<div>text <!-- comment --></div>", revised2, AntiSamy.DOM).getCleanHTML());
-        assertEquals("<div>text <!-- comment --></div>", as.scan("<div>text <!-- comment --></div>", revised2, AntiSamy.SAX).getCleanHTML());
+         * These make sure the regular comments are kept alive and that conditional comments are ripped out.
+         */
+        assertEquals("<div>text <!-- comment --></div>",
+                as.scan("<div>text <!-- comment --></div>", revised2, AntiSamy.DOM).getCleanHTML());
+        assertEquals("<div>text <!-- comment --></div>",
+                as.scan("<div>text <!-- comment --></div>", revised2, AntiSamy.SAX).getCleanHTML());
 
-        assertEquals("<div>text <!-- comment --></div>", as.scan("<div>text <!--[if IE]> comment <[endif]--></div>", revised2, AntiSamy.DOM).getCleanHTML());
-        assertEquals("<div>text <!-- comment --></div>", as.scan("<div>text <!--[if IE]> comment <[endif]--></div>", revised2, AntiSamy.SAX).getCleanHTML());
+        assertEquals("<div>text <!-- comment --></div>",
+                as.scan("<div>text <!--[if IE]> comment <[endif]--></div>", revised2, AntiSamy.DOM).getCleanHTML());
+        assertEquals("<div>text <!-- comment --></div>",
+                as.scan("<div>text <!--[if IE]> comment <[endif]--></div>", revised2, AntiSamy.SAX).getCleanHTML());
 
         /*
-        * Check to see how nested conditional comments are handled. This is
-        * not very clean but the main goal is to avoid any tags. Not sure
-        * on encodings allowed in comments.
-        */
+         * Check to see how nested conditional comments are handled. This is not very clean but the main goal is to
+         * avoid any tags. Not sure on encodings allowed in comments.
+         */
         String input = "<div>text <!--[if IE]> <!--[if gte 6]> comment <[endif]--><[endif]--></div>";
         String expected = "<div>text <!-- <!-- comment -->&lt;[endif]--&gt;</div>";
         String output = as.scan(input, revised2, AntiSamy.DOM).getCleanHTML();
@@ -646,17 +742,22 @@ public class AntiSamyTest {
         assertEquals(expected, output);
 
         /*
-        * Regular comment nested inside conditional comment. Test makes
-        * sure
-        */
-        assertEquals("<div>text <!-- <!-- IE specific --> comment &lt;[endif]--&gt;</div>", as.scan("<div>text <!--[if IE]> <!-- IE specific --> comment <[endif]--></div>", revised2, AntiSamy.DOM).getCleanHTML());
+         * Regular comment nested inside conditional comment. Test makes sure
+         */
+        assertEquals("<div>text <!-- <!-- IE specific --> comment &lt;[endif]--&gt;</div>",
+                as.scan("<div>text <!--[if IE]> <!-- IE specific --> comment <[endif]--></div>", revised2, AntiSamy.DOM)
+                        .getCleanHTML());
 
         /*
-        * These play with whitespace and have invalid comment syntax.
-        */
-        assertEquals("<div>text <!-- \ncomment --></div>", as.scan("<div>text <!-- [ if lte 6 ]>\ncomment <[ endif\n]--></div>", revised2, AntiSamy.DOM).getCleanHTML());
-        assertEquals("<div>text  comment </div>", as.scan("<div>text <![if !IE]> comment <![endif]></div>", revised2, AntiSamy.DOM).getCleanHTML());
-        assertEquals("<div>text  comment </div>", as.scan("<div>text <![ if !IE]> comment <![endif]></div>", revised2, AntiSamy.DOM).getCleanHTML());
+         * These play with whitespace and have invalid comment syntax.
+         */
+        assertEquals("<div>text <!-- \ncomment --></div>",
+                as.scan("<div>text <!-- [ if lte 6 ]>\ncomment <[ endif\n]--></div>", revised2, AntiSamy.DOM)
+                        .getCleanHTML());
+        assertEquals("<div>text  comment </div>",
+                as.scan("<div>text <![if !IE]> comment <![endif]></div>", revised2, AntiSamy.DOM).getCleanHTML());
+        assertEquals("<div>text  comment </div>",
+                as.scan("<div>text <![ if !IE]> comment <![endif]></div>", revised2, AntiSamy.DOM).getCleanHTML());
 
         String attack = "[if lte 8]<script>";
         String spacer = "<![if IE]>";
@@ -677,15 +778,13 @@ public class AntiSamyTest {
         assertTrue(!as.scan(s, revised2, AntiSamy.DOM).getCleanHTML().contains("<script"));
         assertTrue(!as.scan(s, revised2, AntiSamy.SAX).getCleanHTML().contains("<script"));
 
-
     }
 
     @Test
     public void issue44() throws ScanException, PolicyException {
         /*
-           * issue #44 - childless nodes of non-allowed elements won't cause an
-           * error
-           */
+         * issue #44 - childless nodes of non-allowed elements won't cause an error
+         */
         String s = "<iframe src='http://foo.com/'></iframe>" + "<script src=''></script>" + "<link href='/foo.css'>";
         as.scan(s, policy, AntiSamy.DOM);
         assertEquals(as.scan(s, policy, AntiSamy.DOM).getNumberOfErrors(), 3);
@@ -752,7 +851,6 @@ public class AntiSamyTest {
     @Test
     public void issue69() throws ScanException, PolicyException {
 
-
         /* issue #69 - char attribute should allow single char or entity ref */
 
         String s = "<table><tr><td char='.'>test</td></tr></table>";
@@ -799,11 +897,10 @@ public class AntiSamyTest {
     @Test
     public void literalLists() throws ScanException, PolicyException {
 
-        /* this test is for confirming literal-lists work as
-           * advertised. it turned out to be an invalid / non-
-           * reproducible bug report but the test seemed useful
-           * enough to keep.
-           */
+        /*
+         * this test is for confirming literal-lists work as advertised. it turned out to be an invalid / non-
+         * reproducible bug report but the test seemed useful enough to keep.
+         */
         String malInput = "hello<p align='invalid'>world</p>";
 
         CleanResults crd = as.scan(malInput, policy, AntiSamy.DOM);
@@ -828,38 +925,36 @@ public class AntiSamyTest {
     @Test
     public void stackExhaustion() throws ScanException, PolicyException {
         /*
-        * Test Julian Cohen's stack exhaustion bug.
-        */
+         * Test Julian Cohen's stack exhaustion bug.
+         */
 
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < 249; i++) {
             sb.append("<div>");
         }
         /*
-        * First, make sure this attack is useless against the
-        * SAX parser.
-        */
+         * First, make sure this attack is useless against the SAX parser.
+         */
         as.scan(sb.toString(), policy, AntiSamy.SAX);
 
         /*
-        * Scan this really deep tree (depth=249, 1 less than the
-        * max) and make sure it doesn't blow up.
-        */
+         * Scan this really deep tree (depth=249, 1 less than the max) and make sure it doesn't blow up.
+         */
 
         CleanResults crd = as.scan(sb.toString(), policy, AntiSamy.DOM);
 
         String crDom = crd.getCleanHTML();
         assertTrue(crDom.length() != 0);
         /*
-        * Now push it over the limit to 251 and make sure we blow
-        * up safely.
-        */
+         * Now push it over the limit to 251 and make sure we blow up safely.
+         */
         sb.append("<div><div>"); // this makes 251
 
         try {
             as.scan(sb.toString(), policy, AntiSamy.DOM);
             fail("DOM depth exceeded max - should've errored");
-        } catch (ScanException e) {
+        }
+        catch (ScanException e) {
 
         }
     }
@@ -868,10 +963,8 @@ public class AntiSamyTest {
     public void issue107() throws ScanException, PolicyException {
         StringBuilder sb = new StringBuilder();
 
-
         /*
-         * #107 - erroneous newlines appearing? couldn't reproduce this
-         * error but the test seems worthy of keeping.
+         * #107 - erroneous newlines appearing? couldn't reproduce this error but the test seems worthy of keeping.
          */
         String nl = "\n";
 
@@ -901,13 +994,13 @@ public class AntiSamyTest {
 
     @Test
     public void issue112() throws ScanException, PolicyException {
-        TestPolicy revised = policy.cloneWithDirective(Policy.PRESERVE_COMMENTS, "true").cloneWithDirective(Policy.PRESERVE_SPACE, "true").cloneWithDirective(Policy.FORMAT_OUTPUT, "false");
+        TestPolicy revised = policy.cloneWithDirective(Policy.PRESERVE_COMMENTS, "true")
+                .cloneWithDirective(Policy.PRESERVE_SPACE, "true").cloneWithDirective(Policy.FORMAT_OUTPUT, "false");
         StringBuilder sb;
 
-
         /*
-        * #112 - empty tag becomes self closing
-        */
+         * #112 - empty tag becomes self closing
+         */
 
         String html = "text <strong></strong> text <strong><em></em></strong> text";
 
@@ -931,17 +1024,15 @@ public class AntiSamyTest {
         assertTrue(html.equals(crSax));
     }
 
-
     @Test
     public void nestedCdataAttacks() throws ScanException, PolicyException {
         /*
          * #112 - empty tag becomes self closing
          */
 
-
         /*
-        * Testing for nested CDATA attacks against the SAX parser.
-        */
+         * Testing for nested CDATA attacks against the SAX parser.
+         */
 
         String html = "<![CDATA[]><script>alert(1)</script><![CDATA[]>]]><script>alert(2)</script>>]]>";
         String crDom = as.scan(html, policy, AntiSamy.DOM).getCleanHTML();
@@ -960,7 +1051,8 @@ public class AntiSamyTest {
         assertTrue(crDom.contains("\u00e4"));
         assertTrue(crSax.contains("\u00e4"));
 
-        Policy revised2 = policy.cloneWithDirective(Policy.USE_XHTML, "false").cloneWithDirective(Policy.ENTITY_ENCODE_INTL_CHARS, "true");
+        Policy revised2 = policy.cloneWithDirective(Policy.USE_XHTML, "false")
+                .cloneWithDirective(Policy.ENTITY_ENCODE_INTL_CHARS, "true");
         crDom = as.scan(html, revised2, AntiSamy.DOM).getCleanHTML();
         crSax = as.scan(html, revised2, AntiSamy.SAX).getCleanHTML();
         assertTrue(!crDom.contains("\u00e4"));
@@ -968,7 +1060,8 @@ public class AntiSamyTest {
         assertTrue(!crSax.contains("\u00e4"));
         assertTrue(crSax.contains("&auml;"));
 
-        Policy revised3 = policy.cloneWithDirective(Policy.USE_XHTML, "true").cloneWithDirective(Policy.ENTITY_ENCODE_INTL_CHARS, "true");
+        Policy revised3 = policy.cloneWithDirective(Policy.USE_XHTML, "true")
+                .cloneWithDirective(Policy.ENTITY_ENCODE_INTL_CHARS, "true");
         crDom = as.scan(html, revised3, AntiSamy.DOM).getCleanHTML();
         crSax = as.scan(html, revised3, AntiSamy.SAX).getCleanHTML();
         assertTrue(!crDom.contains("\u00e4"));
@@ -983,7 +1076,7 @@ public class AntiSamyTest {
 
         Policy revised;
 
-        Tag tag = new Tag("iframe", Collections.<String, Attribute>emptyMap(), Policy.ACTION_VALIDATE);
+        Tag tag = new Tag("iframe", Collections.<String, Attribute> emptyMap(), Policy.ACTION_VALIDATE);
         revised = policy.addTagRule(tag);
 
         String crDom = as.scan(html, revised, AntiSamy.DOM).getCleanHTML();
@@ -994,9 +1087,9 @@ public class AntiSamyTest {
     }
 
     /*
-	 * Tests cases dealing with nofollowAnchors directive. Assumes anchor tags
-	 * have an action set to "validate" (may be implicit) in the policy file.
-	 */
+     * Tests cases dealing with nofollowAnchors directive. Assumes anchor tags have an action set to "validate" (may be
+     * implicit) in the policy file.
+     */
     @Test
     public void nofollowAnchors() {
 
@@ -1009,24 +1102,34 @@ public class AntiSamyTest {
 
             // adds when not present
 
-            assertTrue(as.scan("<a href=\"blah\">link</a>", revisedPolici, AntiSamy.DOM).getCleanHTML().contains("<a href=\"blah\" rel=\"nofollow\">link</a>"));
-            assertTrue(as.scan("<a href=\"blah\">link</a>", revisedPolici, AntiSamy.SAX).getCleanHTML().contains("<a href=\"blah\" rel=\"nofollow\">link</a>"));
+            assertTrue(as.scan("<a href=\"blah\">link</a>", revisedPolici, AntiSamy.DOM).getCleanHTML()
+                    .contains("<a href=\"blah\" rel=\"nofollow\">link</a>"));
+            assertTrue(as.scan("<a href=\"blah\">link</a>", revisedPolici, AntiSamy.SAX).getCleanHTML()
+                    .contains("<a href=\"blah\" rel=\"nofollow\">link</a>"));
 
             // adds properly even with bad attr
-            assertTrue(as.scan("<a href=\"blah\" bad=\"true\">link</a>", revisedPolici, AntiSamy.DOM).getCleanHTML().contains("<a href=\"blah\" rel=\"nofollow\">link</a>"));
-            assertTrue(as.scan("<a href=\"blah\" bad=\"true\">link</a>", revisedPolici, AntiSamy.SAX).getCleanHTML().contains("<a href=\"blah\" rel=\"nofollow\">link</a>"));
+            assertTrue(as.scan("<a href=\"blah\" bad=\"true\">link</a>", revisedPolici, AntiSamy.DOM).getCleanHTML()
+                    .contains("<a href=\"blah\" rel=\"nofollow\">link</a>"));
+            assertTrue(as.scan("<a href=\"blah\" bad=\"true\">link</a>", revisedPolici, AntiSamy.SAX).getCleanHTML()
+                    .contains("<a href=\"blah\" rel=\"nofollow\">link</a>"));
 
             // rel with bad value gets corrected
-            assertTrue(as.scan("<a href=\"blah\" rel=\"blh\">link</a>", revisedPolici, AntiSamy.DOM).getCleanHTML().contains("<a href=\"blah\" rel=\"nofollow\">link</a>"));
-            assertTrue(as.scan("<a href=\"blah\" rel=\"blh\">link</a>", revisedPolici, AntiSamy.SAX).getCleanHTML().contains("<a href=\"blah\" rel=\"nofollow\">link</a>"));
+            assertTrue(as.scan("<a href=\"blah\" rel=\"blh\">link</a>", revisedPolici, AntiSamy.DOM).getCleanHTML()
+                    .contains("<a href=\"blah\" rel=\"nofollow\">link</a>"));
+            assertTrue(as.scan("<a href=\"blah\" rel=\"blh\">link</a>", revisedPolici, AntiSamy.SAX).getCleanHTML()
+                    .contains("<a href=\"blah\" rel=\"nofollow\">link</a>"));
 
             // correct attribute doesnt get messed with
-            assertTrue(as.scan("<a href=\"blah\" rel=\"nofollow\">link</a>", policy, AntiSamy.DOM).getCleanHTML().contains("<a href=\"blah\" rel=\"nofollow\">link</a>"));
-            assertTrue(as.scan("<a href=\"blah\" rel=\"nofollow\">link</a>", policy, AntiSamy.SAX).getCleanHTML().contains("<a href=\"blah\" rel=\"nofollow\">link</a>"));
+            assertTrue(as.scan("<a href=\"blah\" rel=\"nofollow\">link</a>", policy, AntiSamy.DOM).getCleanHTML()
+                    .contains("<a href=\"blah\" rel=\"nofollow\">link</a>"));
+            assertTrue(as.scan("<a href=\"blah\" rel=\"nofollow\">link</a>", policy, AntiSamy.SAX).getCleanHTML()
+                    .contains("<a href=\"blah\" rel=\"nofollow\">link</a>"));
 
             // if two correct attributes, only one remaining after scan
-            assertTrue(as.scan("<a href=\"blah\" rel=\"nofollow\" rel=\"nofollow\">link</a>", policy, AntiSamy.DOM).getCleanHTML().contains("<a href=\"blah\" rel=\"nofollow\">link</a>"));
-            assertTrue(as.scan("<a href=\"blah\" rel=\"nofollow\" rel=\"nofollow\">link</a>", policy, AntiSamy.SAX).getCleanHTML().contains("<a href=\"blah\" rel=\"nofollow\">link</a>"));
+            assertTrue(as.scan("<a href=\"blah\" rel=\"nofollow\" rel=\"nofollow\">link</a>", policy, AntiSamy.DOM)
+                    .getCleanHTML().contains("<a href=\"blah\" rel=\"nofollow\">link</a>"));
+            assertTrue(as.scan("<a href=\"blah\" rel=\"nofollow\" rel=\"nofollow\">link</a>", policy, AntiSamy.SAX)
+                    .getCleanHTML().contains("<a href=\"blah\" rel=\"nofollow\">link</a>"));
 
             // test if value is off - does it add?
 
@@ -1035,7 +1138,8 @@ public class AntiSamyTest {
 
             policy.cloneWithDirective(Policy.ANCHORS_NOFOLLOW, val);
 
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
             fail("Caught exception in testNofollowAnchors(): " + e.getMessage());
         }
     }
@@ -1043,23 +1147,29 @@ public class AntiSamyTest {
     @Test
     public void validateParamAsEmbed() throws ScanException, PolicyException {
         // activate policy setting for this test
-        Policy revised = policy.cloneWithDirective(Policy.VALIDATE_PARAM_AS_EMBED, "true").cloneWithDirective(Policy.FORMAT_OUTPUT, "false").cloneWithDirective(Policy.USE_XHTML, "true");
+        Policy revised = policy.cloneWithDirective(Policy.VALIDATE_PARAM_AS_EMBED, "true")
+                .cloneWithDirective(Policy.FORMAT_OUTPUT, "false").cloneWithDirective(Policy.USE_XHTML, "true");
 
         // let's start with a YouTube embed
-        String input = "<object width=\"560\" height=\"340\"><param name=\"movie\" value=\"http://www.youtube.com/v/IyAyd4WnvhU&hl=en&fs=1&\"></param><param name=\"allowFullScreen\" value=\"true\"></param><param name=\"allowscriptaccess\" value=\"always\"></param><embed src=\"http://www.youtube.com/v/IyAyd4WnvhU&hl=en&fs=1&\" type=\"application/x-shockwave-flash\" allowscriptaccess=\"always\" allowfullscreen=\"true\" width=\"560\" height=\"340\"></embed></object>";
-        String expectedOutput = "<object height=\"340\" width=\"560\"><param name=\"movie\" value=\"http://www.youtube.com/v/IyAyd4WnvhU&amp;hl=en&amp;fs=1&amp;\" /><param name=\"allowFullScreen\" value=\"true\" /><param name=\"allowscriptaccess\" value=\"always\" /><embed allowfullscreen=\"true\" allowscriptaccess=\"always\" height=\"340\" src=\"http://www.youtube.com/v/IyAyd4WnvhU&amp;hl=en&amp;fs=1&amp;\" type=\"application/x-shockwave-flash\" width=\"560\" /></object>";
+        String input =
+                "<object width=\"560\" height=\"340\"><param name=\"movie\" value=\"http://www.youtube.com/v/IyAyd4WnvhU&hl=en&fs=1&\"></param><param name=\"allowFullScreen\" value=\"true\"></param><param name=\"allowscriptaccess\" value=\"always\"></param><embed src=\"http://www.youtube.com/v/IyAyd4WnvhU&hl=en&fs=1&\" type=\"application/x-shockwave-flash\" allowscriptaccess=\"always\" allowfullscreen=\"true\" width=\"560\" height=\"340\"></embed></object>";
+        String expectedOutput =
+                "<object height=\"340\" width=\"560\"><param name=\"movie\" value=\"http://www.youtube.com/v/IyAyd4WnvhU&amp;hl=en&amp;fs=1&amp;\" /><param name=\"allowFullScreen\" value=\"true\" /><param name=\"allowscriptaccess\" value=\"always\" /><embed allowfullscreen=\"true\" allowscriptaccess=\"always\" height=\"340\" src=\"http://www.youtube.com/v/IyAyd4WnvhU&amp;hl=en&amp;fs=1&amp;\" type=\"application/x-shockwave-flash\" width=\"560\" /></object>";
         CleanResults cr = as.scan(input, revised, AntiSamy.DOM);
         assertTrue(cr.getCleanHTML().contains(expectedOutput));
 
-        String saxExpectedOutput = "<object width=\"560\" height=\"340\"><param name=\"movie\" value=\"http://www.youtube.com/v/IyAyd4WnvhU&amp;hl=en&amp;fs=1&amp;\" /><param name=\"allowFullScreen\" value=\"true\" /><param name=\"allowscriptaccess\" value=\"always\" /><embed src=\"http://www.youtube.com/v/IyAyd4WnvhU&amp;hl=en&amp;fs=1&amp;\" type=\"application/x-shockwave-flash\" allowscriptaccess=\"always\" allowfullscreen=\"true\" width=\"560\" height=\"340\" /></object>";
+        String saxExpectedOutput =
+                "<object width=\"560\" height=\"340\"><param name=\"movie\" value=\"http://www.youtube.com/v/IyAyd4WnvhU&amp;hl=en&amp;fs=1&amp;\" /><param name=\"allowFullScreen\" value=\"true\" /><param name=\"allowscriptaccess\" value=\"always\" /><embed src=\"http://www.youtube.com/v/IyAyd4WnvhU&amp;hl=en&amp;fs=1&amp;\" type=\"application/x-shockwave-flash\" allowscriptaccess=\"always\" allowfullscreen=\"true\" width=\"560\" height=\"340\" /></object>";
         cr = as.scan(input, revised, AntiSamy.SAX);
         assertTrue(cr.getCleanHTML().equals(saxExpectedOutput));
 
         // now what if someone sticks malicious URL in the value of the
         // value attribute in the param tag? remove that param tag
         input = "<object width=\"560\" height=\"340\"><param name=\"movie\" value=\"http://supermaliciouscode.com/badstuff.swf\"></param><param name=\"allowFullScreen\" value=\"true\"></param><param name=\"allowscriptaccess\" value=\"always\"></param><embed src=\"http://www.youtube.com/v/IyAyd4WnvhU&hl=en&fs=1&\" type=\"application/x-shockwave-flash\" allowscriptaccess=\"always\" allowfullscreen=\"true\" width=\"560\" height=\"340\"></embed></object>";
-        expectedOutput = "<object height=\"340\" width=\"560\"><param name=\"allowFullScreen\" value=\"true\" /><param name=\"allowscriptaccess\" value=\"always\" /><embed allowfullscreen=\"true\" allowscriptaccess=\"always\" height=\"340\" src=\"http://www.youtube.com/v/IyAyd4WnvhU&amp;hl=en&amp;fs=1&amp;\" type=\"application/x-shockwave-flash\" width=\"560\" /></object>";
-        saxExpectedOutput = "<object width=\"560\" height=\"340\"><param name=\"allowFullScreen\" value=\"true\" /><param name=\"allowscriptaccess\" value=\"always\" /><embed src=\"http://www.youtube.com/v/IyAyd4WnvhU&amp;hl=en&amp;fs=1&amp;\" type=\"application/x-shockwave-flash\" allowscriptaccess=\"always\" allowfullscreen=\"true\" width=\"560\" height=\"340\" /></object>";
+        expectedOutput =
+                "<object height=\"340\" width=\"560\"><param name=\"allowFullScreen\" value=\"true\" /><param name=\"allowscriptaccess\" value=\"always\" /><embed allowfullscreen=\"true\" allowscriptaccess=\"always\" height=\"340\" src=\"http://www.youtube.com/v/IyAyd4WnvhU&amp;hl=en&amp;fs=1&amp;\" type=\"application/x-shockwave-flash\" width=\"560\" /></object>";
+        saxExpectedOutput =
+                "<object width=\"560\" height=\"340\"><param name=\"allowFullScreen\" value=\"true\" /><param name=\"allowscriptaccess\" value=\"always\" /><embed src=\"http://www.youtube.com/v/IyAyd4WnvhU&amp;hl=en&amp;fs=1&amp;\" type=\"application/x-shockwave-flash\" allowscriptaccess=\"always\" allowfullscreen=\"true\" width=\"560\" height=\"340\" /></object>";
         cr = as.scan(input, revised, AntiSamy.DOM);
         assertTrue(cr.getCleanHTML().contains(expectedOutput));
 
@@ -1069,8 +1179,10 @@ public class AntiSamyTest {
         // now what if someone sticks malicious URL in the value of the src
         // attribute in the embed tag? remove that embed tag
         input = "<object width=\"560\" height=\"340\"><param name=\"movie\" value=\"http://www.youtube.com/v/IyAyd4WnvhU&hl=en&fs=1&\"></param><param name=\"allowFullScreen\" value=\"true\"></param><param name=\"allowscriptaccess\" value=\"always\"></param><embed src=\"http://hereswhereikeepbadcode.com/ohnoscary.swf\" type=\"application/x-shockwave-flash\" allowscriptaccess=\"always\" allowfullscreen=\"true\" width=\"560\" height=\"340\"></embed></object>";
-        expectedOutput = "<object height=\"340\" width=\"560\"><param name=\"movie\" value=\"http://www.youtube.com/v/IyAyd4WnvhU&amp;hl=en&amp;fs=1&amp;\" /><param name=\"allowFullScreen\" value=\"true\" /><param name=\"allowscriptaccess\" value=\"always\" /></object>";
-        saxExpectedOutput = "<object width=\"560\" height=\"340\"><param name=\"movie\" value=\"http://www.youtube.com/v/IyAyd4WnvhU&amp;hl=en&amp;fs=1&amp;\" /><param name=\"allowFullScreen\" value=\"true\" /><param name=\"allowscriptaccess\" value=\"always\" /></object>";
+        expectedOutput =
+                "<object height=\"340\" width=\"560\"><param name=\"movie\" value=\"http://www.youtube.com/v/IyAyd4WnvhU&amp;hl=en&amp;fs=1&amp;\" /><param name=\"allowFullScreen\" value=\"true\" /><param name=\"allowscriptaccess\" value=\"always\" /></object>";
+        saxExpectedOutput =
+                "<object width=\"560\" height=\"340\"><param name=\"movie\" value=\"http://www.youtube.com/v/IyAyd4WnvhU&amp;hl=en&amp;fs=1&amp;\" /><param name=\"allowFullScreen\" value=\"true\" /><param name=\"allowscriptaccess\" value=\"always\" /></object>";
 
         cr = as.scan(input, revised, AntiSamy.DOM);
         assertTrue(cr.getCleanHTML().contains(expectedOutput));
@@ -1124,7 +1236,8 @@ public class AntiSamyTest {
                 totalDomTime += as.scan(html, policy, scanType).getScanTime();
             }
             each = each + totalDomTime;
-            System.out.println("Total " + (scanType == AntiSamy.DOM ? "DOM" : "SAX") + " time 9999 reps short string: " + totalDomTime);
+            System.out.println("Total " + (scanType == AntiSamy.DOM ? "DOM" : "SAX") + " time 9999 reps short string: "
+                    + totalDomTime);
         }
         System.out.println("Average time: " + (each / repeats));
     }
@@ -1173,21 +1286,23 @@ public class AntiSamyTest {
 
     @Test
     public void testOnsiteRegex() throws ScanException, PolicyException {
-    	assertIsGoodOnsiteURL("foo");
-    	assertIsGoodOnsiteURL("/foo/bar");
-    	assertIsGoodOnsiteURL("../../di.cgi?foo&amp;3D~");
-    	assertIsGoodOnsiteURL("/foo/bar/1/sdf;jsessiond=1f1f12312_123123");
+        assertIsGoodOnsiteURL("foo");
+        assertIsGoodOnsiteURL("/foo/bar");
+        assertIsGoodOnsiteURL("../../di.cgi?foo&amp;3D~");
+        assertIsGoodOnsiteURL("/foo/bar/1/sdf;jsessiond=1f1f12312_123123");
     }
 
     void assertIsGoodOnsiteURL(String url) throws ScanException, PolicyException {
-    	String html = as.scan("<a href=\"" + url + "\">X</a>", policy, AntiSamy.DOM).getCleanHTML();
-    	assertTrue(html.contains("href=\""));
-	}
+        String html = as.scan("<a href=\"" + url + "\">X</a>", policy, AntiSamy.DOM).getCleanHTML();
+        assertTrue(html.contains("href=\""));
+    }
 
-	@Test
+    @Test
     public void issue10() throws ScanException, PolicyException {
-    	assertFalse(as.scan("<a href=\"javascript&colon;alert&lpar;1&rpar;\">X</a>", policy, AntiSamy.DOM).getCleanHTML().contains("javascript"));
-        assertFalse(as.scan("<a href=\"javascript&colon;alert&lpar;1&rpar;\">X</a>", policy, AntiSamy.SAX).getCleanHTML().contains("javascript"));
+        assertFalse(as.scan("<a href=\"javascript&colon;alert&lpar;1&rpar;\">X</a>", policy, AntiSamy.DOM)
+                .getCleanHTML().contains("javascript"));
+        assertFalse(as.scan("<a href=\"javascript&colon;alert&lpar;1&rpar;\">X</a>", policy, AntiSamy.SAX)
+                .getCleanHTML().contains("javascript"));
     }
 
     @Test
@@ -1206,7 +1321,6 @@ public class AntiSamyTest {
         as.scan("<script src=\"<. \">\"></script>", pol, AntiSamy.SAX);
     }
 
-
     @Test
     public void issue144() throws ScanException, PolicyException {
         String pinata = "pi\u00f1ata";
@@ -1220,9 +1334,9 @@ public class AntiSamyTest {
     public void testWhitespaceNotBeingMangled() throws ScanException, PolicyException {
         String test = "<select name=\"name\"><option value=\"Something\">Something</select>";
         String expected = "<select name=\"name\"><option value=\"Something\">Something</option></select>";
-        Policy preserveSpace = policy.cloneWithDirective( Policy.PRESERVE_SPACE, "true" );
+        Policy preserveSpace = policy.cloneWithDirective(Policy.PRESERVE_SPACE, "true");
         CleanResults preserveSpaceResults = as.scan(test, preserveSpace, AntiSamy.SAX);
-        assertEquals( expected, preserveSpaceResults.getCleanHTML() );
+        assertEquals(expected, preserveSpaceResults.getCleanHTML());
     }
 
     @Test
@@ -1245,15 +1359,14 @@ public class AntiSamyTest {
     @Test
     public void testXSSInAntiSamy151() throws ScanException, PolicyException {
         String test = "<bogus>whatever</bogus><img src=\"https://ssl.gstatic.com/codesite/ph/images/defaultlogo.png\" "
-            + "onmouseover=\"alert('xss')\">";
+                + "onmouseover=\"alert('xss')\">";
         CleanResults results_sax = as.scan(test, policy, AntiSamy.SAX);
-
 
         CleanResults results_dom = as.scan(test, policy, AntiSamy.DOM);
 
-
-        assertEquals( results_sax.getCleanHTML(), results_dom.getCleanHTML());
-        assertEquals("whatever<img src=\"https://ssl.gstatic.com/codesite/ph/images/defaultlogo.png\" />", results_dom.getCleanHTML());
+        assertEquals(results_sax.getCleanHTML(), results_dom.getCleanHTML());
+        assertEquals("whatever<img src=\"https://ssl.gstatic.com/codesite/ph/images/defaultlogo.png\" />",
+                results_dom.getCleanHTML());
     }
 
     @Test
@@ -1261,18 +1374,17 @@ public class AntiSamyTest {
         String test = "<a href=\"http://example.com\"&amp;/onclick=alert(9)>foo</a>";
         CleanResults results_sax = as.scan(test, policy, AntiSamy.SAX);
 
-
         CleanResults results_dom = as.scan(test, policy, AntiSamy.DOM);
 
-        assertEquals( results_sax.getCleanHTML(), results_dom.getCleanHTML());
+        assertEquals(results_sax.getCleanHTML(), results_dom.getCleanHTML());
         assertEquals("<a href=\"http://example.com\" rel=\"nofollow\">foo</a>", results_dom.getCleanHTML());
     }
 
     @Test
     public void testIssue2() throws ScanException, PolicyException {
-    	String test = "<style onload=alert(1)>h1 {color:red;}</style>";
-    	assertFalse(as.scan(test, policy, AntiSamy.DOM).getCleanHTML().contains("alert"));
-    	assertFalse(as.scan(test, policy, AntiSamy.SAX).getCleanHTML().contains("alert"));
+        String test = "<style onload=alert(1)>h1 {color:red;}</style>";
+        assertFalse(as.scan(test, policy, AntiSamy.DOM).getCleanHTML().contains("alert"));
+        assertFalse(as.scan(test, policy, AntiSamy.SAX).getCleanHTML().contains("alert"));
     }
 
     /*
@@ -1280,58 +1392,88 @@ public class AntiSamyTest {
      */
     @Test
     public void testUnknownTags() throws ScanException, PolicyException {
-    	String test = "<%/onmouseover=prompt(1)>";
-    	CleanResults saxResults = as.scan(test, policy, AntiSamy.SAX);
-    	CleanResults domResults = as.scan(test, policy, AntiSamy.DOM);
-    	System.out.println("OnUnknown (SAX): " + saxResults.getCleanHTML());
-    	System.out.println("OnUnknown (DOM): " + domResults.getCleanHTML());
-    	assertFalse(saxResults.getCleanHTML().contains("<%/"));
-    	assertFalse(domResults.getCleanHTML().contains("<%/"));
+        String test = "<%/onmouseover=prompt(1)>";
+        CleanResults saxResults = as.scan(test, policy, AntiSamy.SAX);
+        CleanResults domResults = as.scan(test, policy, AntiSamy.DOM);
+        System.out.println("OnUnknown (SAX): " + saxResults.getCleanHTML());
+        System.out.println("OnUnknown (DOM): " + domResults.getCleanHTML());
+        assertFalse(saxResults.getCleanHTML().contains("<%/"));
+        assertFalse(domResults.getCleanHTML().contains("<%/"));
     }
 
     @Test
     public void testXss5() throws Exception {
-        // String content = "<img//onerror='alert(1'  src='/adss'> <TABLE> && ,:  # %23 SD SSDADA";
-        //String content="<img /onerror=alert(1' > ?=+ adad &   sda %6d a ";
-        String content="<svg 1 onload='alert(1)'>";
+        // String content = "<img//onerror='alert(1' src='/adss'> <TABLE> && ,: # %23 SD SSDADA";
+        // String content="<img /onerror=alert(1' > ?=+ adad & sda %6d a ";
+        String content = "<svg 1 onload='alert(1)'>";
         Assert.assertTrue(testXss(content));
-        content="<svg/ a , onload='alert(1)'>";
-        Assert.assertTrue(testXss(content));
-
-        content="<img /onerror=alert(1' > ?=+ adad &   sda %6d a ";
-        Assert.assertTrue(testXss(content));
-        content="<img//onerror='alert(1'  src='/adss'> <TABLE> && ,:  # %23 SD SSDADA";
+        content = "<svg/ a , onload='alert(1)'>";
         Assert.assertTrue(testXss(content));
 
-        content="<img//onerror='alert(1'  src='/adss' sad <script></script>";
+
+        content = "<svg 1 / onload='alert(1)'>";
         Assert.assertTrue(testXss(content));
 
-        content="<svg/onload='alert(1)'>";
+        content = "<svg/ / onload='alert(1)'>";
         Assert.assertTrue(testXss(content));
 
-        content="chen\"></div><svg/onload=\"confirm(99)\">";
+        content = "<style onload=alert(1)>h1 {color:red;}</style>sds";
         Assert.assertTrue(testXss(content));
 
-        content="Miss chen\"></div><svg/onload=\"confirm(99)\"Miss chen\"></div><svg/onload=\"confirm(99)\"Miss chen\"></div><svg/onload=\"confirm(99)\"Miss chen\"></div><svg/onload=\"confirm(99)\"";
+        content = "<img /onerror=alert(1' > ?=+ adad &   sda %6d a ";
+        Assert.assertTrue(testXss(content));
+        content = "<img//onerror='alert(1'  src='/adss'> <TABLE> && ,:  # %23 SD SSDADA";
+        Assert.assertTrue(testXss(content));
+
+        content = "<img//onerror='alert(1'  src='/adss' sad <script></script>";
+        Assert.assertTrue(testXss(content));
+
+        content = "<svg/onload='alert(1)'>";
+        Assert.assertTrue(testXss(content));
+
+        content = "chen\"></div><svg/onload=\"confirm(99)\">";
+        Assert.assertTrue(testXss(content));
+
+        //content = "<LINK REL=\"stylesheet\" HREF=\"javascript:alert('XSS');\">";
+        //Assert.assertTrue(testXss(content));
+
+        content =
+                "Miss chen\"></div><svg/onload=\"confirm(99)\"Miss chen\"></div><svg/onload=\"confirm(99)\"Miss chen\"></div><svg/onload=\"confirm(99)\"Miss chen\"></div><svg/onload=\"confirm(99)\"";
+        Assert.assertTrue(testXss(content));
+
+
+        content = "<body/onhashchange=alert(1)><a href=#>clickit";
         Assert.assertTrue(testXss(content));
     }
 
-
     @Test
     public void testXss6() throws Exception {
-        // String content = "<img//onerror='alert(1'  src='/adss'> <TABLE> && ,:  # %23 SD SSDADA";
-        //String content="<img /onerror=alert(1' > ?=+ adad &   sda %6d a ";
-        String content="< svg 1 onload=daddsda adsd dads@dadsd > 1";
+        // String content = "<img//onerror='alert(1' src='/adss'> <TABLE> && ,: # %23 SD SSDADA";
+        // String content="<img /onerror=alert(1' > ?=+ adad & sda %6d a ";
+        String content = "< svg 1 onload=daddsda adsd dads@dadsd > 1";
         Assert.assertFalse(testXss(content));
-        content="ass<dads a , onload 'alert(1)' >";
-        Assert.assertFalse(testXss(content));
-
-        content="ass<dads a , onload  'alert(1)' 1>232";
+        content = "ass<dads a , onload 'alert(1)' >";
         Assert.assertFalse(testXss(content));
 
-        content="when 1<ass a , aaaa='alert(1)' ss 1>232";
+        content = "ass<dads a , onload  'alert(1)' 1>232";
         Assert.assertFalse(testXss(content));
 
+        content = "when 1<ass a , aaaa='alert(1)' ss 1>232";
+        Assert.assertFalse(testXss(content));
+
+
+        content =
+                "<svg 1 / onload='alert(1)'>";
+        testXss(content);
+
+    }
+
+    @Test
+    public void testXss7() throws Exception {
+        // String content = "<img//onerror='alert(1' src='/adss'> <TABLE> && ,: # %23 SD SSDADA";
+        // String content="<img /onerror=alert(1' > ?=+ adad & sda %6d a ";
+        String content = "<div style=\"color:#000000; font-family:Arial; font-size:12px; font-weight:normal; text-align:start\"><span style=\"font-family:Arial; font-size:18px\">Hi Paulo,<br /><span style=\"color:#000000; display:inline !important; font-family:Arial; font-size:18px; font-weight:normal; text-align:start\">How are you? This is Lassie from Healong. Sorry I just can speak English,</span><br style=\"color:#000000; font-family:Arial; font-size:18px; font-weight:normal; text-align:start\" /><span style=\"color:#000000; display:inline !important; font-family:Arial; font-size:18px; font-weight:normal; text-align:start\">We are specialized in sublimation beach short,</span><br style=\"color:#000000; font-family:Arial; font-size:18px; font-weight:normal; text-align:start\" /><span style=\"color:#000000; display:inline !important; font-family:Arial; font-size:18px; font-weight:normal; text-align:start\">The minimun order is 10pcs only, production time is 2weeks.</span><br style=\"color:#000000; font-family:Arial; font-size:18px; font-weight:normal; text-align:start\" /><span style=\"color:#000000; display:inline !important; font-family:Arial; font-size:18px; font-weight:normal; text-align:start\">The price is 12usd per peice without shipping.</span><br style=\"color:#000000; font-family:Arial; font-size:18px; font-weight:normal; text-align:start\" />Could you pls send me your order details for accurate quote?<br />By the way, pls send me your correct email, thanks.</span></div><div style=\"color:#000000; font-family:Arial; font-size:16px; font-weight:normal; text-align:start\"><p style=\"font-family:Arial, Helvetica, sans-serif; font-size:16px\"><span style=\"color:#000000; font-family:Arial; font-size:18px\">Kind regards<br style=\"color:#000000; font-family:Arial; font-size:16px; font-weight:normal; text-align:start\" />Lassie</span></p></div>";
+        Assert.assertFalse(testXss(content));
 
     }
 
@@ -1345,7 +1487,7 @@ public class AntiSamyTest {
             CleanResults cr = as.scan(content, policy);
             System.out.println(cr.getNumberOfErrors());
             System.out.println(cr.getCleanHTML());
-            return cr.getNumberOfErrors()>0;
+            return cr.getNumberOfErrors() > 0;
         }
         catch (Exception ex) {
         }
@@ -1354,6 +1496,5 @@ public class AntiSamyTest {
         }
         return false;
     }
-
 
 }

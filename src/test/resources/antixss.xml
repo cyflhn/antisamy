@@ -343,13 +343,13 @@ http://www.w3.org/TR/html401/struct/global.html
 
 		<attribute name="width">
 			<regexp-list>
-				<regexp name="numberOrPercent"/>
+				<regexp name="length"/>
 			</regexp-list>
 		</attribute>
 		
 		<attribute name="height">
 			<regexp-list>
-				<regexp name="numberOrPercent"/>
+				<regexp name="length"/>
 			</regexp-list>
 		</attribute>
 		
@@ -2787,13 +2787,9 @@ http://www.w3.org/TR/html401/struct/global.html
 				<category value="visual"/>
 			</category-list>
 			<!--  For safety, ignoring string alignment which can be used to line table cells on characters -->
-			<literal-list>
-				<literal value="left"/>
-				<literal value="right"/>
-				<literal value="center"/>		
-				<literal value="justify"/>
-				<literal value="inherit"/>				
-			</literal-list>
+			<regexp-list>
+				<regexp name="anything"/>
+			</regexp-list>
 		</property>
 		<property name="voice-family" description="The value is a comma-separated, prioritized list of voice family names (compare with 'font-family').">
 			<category-list>
@@ -2839,6 +2835,7 @@ http://www.w3.org/TR/html401/struct/global.html
 		<attribute name="onerror" />
 		<attribute name="onfocus" />
 		<attribute name="onhaschange" />
+		<attribute name="onhashchange" />
 		<attribute name="onload" />
 		<attribute name="onmessage" />
 		<attribute name="onoffline" />
@@ -2904,6 +2901,7 @@ http://www.w3.org/TR/html401/struct/global.html
 		<attribute name="ontimeupdate" />
 		<attribute name="onvolumechange" />
 		<attribute name="onwaiting" />
+		<attribute name="onstart" />
 
 	</event-attributes>
 

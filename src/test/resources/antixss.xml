@@ -178,13 +178,13 @@ http://www.w3.org/TR/html401/struct/global.html
 		 </attribute>
 		 <attribute name="title" description="The 'title' attribute provides text that shows up in a 'tooltip' when a user hovers their mouse over the element">
 		 	<regexp-list>
-		 		<regexp name="htmlTitle"/>
+		 		<regexp name="anything"/>
 		 	</regexp-list>
 		 </attribute>
 		 
 		 <attribute name="alt" description="The 'alt' attribute provides alternative text to users when its visual representation is not available">
 		 	<regexp-list>
-		 		<regexp name="paragraph"/>
+		 		<regexp name="anything"/>
 		 	</regexp-list>
 		 </attribute>
 

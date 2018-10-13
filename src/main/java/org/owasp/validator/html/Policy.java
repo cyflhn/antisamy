@@ -536,7 +536,7 @@ public class Policy {
         for (Element ele : getByTagName(root, "regexp")) {
 
             String name = getAttributeValue(ele, "name");
-            Pattern pattern = Pattern.compile(getAttributeValue(ele, "value"));
+            Pattern pattern = Pattern.compile(getAttributeValue(ele, "value"),Pattern.DOTALL);
 
             commonRegularExpressions1.put(name, new AntiSamyPattern(pattern));
         }

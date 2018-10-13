@@ -1410,7 +1410,6 @@ public class AntiSamyTest {
         content = "<svg/ a , onload='alert(1)'>";
         Assert.assertTrue(testXss(content));
 
-
         content = "<svg 1 / onload='alert(1)'>";
         Assert.assertTrue(testXss(content));
 
@@ -1434,13 +1433,12 @@ public class AntiSamyTest {
         content = "chen\"></div><svg/onload=\"confirm(99)\">";
         Assert.assertTrue(testXss(content));
 
-        //content = "<LINK REL=\"stylesheet\" HREF=\"javascript:alert('XSS');\">";
-        //Assert.assertTrue(testXss(content));
+        // content = "<LINK REL=\"stylesheet\" HREF=\"javascript:alert('XSS');\">";
+        // Assert.assertTrue(testXss(content));
 
         content =
                 "Miss chen\"></div><svg/onload=\"confirm(99)\"Miss chen\"></div><svg/onload=\"confirm(99)\"Miss chen\"></div><svg/onload=\"confirm(99)\"Miss chen\"></div><svg/onload=\"confirm(99)\"";
         Assert.assertTrue(testXss(content));
-
 
         content = "<body/onhashchange=alert(1)><a href=#>clickit";
         Assert.assertTrue(testXss(content));
@@ -1461,9 +1459,7 @@ public class AntiSamyTest {
         content = "when 1<ass a , aaaa='alert(1)' ss 1>232";
         Assert.assertFalse(testXss(content));
 
-
-        content =
-                "<svg 1 / onload='alert(1)'>";
+        content = "<svg 1 / onload='alert(1)'>";
         testXss(content);
 
     }
@@ -1472,9 +1468,17 @@ public class AntiSamyTest {
     public void testXss7() throws Exception {
         // String content = "<img//onerror='alert(1' src='/adss'> <TABLE> && ,: # %23 SD SSDADA";
         // String content="<img /onerror=alert(1' > ?=+ adad & sda %6d a ";
-        String content = "<div style=\"color:#000000; font-family:Arial; font-size:12px; font-weight:normal; text-align:start\"><span style=\"font-family:Arial; font-size:18px\">Hi Paulo,<br /><span style=\"color:#000000; display:inline !important; font-family:Arial; font-size:18px; font-weight:normal; text-align:start\">How are you? This is Lassie from Healong. Sorry I just can speak English,</span><br style=\"color:#000000; font-family:Arial; font-size:18px; font-weight:normal; text-align:start\" /><span style=\"color:#000000; display:inline !important; font-family:Arial; font-size:18px; font-weight:normal; text-align:start\">We are specialized in sublimation beach short,</span><br style=\"color:#000000; font-family:Arial; font-size:18px; font-weight:normal; text-align:start\" /><span style=\"color:#000000; display:inline !important; font-family:Arial; font-size:18px; font-weight:normal; text-align:start\">The minimun order is 10pcs only, production time is 2weeks.</span><br style=\"color:#000000; font-family:Arial; font-size:18px; font-weight:normal; text-align:start\" /><span style=\"color:#000000; display:inline !important; font-family:Arial; font-size:18px; font-weight:normal; text-align:start\">The price is 12usd per peice without shipping.</span><br style=\"color:#000000; font-family:Arial; font-size:18px; font-weight:normal; text-align:start\" />Could you pls send me your order details for accurate quote?<br />By the way, pls send me your correct email, thanks.</span></div><div style=\"color:#000000; font-family:Arial; font-size:16px; font-weight:normal; text-align:start\"><p style=\"font-family:Arial, Helvetica, sans-serif; font-size:16px\"><span style=\"color:#000000; font-family:Arial; font-size:18px\">Kind regards<br style=\"color:#000000; font-family:Arial; font-size:16px; font-weight:normal; text-align:start\" />Lassie</span></p></div>";
+        String content = "Email: <a href=\"mailto:glasshm@hotmail.com\" title=\"按 按住 Ctrl 并单击 跟随链接\n"
+                + "mailto:glasshm@hotmail.com\">glasshm@hotmail.com</a>";
         Assert.assertFalse(testXss(content));
 
+    }
+
+    @Test
+    public void testPattern() throws Exception {
+        Pattern pattern=Pattern.compile(".*",Pattern.DOTALL);
+        Assert.assertTrue( pattern.matcher("按 按住 Ctrl 并单击 跟随链接\n" +
+                "mailto:glasshm@hotmail.com").matches());
     }
 
     private boolean testXss(String content) throws PolicyException {

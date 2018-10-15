@@ -1455,77 +1455,205 @@ public class AntiSamyTest {
     public void testXss7() throws Exception {
         // String content = "<img//onerror='alert(1' src='/adss'> <TABLE> && ,: # %23 SD SSDADA";
         // String content="<img /onerror=alert(1' > ?=+ adad & sda %6d a ";
-        String content = "Hello Gerald,<br />\n" +
+        String content = "Hi Morten,<br />\n" +
                 "<br />\n" +
-                "Good day!<br />\n" +
-                "Thanks for your inquiry about&nbsp;our&nbsp;24V 300W IP67 Waterproof LED Driver AC/DC Adaptor Transformer Switching Power Supply via Made-in-China.<br />\n" +
-                "This is Jonny from Shenzhen LANHAI Bright Lighting Technology Co., Ltd. We provide high quality LED power supply products at competitive prices.<br />\n" +
-                "<img alt=\"\" height=\"186\" src=\"/image?tid=5&amp;id=RAMtwJDqfIzl&amp;cache=0&amp;lan_code=0\" tempid=\"936394192\" width=\"203\" /><br />\n" +
+                "Thanks for your inquiry about our P6 outdoor double sided led panel screen.<br />\n" +
+                "Below were specs and price:<br />\n" +
                 "<br />\n" +
-                "<strong>Specification:</strong><br />\n" +
-                "Input: AC 110-260V 50/60HZ<br />\n" +
-                "Output: DC 24V (+/-0.5V); 12.5A<br />\n" +
-                "Output Power: 300W<br />\n" +
-                "protection:&nbsp;short circuit, overload, overvoltage protection (automatic recovery)<br />\n" +
-                "Size&nbsp;(L*W*H)&nbsp;: 260*122*58mm<br />\n" +
-                "Weight (Kgs): 2.82<br />\n" +
-                "Materials:&nbsp;Aluminum &amp; Plastic<br />\n" +
-                "Main Color: Silver tone<br />\n" +
-                "Connection Type: Bare wire leads<br />\n" +
-                "Working temperature: -20&ordm;C~+50&ordm;C<br />\n" +
-                "Storage temperature: -40&ordm;C~+85&ordm;C<br />\n" +
-                "Working relative humidity: 10%-100%<br />\n" +
-                "Storage relative humidity: 5%-95%<br />\n" +
-                "&nbsp;<br />\n" +
-                "<strong>Advantage:</strong><br />\n" +
-                "&bull;IP67 protection grade&nbsp;for indoor or outdoor usage<br />\n" +
-                "&bull;100% full load burn-in test<br />\n" +
-                "&bull;Cooling by free air convection<br />\n" +
-                "&bull;Full range of input voltage&nbsp;<br />\n" +
-                "&bull;output voltage accurate and stable&nbsp;<br />\n" +
-                "&bull;Output&nbsp;Short circuit/Overload/Over temperature protection<br />\n" +
-                "&bull;Output low ripple and noise&nbsp;<br />\n" +
-                "&bull;Low no-load and standby energy comsuption<br />\n" +
-                "&bull;Two year warranty&nbsp;<br />\n" +
-                "&bull;Average working no trouble &gt;50, 000 hours<br />\n" +
-                "<br />\n" +
-                "<strong>EXW price:&nbsp;</strong><br />\n" +
-                "Sample:&nbsp;<strong>US $</strong> 23.80&nbsp;\n" +
-                "\n" +
-                "<table>\n" +
+                "<span style=\"font-size:14px\"><strong>1) P6 outdoor led modules 192mmx192mm</strong></span><br />\n" +
+                "<img alt=\"\" height=\"276\" src=\"/image?tid=5&amp;id=AdBtwGHnMLre&amp;cache=0&amp;lan_code=0\" tempid=\"936396912\" width=\"276\" /><br />\n" +
+                "&nbsp;\n" +
+                "<table style=\"height:264px; width:363.77pt\">\n" +
+                "\t<colgroup>\n" +
+                "\t\t<col />\n" +
+                "\t\t<col />\n" +
+                "\t\t<col />\n" +
+                "\t\t<col />\n" +
+                "\t\t<col />\n" +
+                "\t</colgroup>\n" +
                 "\t<tbody>\n" +
                 "\t\t<tr>\n" +
-                "\t\t\t<td>10-99&nbsp;Pieces</td>\n" +
-                "\t\t\t<td><strong>US $21.98</strong></td>\n" +
+                "\t\t\t<td style=\"height:18.00pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">1</span></span></span></strong></span></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">Module&nbsp;Resolution:</span></span></span></strong></span></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">32&nbsp;x&nbsp;32&nbsp;Pixels</span></span></span></strong></span></span></td>\n" +
                 "\t\t</tr>\n" +
                 "\t\t<tr>\n" +
-                "\t\t\t<td>100+&nbsp;Pieces</td>\n" +
-                "\t\t\t<td><strong>US $20.50</strong></td>\n" +
+                "\t\t\t<td style=\"height:18.00pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">2</span></span></span></strong></span></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">Module&nbsp;Size:</span></span></span></strong></span></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">192mm(H)*192mm(W)</span></span></span></strong></span></span></td>\n" +
+                "\t\t</tr>\n" +
+                "\t\t<tr>\n" +
+                "\t\t\t<td style=\"height:18.00pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">3</span></span></span></strong></span></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">Pixel&nbsp;Pitch:</span></span></span></strong></span></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">6mm</span></span></span></strong></span></span></td>\n" +
+                "\t\t</tr>\n" +
+                "\t\t<tr>\n" +
+                "\t\t\t<td style=\"height:18.00pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">4</span></span></span></strong></span></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">Pixel&nbsp;Density:</span></span></span></strong></span></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">27777Pixels/m<span style=\"font-size:12px\"><span style=\"color:#000000\"><span style=\"font-family:Arial,Helvetica,sans-serif\"><strong style=\"font-weight:700\"><span><span><span>2</span></span></span></strong></span></span></span></span></span></span></strong></span></span></td>\n" +
+                "\t\t</tr>\n" +
+                "\t\t<tr>\n" +
+                "\t\t\t<td style=\"height:18.00pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">5</span></span></span></strong></span></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">Pixel&nbsp;Composition:</span></span></span></strong></span></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><strong style=\"font-weight:700\"><span style=\"font-family:Arial,Helvetica,sans-serif\">1R1G1B</span></strong></span></td>\n" +
+                "\t\t</tr>\n" +
+                "\t\t<tr>\n" +
+                "\t\t\t<td style=\"height:18.00pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><strong style=\"font-weight:700\"><span style=\"font-family:Arial,Helvetica,sans-serif\">6</span></strong></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><strong style=\"font-weight:700\"><span style=\"font-family:Arial,Helvetica,sans-serif\">LED&nbsp;type</span></strong></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><strong style=\"font-weight:700\"><span style=\"font-family:Arial,Helvetica,sans-serif\">SMD</span></strong></span></td>\n" +
+                "\t\t</tr>\n" +
+                "\t\t<tr>\n" +
+                "\t\t\t<td style=\"height:18.00pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><strong style=\"font-weight:700\"><span style=\"font-family:Arial,Helvetica,sans-serif\">7</span></strong></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><strong style=\"font-weight:700\"><span style=\"font-family:Arial,Helvetica,sans-serif\">Driveing&nbsp;Mode:</span></strong></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><strong style=\"font-weight:700\"><span style=\"font-family:Arial,Helvetica,sans-serif\">1/8&nbsp;Scanning,&nbsp;Constant&nbsp;Current</span></strong></span></td>\n" +
+                "\t\t</tr>\n" +
+                "\t\t<tr>\n" +
+                "\t\t\t<td style=\"height:18.00pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">8</span></span></span></strong></span></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">Hub&nbsp;port</span></span></span></strong></span></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">hub75</span></span></span></strong></span></span></td>\n" +
+                "\t\t</tr>\n" +
+                "\t\t<tr>\n" +
+                "\t\t\t<td style=\"height:18.00pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">9</span></span></span></strong></span></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">Module&nbsp;power&nbsp;consumption</span></span></span></strong></span></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">28w</span></span></span></strong></span></span></td>\n" +
+                "\t\t</tr>\n" +
+                "\t\t<tr>\n" +
+                "\t\t\t<td style=\"height:18.00pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">10</span></span></span></strong></span></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">Moduel&nbsp;weight</span></span></span></strong></span></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">0.4kg</span></span></span></strong></span></span></td>\n" +
+                "\t\t</tr>\n" +
+                "\t\t<tr>\n" +
+                "\t\t\t<td style=\"height:18.00pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">11</span></span></span></strong></span></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">Working&nbsp;Voltage:</span></span></span></strong></span></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">DC&nbsp;5V</span></span></span></strong></span></span></td>\n" +
                 "\t\t</tr>\n" +
                 "\t</tbody>\n" +
                 "</table>\n" +
                 "<br />\n" +
-                "After sales service:<br />\n" +
-                "- 2 years warranty<br />\n" +
-                "- All time technical suport.<br />\n" +
+                "<strong><span style=\"font-size:14px\">2) P6 outdoor display 1920mmWx960mmH double sided</span></strong>\n" +
+                "\n" +
+                "<table style=\"height:499px; width:363.77pt\">\n" +
+                "\t<colgroup>\n" +
+                "\t\t<col />\n" +
+                "\t\t<col />\n" +
+                "\t\t<col />\n" +
+                "\t\t<col />\n" +
+                "\t\t<col />\n" +
+                "\t</colgroup>\n" +
+                "\t<tbody>\n" +
+                "\t\t<tr>\n" +
+                "\t\t\t<td style=\"height:18.00pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">1</span></span></span></strong></span></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">Valid&nbsp;Display&nbsp;Area:</span></span></span></strong></span></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">1920(W)mm*960(H)mm=1.8432sqm<span style=\"font-size:12px\"><span style=\"color:#000000\"><span style=\"font-family:Arial,Helvetica,sans-serif\"><strong style=\"font-weight:700\"><span><span><span>x2=3.6864sqm</span></span></span></strong></span></span></span></span></span></span></strong></span></span></td>\n" +
+                "\t\t</tr>\n" +
+                "\t\t<tr>\n" +
+                "\t\t\t<td style=\"height:18.00pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">2</span></span></span></strong></span></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">Whole&nbsp;Screen&nbsp;Resolution:</span></span></span></strong></span></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">320x160Pixels each side</span></span></span></strong></span></span></td>\n" +
+                "\t\t</tr>\n" +
+                "\t\t<tr>\n" +
+                "\t\t\t<td style=\"height:18.00pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">3</span></span></span></strong></span></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">Cabinet&nbsp;Size(with&nbsp;frame&nbsp;edge):</span></span></span></strong></span></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">1960mmx1000mmx270mm(LxHxD)</span></span></span></strong></span></span></td>\n" +
+                "\t\t</tr>\n" +
+                "\t\t<tr>\n" +
+                "\t\t\t<td style=\"height:18.00pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">4</span></span></span></strong></span></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">Cabinet&nbsp;Quantity:</span></span></span></strong></span></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">1pc cabinet has 2 sided</span></span></span></strong></span></span></td>\n" +
+                "\t\t</tr>\n" +
+                "\t\t<tr>\n" +
+                "\t\t\t<td style=\"height:18.00pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">5</span></span></span></strong></span></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">Maintenance:</span></span></span></strong></span></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><strong style=\"font-weight:700\"><span style=\"font-family:Arial,Helvetica,sans-serif\">front&nbsp;opening</span></strong></span></td>\n" +
+                "\t\t</tr>\n" +
+                "\t\t<tr>\n" +
+                "\t\t\t<td style=\"height:18.00pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><strong style=\"font-weight:700\"><span style=\"font-family:Arial,Helvetica,sans-serif\">6</span></strong></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><strong style=\"font-weight:700\"><span style=\"font-family:Arial,Helvetica,sans-serif\">Cabinet&nbsp;material:</span></strong></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><strong style=\"font-weight:700\"><span style=\"font-family:Arial,Helvetica,sans-serif\">Steel&nbsp;cases,FIXED&nbsp;installation</span></strong></span></td>\n" +
+                "\t\t</tr>\n" +
+                "\t\t<tr>\n" +
+                "\t\t\t<td style=\"height:18.00pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><strong style=\"font-weight:700\"><span style=\"font-family:Arial,Helvetica,sans-serif\">7</span></strong></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><strong style=\"font-weight:700\"><span style=\"font-family:Arial,Helvetica,sans-serif\">Control&nbsp;System:</span></strong></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><strong style=\"font-weight:700\"><span style=\"font-family:Arial,Helvetica,sans-serif\">HD&nbsp;asynchronous&nbsp;controller&nbsp;with&nbsp;WIFI</span></strong></span></td>\n" +
+                "\t\t</tr>\n" +
+                "\t\t<tr>\n" +
+                "\t\t\t<td style=\"height:18.00pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">8</span></span></span></strong></span></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">Max&nbsp;Power&nbsp;Consumption:</span></span></span></strong></span></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">800w/sqm</span></span></span></strong></span></span></td>\n" +
+                "\t\t</tr>\n" +
+                "\t\t<tr>\n" +
+                "\t\t\t<td style=\"height:18.00pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">9</span></span></span></strong></span></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">Cabinet&nbsp;weight:</span></span></span></strong></span></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">50kg/sqm</span></span></span></strong></span></span></td>\n" +
+                "\t\t</tr>\n" +
+                "\t\t<tr>\n" +
+                "\t\t\t<td style=\"height:18.00pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">10</span></span></span></strong></span></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">Waterproof&nbsp;Grade:</span></span></span></strong></span></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">IP65</span></span></span></strong></span></span></td>\n" +
+                "\t\t</tr>\n" +
+                "\t\t<tr>\n" +
+                "\t\t\t<td style=\"height:18.00pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">11</span></span></span></strong></span></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">Communication&nbsp;Mode:</span></span></span></strong></span></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">TCP/IP</span></span></span></strong></span></span></td>\n" +
+                "\t\t</tr>\n" +
+                "\t\t<tr>\n" +
+                "\t\t\t<td style=\"height:18.00pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">12</span></span></span></strong></span></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">Brightness:</span></span></span></strong></span></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><span style=\"font-family:Arial\"><strong style=\"font-weight:700\"><span><span>&ge;</span></span></strong></span></span></span><span style=\"font-size:12px\"><span style=\"color:#000000\"><span style=\"font-family:Arial,Helvetica,sans-serif\"><strong style=\"font-weight:700\"><span><span>6500cd/m2</span></span></strong></span></span></span></span></span></span></strong></span></span></td>\n" +
+                "\t\t</tr>\n" +
+                "\t\t<tr>\n" +
+                "\t\t\t<td style=\"height:18.60pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">13</span></span></span></strong></span></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:18.60pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">Life&nbsp;Span:</span></span></span></strong></span></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:18.60pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">&ge;100,000&nbsp;hours</span></span></span></strong></span></span></td>\n" +
+                "\t\t</tr>\n" +
+                "\t\t<tr>\n" +
+                "\t\t\t<td style=\"height:18.00pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">14</span></span></span></strong></span></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">Out&nbsp;of&nbsp;Control&nbsp;Pixel&nbsp;Rate:</span></span></span></strong></span></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">&lt;0.1&permil;</span></span></span></strong></span></span></td>\n" +
+                "\t\t</tr>\n" +
+                "\t\t<tr>\n" +
+                "\t\t\t<td style=\"height:15.95pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">15</span></span></span></strong></span></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:15.95pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">Input&nbsp;Voltage:</span></span></span></strong></span></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:15.95pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">AC110V/220V,&nbsp;50~60Hz</span></span></span></strong></span></span></td>\n" +
+                "\t\t</tr>\n" +
+                "\t\t<tr>\n" +
+                "\t\t\t<td style=\"height:17.10pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">16</span></span></span></strong></span></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:17.10pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">Operating&nbsp;Temperature:</span></span></span></strong></span></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:17.10pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">-20&deg;C~60&deg;C</span></span></span></strong></span></span></td>\n" +
+                "\t\t</tr>\n" +
+                "\t\t<tr>\n" +
+                "\t\t\t<td style=\"height:18.60pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">17</span></span></span></strong></span></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:18.60pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">Operating&nbsp;Humidity:</span></span></span></strong></span></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:18.60pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">10%~95%&nbsp;RH</span></span></span></strong></span></span></td>\n" +
+                "\t\t</tr>\n" +
+                "\t\t<tr>\n" +
+                "\t\t\t<td style=\"height:18.60pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">18</span></span></span></strong></span></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:18.60pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">Operating&nbsp;System:</span></span></span></strong></span></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:18.60pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">Windows98/2000/XP,etc</span></span></span></strong></span></span></td>\n" +
+                "\t\t</tr>\n" +
+                "\t\t<tr>\n" +
+                "\t\t\t<td style=\"height:36.00pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">19</span></span></span></strong></span></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:36.00pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><strong style=\"font-weight:700\"><span style=\"font-family:Arial,Helvetica,sans-serif\">Spare&nbsp;Part&nbsp;for&nbsp;free:</span></strong></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:36.00pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><strong style=\"font-weight:700\"><span style=\"font-family:Arial,Helvetica,sans-serif\">1)2pcs&nbsp;mdules&nbsp;&nbsp;&nbsp;&nbsp;2)&nbsp;5pcs&nbsp;ribbon&nbsp;cables&nbsp;&nbsp;&nbsp;3)&nbsp;5cs&nbsp;power&nbsp;cables</span></strong></span></td>\n" +
+                "\t\t</tr>\n" +
+                "\t\t<tr>\n" +
+                "\t\t\t<td style=\"height:18.60pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">20</span></span></span></strong></span></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:18.60pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">Packing:</span></span></span></strong></span></span></td>\n" +
+                "\t\t\t<td colspan=\"2\" style=\"height:18.60pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">wooden&nbsp;box</span></span></span></strong></span></span></td>\n" +
+                "\t\t</tr>\n" +
+                "\t</tbody>\n" +
+                "</table>\n" +
+                "<strong><span style=\"font-size:16px\"><span style=\"color:#333399\">EXW Price: USD3318/set</span></span></strong><br />\n" +
                 "<br />\n" +
-                "Do you need to add some samples to the invoice of 500W 12V power supply samples?<br />\n" +
+                "<span style=\"font-size:12px\">Pictures:</span><br />\n" +
+                "<strong><span style=\"font-size:16px\"><span style=\"color:#333399\"><img alt=\"\" height=\"417\" src=\"/image?tid=5&amp;id=dJMTwcLErIre&amp;cache=0&amp;lan_code=0\" tempid=\"936396952\" width=\"417\" /></span></span><br />\n" +
                 "<br />\n" +
-                "Look forward to have a good cooperation with you.<br />\n" +
+                "<span style=\"font-size:12px\">Could you let me know where you will install the screen and what&#39;s the size you are looking for?<br />\n" +
+                "Then we can offer you an exact solution.<br />\n" +
                 "<br />\n" +
-                "Have a nice weekend.<br />\n" +
-                "<br />\n" +
-                "Thanks again &amp; best regards<br />\n" +
-                "<br />\n" +
-                "Jonny Guo<br />\n" +
-                "Sales Manager<br />\n" +
-                "Shenzhen Lanhai Bright Lighting Technology Co., Ltd.<br />\n" +
-                "Tel.: +86-755-36632672 | Mobile:&nbsp; 0086-18520858327<br />\n" +
-                "Skype: jonny-guo | Email: jonnyguo@lanhai-led.com<br />\n" +
-                "Web:&nbsp;<a href=\"http://www.lanhai-led.com/\">http://www.lanhai-led.com</a>&nbsp; | Showroom:&nbsp;<a href=\"https://lhgroup.en.made-in-china.com/\">https://lhgroup.en.made-in-china.com</a><br />\n" +
-                "<br />\n" +
-                "<br />\n" +
-                "&nbsp;";
+                "Looking forward to your reply.<br />\n" +
+                "Thanks&amp;regards<br />\n" +
+                "Rosie</span></strong>";
         Assert.assertFalse(testXss(content));
 
     }

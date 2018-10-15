@@ -109,8 +109,8 @@ http://www.w3.org/TR/html401/struct/global.html
 		<regexp name="angle" value="(-|\+)?([0-9]+(\.[0-9]+)?)(deg|grads|rad)"/>
 		<regexp name="time" value="([0-9]+(\.[0-9]+)?)(ms|s)"/>
 		<regexp name="frequency" value="([0-9]+(\.[0-9]+)?)(hz|khz)"/>	
-		<regexp name="length" value="((-|\+)?0|(-|\+)?([0-9]+(\.[0-9]+)?)(em|ex|px|in|cm|mm|pt|pc))"/>
-		<regexp name="positiveLength" value="((\+)?0|(\+)?([0-9]+(\.[0-9]+)?)(em|ex|px|in|cm|mm|pt|pc))"/>
+		<regexp name="length" value="((-|\+)?0|(-|\+)?([0-9]+(\.[0-9]+)?)(em|ex|px|in|cm|mm|pt|pc)?)"/>
+		<regexp name="positiveLength" value="((\+)?0|(\+)?([0-9]+(\.[0-9]+)?)(em|ex|px|in|cm|mm|pt|pc)?)"/>
 		<regexp name="percentage" value="(-|\+)?([0-9]+(\.[0-9]+)?)%"/>
 		<regexp name="positivePercentage" value="(\+)?([0-9]+(\.[0-9]+)?)%"/>
 		
@@ -231,7 +231,7 @@ http://www.w3.org/TR/html401/struct/global.html
 		<attribute name="name">
 		 	<regexp-list>
 		 		
-		 		<regexp value="[a-zA-Z0-9-\_\$]+"/>
+		 		<regexp value="anything"/>
 		 		
 		 		<!--
 		 		have to allow the $ for .NET controls - although,
@@ -845,6 +845,12 @@ http://www.w3.org/TR/html401/struct/global.html
 					<regexp name="offsiteURL"/>
 				</regexp-list>
 			</attribute>
+			<attribute name="lowsrc">
+				<regexp-list>
+					<regexp name="onsiteURL"/>
+					<regexp name="offsiteURL"/>
+				</regexp-list>
+			</attribute>
 			<attribute name="name"/>
 			<attribute name="alt"/>
 			<attribute name="height"/>
@@ -918,8 +924,11 @@ http://www.w3.org/TR/html401/struct/global.html
 		<!-- <attribute name="href" onInvalid="removeTag"/>  -->
 			
 		<tag name="link" action="validate">
-
-			<!-- <attribute name="href" onInvalid="removeTag"/>  -->
+			<attribute name="href">
+				<literal-list>
+					<literal value=""/>
+				</literal-list>
+			</attribute>
 			
 			<attribute name="media"/>
 			

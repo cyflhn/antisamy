@@ -952,7 +952,7 @@ public class AntiSamyTest {
 
         try {
             as.scan(sb.toString(), policy, AntiSamy.DOM);
-           // fail("DOM depth exceeded max - should've errored");
+            // fail("DOM depth exceeded max - should've errored");
         }
         catch (ScanException e) {
 
@@ -1353,7 +1353,6 @@ public class AntiSamyTest {
         assertEquals(badExpected, s);
     }
 
-
     public void testAnotherXSS() throws ScanException, PolicyException {
         String test = "<a href=\"http://example.com\"&amp;/onclick=alert(9)>foo</a>";
         CleanResults results_sax = as.scan(test, policy, AntiSamy.SAX);
@@ -1455,219 +1454,29 @@ public class AntiSamyTest {
     public void testXss7() throws Exception {
         // String content = "<img//onerror='alert(1' src='/adss'> <TABLE> && ,: # %23 SD SSDADA";
         // String content="<img /onerror=alert(1' > ?=+ adad & sda %6d a ";
-        String content = "Hi Morten,<br />\n" +
-                "<br />\n" +
-                "Thanks for your inquiry about our P6 outdoor double sided led panel screen.<br />\n" +
-                "Below were specs and price:<br />\n" +
-                "<br />\n" +
-                "<span style=\"font-size:14px\"><strong>1) P6 outdoor led modules 192mmx192mm</strong></span><br />\n" +
-                "<img alt=\"\" height=\"276\" src=\"/image?tid=5&amp;id=AdBtwGHnMLre&amp;cache=0&amp;lan_code=0\" tempid=\"936396912\" width=\"276\" /><br />\n" +
-                "&nbsp;\n" +
-                "<table style=\"height:264px; width:363.77pt\">\n" +
-                "\t<colgroup>\n" +
-                "\t\t<col />\n" +
-                "\t\t<col />\n" +
-                "\t\t<col />\n" +
-                "\t\t<col />\n" +
-                "\t\t<col />\n" +
-                "\t</colgroup>\n" +
-                "\t<tbody>\n" +
-                "\t\t<tr>\n" +
-                "\t\t\t<td style=\"height:18.00pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">1</span></span></span></strong></span></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">Module&nbsp;Resolution:</span></span></span></strong></span></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">32&nbsp;x&nbsp;32&nbsp;Pixels</span></span></span></strong></span></span></td>\n" +
-                "\t\t</tr>\n" +
-                "\t\t<tr>\n" +
-                "\t\t\t<td style=\"height:18.00pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">2</span></span></span></strong></span></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">Module&nbsp;Size:</span></span></span></strong></span></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">192mm(H)*192mm(W)</span></span></span></strong></span></span></td>\n" +
-                "\t\t</tr>\n" +
-                "\t\t<tr>\n" +
-                "\t\t\t<td style=\"height:18.00pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">3</span></span></span></strong></span></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">Pixel&nbsp;Pitch:</span></span></span></strong></span></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">6mm</span></span></span></strong></span></span></td>\n" +
-                "\t\t</tr>\n" +
-                "\t\t<tr>\n" +
-                "\t\t\t<td style=\"height:18.00pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">4</span></span></span></strong></span></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">Pixel&nbsp;Density:</span></span></span></strong></span></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">27777Pixels/m<span style=\"font-size:12px\"><span style=\"color:#000000\"><span style=\"font-family:Arial,Helvetica,sans-serif\"><strong style=\"font-weight:700\"><span><span><span>2</span></span></span></strong></span></span></span></span></span></span></strong></span></span></td>\n" +
-                "\t\t</tr>\n" +
-                "\t\t<tr>\n" +
-                "\t\t\t<td style=\"height:18.00pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">5</span></span></span></strong></span></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">Pixel&nbsp;Composition:</span></span></span></strong></span></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><strong style=\"font-weight:700\"><span style=\"font-family:Arial,Helvetica,sans-serif\">1R1G1B</span></strong></span></td>\n" +
-                "\t\t</tr>\n" +
-                "\t\t<tr>\n" +
-                "\t\t\t<td style=\"height:18.00pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><strong style=\"font-weight:700\"><span style=\"font-family:Arial,Helvetica,sans-serif\">6</span></strong></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><strong style=\"font-weight:700\"><span style=\"font-family:Arial,Helvetica,sans-serif\">LED&nbsp;type</span></strong></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><strong style=\"font-weight:700\"><span style=\"font-family:Arial,Helvetica,sans-serif\">SMD</span></strong></span></td>\n" +
-                "\t\t</tr>\n" +
-                "\t\t<tr>\n" +
-                "\t\t\t<td style=\"height:18.00pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><strong style=\"font-weight:700\"><span style=\"font-family:Arial,Helvetica,sans-serif\">7</span></strong></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><strong style=\"font-weight:700\"><span style=\"font-family:Arial,Helvetica,sans-serif\">Driveing&nbsp;Mode:</span></strong></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><strong style=\"font-weight:700\"><span style=\"font-family:Arial,Helvetica,sans-serif\">1/8&nbsp;Scanning,&nbsp;Constant&nbsp;Current</span></strong></span></td>\n" +
-                "\t\t</tr>\n" +
-                "\t\t<tr>\n" +
-                "\t\t\t<td style=\"height:18.00pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">8</span></span></span></strong></span></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">Hub&nbsp;port</span></span></span></strong></span></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">hub75</span></span></span></strong></span></span></td>\n" +
-                "\t\t</tr>\n" +
-                "\t\t<tr>\n" +
-                "\t\t\t<td style=\"height:18.00pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">9</span></span></span></strong></span></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">Module&nbsp;power&nbsp;consumption</span></span></span></strong></span></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">28w</span></span></span></strong></span></span></td>\n" +
-                "\t\t</tr>\n" +
-                "\t\t<tr>\n" +
-                "\t\t\t<td style=\"height:18.00pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">10</span></span></span></strong></span></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">Moduel&nbsp;weight</span></span></span></strong></span></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">0.4kg</span></span></span></strong></span></span></td>\n" +
-                "\t\t</tr>\n" +
-                "\t\t<tr>\n" +
-                "\t\t\t<td style=\"height:18.00pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">11</span></span></span></strong></span></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">Working&nbsp;Voltage:</span></span></span></strong></span></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">DC&nbsp;5V</span></span></span></strong></span></span></td>\n" +
-                "\t\t</tr>\n" +
-                "\t</tbody>\n" +
-                "</table>\n" +
-                "<br />\n" +
-                "<strong><span style=\"font-size:14px\">2) P6 outdoor display 1920mmWx960mmH double sided</span></strong>\n" +
-                "\n" +
-                "<table style=\"height:499px; width:363.77pt\">\n" +
-                "\t<colgroup>\n" +
-                "\t\t<col />\n" +
-                "\t\t<col />\n" +
-                "\t\t<col />\n" +
-                "\t\t<col />\n" +
-                "\t\t<col />\n" +
-                "\t</colgroup>\n" +
-                "\t<tbody>\n" +
-                "\t\t<tr>\n" +
-                "\t\t\t<td style=\"height:18.00pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">1</span></span></span></strong></span></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">Valid&nbsp;Display&nbsp;Area:</span></span></span></strong></span></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">1920(W)mm*960(H)mm=1.8432sqm<span style=\"font-size:12px\"><span style=\"color:#000000\"><span style=\"font-family:Arial,Helvetica,sans-serif\"><strong style=\"font-weight:700\"><span><span><span>x2=3.6864sqm</span></span></span></strong></span></span></span></span></span></span></strong></span></span></td>\n" +
-                "\t\t</tr>\n" +
-                "\t\t<tr>\n" +
-                "\t\t\t<td style=\"height:18.00pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">2</span></span></span></strong></span></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">Whole&nbsp;Screen&nbsp;Resolution:</span></span></span></strong></span></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">320x160Pixels each side</span></span></span></strong></span></span></td>\n" +
-                "\t\t</tr>\n" +
-                "\t\t<tr>\n" +
-                "\t\t\t<td style=\"height:18.00pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">3</span></span></span></strong></span></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">Cabinet&nbsp;Size(with&nbsp;frame&nbsp;edge):</span></span></span></strong></span></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">1960mmx1000mmx270mm(LxHxD)</span></span></span></strong></span></span></td>\n" +
-                "\t\t</tr>\n" +
-                "\t\t<tr>\n" +
-                "\t\t\t<td style=\"height:18.00pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">4</span></span></span></strong></span></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">Cabinet&nbsp;Quantity:</span></span></span></strong></span></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">1pc cabinet has 2 sided</span></span></span></strong></span></span></td>\n" +
-                "\t\t</tr>\n" +
-                "\t\t<tr>\n" +
-                "\t\t\t<td style=\"height:18.00pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">5</span></span></span></strong></span></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">Maintenance:</span></span></span></strong></span></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><strong style=\"font-weight:700\"><span style=\"font-family:Arial,Helvetica,sans-serif\">front&nbsp;opening</span></strong></span></td>\n" +
-                "\t\t</tr>\n" +
-                "\t\t<tr>\n" +
-                "\t\t\t<td style=\"height:18.00pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><strong style=\"font-weight:700\"><span style=\"font-family:Arial,Helvetica,sans-serif\">6</span></strong></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><strong style=\"font-weight:700\"><span style=\"font-family:Arial,Helvetica,sans-serif\">Cabinet&nbsp;material:</span></strong></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><strong style=\"font-weight:700\"><span style=\"font-family:Arial,Helvetica,sans-serif\">Steel&nbsp;cases,FIXED&nbsp;installation</span></strong></span></td>\n" +
-                "\t\t</tr>\n" +
-                "\t\t<tr>\n" +
-                "\t\t\t<td style=\"height:18.00pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><strong style=\"font-weight:700\"><span style=\"font-family:Arial,Helvetica,sans-serif\">7</span></strong></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><strong style=\"font-weight:700\"><span style=\"font-family:Arial,Helvetica,sans-serif\">Control&nbsp;System:</span></strong></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><strong style=\"font-weight:700\"><span style=\"font-family:Arial,Helvetica,sans-serif\">HD&nbsp;asynchronous&nbsp;controller&nbsp;with&nbsp;WIFI</span></strong></span></td>\n" +
-                "\t\t</tr>\n" +
-                "\t\t<tr>\n" +
-                "\t\t\t<td style=\"height:18.00pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">8</span></span></span></strong></span></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">Max&nbsp;Power&nbsp;Consumption:</span></span></span></strong></span></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">800w/sqm</span></span></span></strong></span></span></td>\n" +
-                "\t\t</tr>\n" +
-                "\t\t<tr>\n" +
-                "\t\t\t<td style=\"height:18.00pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">9</span></span></span></strong></span></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">Cabinet&nbsp;weight:</span></span></span></strong></span></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">50kg/sqm</span></span></span></strong></span></span></td>\n" +
-                "\t\t</tr>\n" +
-                "\t\t<tr>\n" +
-                "\t\t\t<td style=\"height:18.00pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">10</span></span></span></strong></span></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">Waterproof&nbsp;Grade:</span></span></span></strong></span></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">IP65</span></span></span></strong></span></span></td>\n" +
-                "\t\t</tr>\n" +
-                "\t\t<tr>\n" +
-                "\t\t\t<td style=\"height:18.00pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">11</span></span></span></strong></span></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">Communication&nbsp;Mode:</span></span></span></strong></span></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">TCP/IP</span></span></span></strong></span></span></td>\n" +
-                "\t\t</tr>\n" +
-                "\t\t<tr>\n" +
-                "\t\t\t<td style=\"height:18.00pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">12</span></span></span></strong></span></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">Brightness:</span></span></span></strong></span></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><span style=\"font-family:Arial\"><strong style=\"font-weight:700\"><span><span>&ge;</span></span></strong></span></span></span><span style=\"font-size:12px\"><span style=\"color:#000000\"><span style=\"font-family:Arial,Helvetica,sans-serif\"><strong style=\"font-weight:700\"><span><span>6500cd/m2</span></span></strong></span></span></span></span></span></span></strong></span></span></td>\n" +
-                "\t\t</tr>\n" +
-                "\t\t<tr>\n" +
-                "\t\t\t<td style=\"height:18.60pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">13</span></span></span></strong></span></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:18.60pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">Life&nbsp;Span:</span></span></span></strong></span></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:18.60pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">&ge;100,000&nbsp;hours</span></span></span></strong></span></span></td>\n" +
-                "\t\t</tr>\n" +
-                "\t\t<tr>\n" +
-                "\t\t\t<td style=\"height:18.00pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">14</span></span></span></strong></span></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">Out&nbsp;of&nbsp;Control&nbsp;Pixel&nbsp;Rate:</span></span></span></strong></span></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:18.00pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">&lt;0.1&permil;</span></span></span></strong></span></span></td>\n" +
-                "\t\t</tr>\n" +
-                "\t\t<tr>\n" +
-                "\t\t\t<td style=\"height:15.95pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">15</span></span></span></strong></span></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:15.95pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">Input&nbsp;Voltage:</span></span></span></strong></span></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:15.95pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">AC110V/220V,&nbsp;50~60Hz</span></span></span></strong></span></span></td>\n" +
-                "\t\t</tr>\n" +
-                "\t\t<tr>\n" +
-                "\t\t\t<td style=\"height:17.10pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">16</span></span></span></strong></span></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:17.10pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">Operating&nbsp;Temperature:</span></span></span></strong></span></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:17.10pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">-20&deg;C~60&deg;C</span></span></span></strong></span></span></td>\n" +
-                "\t\t</tr>\n" +
-                "\t\t<tr>\n" +
-                "\t\t\t<td style=\"height:18.60pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">17</span></span></span></strong></span></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:18.60pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">Operating&nbsp;Humidity:</span></span></span></strong></span></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:18.60pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">10%~95%&nbsp;RH</span></span></span></strong></span></span></td>\n" +
-                "\t\t</tr>\n" +
-                "\t\t<tr>\n" +
-                "\t\t\t<td style=\"height:18.60pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">18</span></span></span></strong></span></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:18.60pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">Operating&nbsp;System:</span></span></span></strong></span></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:18.60pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">Windows98/2000/XP,etc</span></span></span></strong></span></span></td>\n" +
-                "\t\t</tr>\n" +
-                "\t\t<tr>\n" +
-                "\t\t\t<td style=\"height:36.00pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">19</span></span></span></strong></span></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:36.00pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><strong style=\"font-weight:700\"><span style=\"font-family:Arial,Helvetica,sans-serif\">Spare&nbsp;Part&nbsp;for&nbsp;free:</span></strong></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:36.00pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><strong style=\"font-weight:700\"><span style=\"font-family:Arial,Helvetica,sans-serif\">1)2pcs&nbsp;mdules&nbsp;&nbsp;&nbsp;&nbsp;2)&nbsp;5pcs&nbsp;ribbon&nbsp;cables&nbsp;&nbsp;&nbsp;3)&nbsp;5cs&nbsp;power&nbsp;cables</span></strong></span></td>\n" +
-                "\t\t</tr>\n" +
-                "\t\t<tr>\n" +
-                "\t\t\t<td style=\"height:18.60pf; text-align:center; width:38.27pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">20</span></span></span></strong></span></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:18.60pf; text-align:left; width:235.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">Packing:</span></span></span></strong></span></span></td>\n" +
-                "\t\t\t<td colspan=\"2\" style=\"height:18.60pf; text-align:left; width:199.53pt\"><span style=\"font-size:12px\"><span style=\"color:#000000\"><strong style=\"font-weight:700\"><span><span><span style=\"font-family:Arial,Helvetica,sans-serif\">wooden&nbsp;box</span></span></span></strong></span></span></td>\n" +
-                "\t\t</tr>\n" +
-                "\t</tbody>\n" +
-                "</table>\n" +
-                "<strong><span style=\"font-size:16px\"><span style=\"color:#333399\">EXW Price: USD3318/set</span></span></strong><br />\n" +
-                "<br />\n" +
-                "<span style=\"font-size:12px\">Pictures:</span><br />\n" +
-                "<strong><span style=\"font-size:16px\"><span style=\"color:#333399\"><img alt=\"\" height=\"417\" src=\"/image?tid=5&amp;id=dJMTwcLErIre&amp;cache=0&amp;lan_code=0\" tempid=\"936396952\" width=\"417\" /></span></span><br />\n" +
-                "<br />\n" +
-                "<span style=\"font-size:12px\">Could you let me know where you will install the screen and what&#39;s the size you are looking for?<br />\n" +
-                "Then we can offer you an exact solution.<br />\n" +
-                "<br />\n" +
-                "Looking forward to your reply.<br />\n" +
-                "Thanks&amp;regards<br />\n" +
-                "Rosie</span></strong>";
+        String content =
+                "<div>Dear Mr. Desmond Chetty锛?/div><div>&nbsp;</div><div>Good day, This is Vivien from Tanboress, a professioanl turbocharger manufacturer.</div><div>Glad to receive your kindly inquiry.</div><div>&nbsp;</div><div>For the turbocharger you inquires, please see the details below:</div><div>&nbsp;</div><div><img alt=\"\" height=\"189\" src=\"/image?tid=5&amp;id=ImMQJGPHCLuj&amp;cache=0&amp;lan_code=0\" tempid=\"936397312\" width=\"190\" /><br />&nbsp;</div><div>&nbsp;</div><div>Based 1-5 pcs: USD 139/pc with one year warranty.</div><div>&nbsp;</div><div>Attached documents&nbsp;are the more information about this product.</div><div>Could you please tell me how many do you need? I will check the shipping&nbsp;cost for you asap.</div><div>&nbsp;</div><div>Anything unclearly, please let me know, your qucik reply will be appreciate!<br /><br />&nbsp;</div>";
         Assert.assertFalse(testXss(content));
+    }
 
+    @Test
+    public void testXss8() throws Exception {
+        // String content = "<img//onerror='alert(1' src='/adss'> <TABLE> && ,: # %23 SD SSDADA";
+        // String content="<img /onerror=alert(1' > ?=+ adad & sda %6d a ";
+        String content =
+                "<a href=\"javascript:alert(1)\" >www.baidu.com</a>;";
+        Assert.assertTrue(testXss(content));
+        Assert.assertFalse(getclean(content).contains("nofollow"));
     }
 
     @Test
     public void testPattern() throws Exception {
-        Pattern pattern=Pattern.compile(".*",Pattern.DOTALL);
-        Assert.assertTrue( pattern.matcher("按 按住 Ctrl 并单击 跟随链接\n" +
-                "mailto:glasshm@hotmail.com").matches());
+        Pattern pattern = Pattern.compile(".*", Pattern.DOTALL);
+        Assert.assertTrue(pattern.matcher("按 按住 Ctrl 并单击 跟随链接\n" + "mailto:glasshm@hotmail.com").matches());
     }
 
     private boolean testXss(String content) throws PolicyException {
         Policy policy = Policy.getInstance(this.getClass().getResourceAsStream("/antixss.xml"));
-
         Locale defaultLocal = Locale.getDefault();
         Locale.setDefault(Locale.ENGLISH);
         AntiSamyExt as = new AntiSamyExt();
@@ -1683,6 +1492,25 @@ public class AntiSamyTest {
             Locale.setDefault(defaultLocal);
         }
         return false;
+    }
+
+    private String getclean(String content) throws PolicyException {
+        Policy policy = Policy.getInstance(this.getClass().getResourceAsStream("/antixss.xml"));
+        Locale defaultLocal = Locale.getDefault();
+        Locale.setDefault(Locale.ENGLISH);
+        AntiSamyExt as = new AntiSamyExt();
+        try {
+            CleanResults cr = as.scan(content, policy);
+            System.out.println(cr.getNumberOfErrors());
+            System.out.println(cr.getCleanHTML());
+            return cr.getCleanHTML();
+        }
+        catch (Exception ex) {
+        }
+        finally {
+            Locale.setDefault(defaultLocal);
+        }
+        return content;
     }
 
 }

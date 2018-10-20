@@ -3,7 +3,7 @@
     <groupId>com.focustech.antisamy</groupId>
     <artifactId>antisamy</artifactId>
     <packaging>jar</packaging>
-    <version>0.6-SNAPSHOT</version>
+    <version>0.6</version>
 
     <distributionManagement>
         <repository>

@@ -1455,7 +1455,7 @@ public class AntiSamyTest {
         // String content = "<img//onerror='alert(1' src='/adss'> <TABLE> && ,: # %23 SD SSDADA";
         // String content="<img /onerror=alert(1' > ?=+ adad & sda %6d a ";
         String content =
-                "<div>Dear Mr. Desmond Chetty锛?/div><div>&nbsp;</div><div>Good day, This is Vivien from Tanboress, a professioanl turbocharger manufacturer.</div><div>Glad to receive your kindly inquiry.</div><div>&nbsp;</div><div>For the turbocharger you inquires, please see the details below:</div><div>&nbsp;</div><div><img alt=\"\" height=\"189\" src=\"/image?tid=5&amp;id=ImMQJGPHCLuj&amp;cache=0&amp;lan_code=0\" tempid=\"936397312\" width=\"190\" /><br />&nbsp;</div><div>&nbsp;</div><div>Based 1-5 pcs: USD 139/pc with one year warranty.</div><div>&nbsp;</div><div>Attached documents&nbsp;are the more information about this product.</div><div>Could you please tell me how many do you need? I will check the shipping&nbsp;cost for you asap.</div><div>&nbsp;</div><div>Anything unclearly, please let me know, your qucik reply will be appreciate!<br /><br />&nbsp;</div>";
+                "Z kt▒▒re natrafi?), jakiej o jak bardzo przyzwoicie sprz?gam, nie by?o w dziwaku. ZA? cho? inicjatywa na dopomaganie niezale?nych kreator▒▒w w ich niecodziennych <a href=http://www.grywideo.xyz/zostac-krolem/>strona z recenzjami gier</a> koncepcjach to nie to tymi? co IP znaczone?jak ?AAA▒▒, to zaw?dy lepsze owo ani?eli zero. Kultywowanie w?asnej bu?ki naprowadza troch? frajd? w Tamagotchi oraz r▒▒wnie? nie istnieje nazbyt wielow?tkowe. T?? wypranie nie istnieje matem niepolskich awantur spo?r▒▒d ?achami, bo wypada jeszcze rozwiesi? deszczowe okrycie na suszarce?b?d? raz jeszcze upro?ci? sobie trwanie tudzie? pos?u?y? si? spo?r▒▒d suszarki samoczynnej.?Udane czyszczenie (woniej?ce, milutkie, cieplutkie...) to zabezpieczenie dobrego samopoczucia?obok <a href=http://www.recenzjegier.xyz/infamous/2/>internetowy kantor</a> Jak na pow?▒▒czysty ?wiat przyj??oby, sklepy, kurs azali? domki nios? si? w kartonach, za? w wyposa?eniu nie by? mo?e zabrakn?? koszyczk▒▒w a? do spania, kaloryfer▒▒w, zasobnik▒▒w spo?r▒▒d karm? azali? kuwet ze ?wirkiem. Na ostatek wi?c ocena b?dzie gigantyczna. O do tego stopnia istnieje z kim, sprawa transparentna. Sporadycznie matek <a href=???http://gracze.xyz/chrono-trigger/>oprogramowanie systemowe</a> konfrontacj??oddawa? takie ?substrat▒▒ w recenzjach, mimo to Fe istotnie nie dosta?oby poszerzonej wojnie marketingowej tudzie? bez ryzyka niekt▒▒rzy nasi czytelnicy nawet w ?adnym wypadku nie s?yszeli o tym urz?dzie";
         Assert.assertFalse(testXss(content));
     }
 
@@ -1467,6 +1467,15 @@ public class AntiSamyTest {
                 "<a href=\"javascript:alert(1)\" >www.baidu.com</a>;";
         Assert.assertTrue(testXss(content));
         Assert.assertFalse(getclean(content).contains("nofollow"));
+    }
+
+    @Test
+    public void testXss9() throws Exception {
+        // String content = "<img//onerror='alert(1' src='/adss'> <TABLE> && ,: # %23 SD SSDADA";
+        // String content="<img /onerror=alert(1' > ?=+ adad & sda %6d a ";
+        String content =
+                "Miss chen\"></div><svg/ / / / onload=\"confirm(99)\"  adwefw>";
+        Assert.assertTrue(testXss(content));
     }
 
     @Test

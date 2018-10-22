@@ -1455,7 +1455,11 @@ public class AntiSamyTest {
         // String content = "<img//onerror='alert(1' src='/adss'> <TABLE> && ,: # %23 SD SSDADA";
         // String content="<img /onerror=alert(1' > ?=+ adad & sda %6d a ";
         String content =
-                "Z kt▒▒re natrafi?), jakiej o jak bardzo przyzwoicie sprz?gam, nie by?o w dziwaku. ZA? cho? inicjatywa na dopomaganie niezale?nych kreator▒▒w w ich niecodziennych <a href=http://www.grywideo.xyz/zostac-krolem/>strona z recenzjami gier</a> koncepcjach to nie to tymi? co IP znaczone?jak ?AAA▒▒, to zaw?dy lepsze owo ani?eli zero. Kultywowanie w?asnej bu?ki naprowadza troch? frajd? w Tamagotchi oraz r▒▒wnie? nie istnieje nazbyt wielow?tkowe. T?? wypranie nie istnieje matem niepolskich awantur spo?r▒▒d ?achami, bo wypada jeszcze rozwiesi? deszczowe okrycie na suszarce?b?d? raz jeszcze upro?ci? sobie trwanie tudzie? pos?u?y? si? spo?r▒▒d suszarki samoczynnej.?Udane czyszczenie (woniej?ce, milutkie, cieplutkie...) to zabezpieczenie dobrego samopoczucia?obok <a href=http://www.recenzjegier.xyz/infamous/2/>internetowy kantor</a> Jak na pow?▒▒czysty ?wiat przyj??oby, sklepy, kurs azali? domki nios? si? w kartonach, za? w wyposa?eniu nie by? mo?e zabrakn?? koszyczk▒▒w a? do spania, kaloryfer▒▒w, zasobnik▒▒w spo?r▒▒d karm? azali? kuwet ze ?wirkiem. Na ostatek wi?c ocena b?dzie gigantyczna. O do tego stopnia istnieje z kim, sprawa transparentna. Sporadycznie matek <a href=???http://gracze.xyz/chrono-trigger/>oprogramowanie systemowe</a> konfrontacj??oddawa? takie ?substrat▒▒ w recenzjach, mimo to Fe istotnie nie dosta?oby poszerzonej wojnie marketingowej tudzie? bez ryzyka niekt▒▒rzy nasi czytelnicy nawet w ?adnym wypadku nie s?yszeli o tym urz?dzie";
+                "<br />Miss chen&quot;&gt;&lt;/div&gt;&lt;svg/ / / / onload=&quot;confirm(99)&quot;&nbsp;&nbsp;adwefw<br />&nbsp; >";
+        Assert.assertFalse(testXss(content));
+
+         content =
+                ":<p style=\"color:#006600; font-family:Times New Roman, Times, serif; font-size:16px\"><em><strong>This info is used for testing</strong></em></p><img alt=\"\" height=\"300px\" src=\"image?tid=25&amp;id=qrSTmtwyrhoH&amp;cache=0&amp;lan_code=0\" srcid=\"247993505\" width=\"300px\" /><table border=\"1\" cellpadding=\"1\" cellspacing=\"1\" style=\"width:500px\">    <tbody>         <tr>                    <td colspan=\"3\" style=\"background-color:#f2fff2\">product detail</td>              </tr>           <tr>                    <td>V01</td>                    <td>red</td>                    <td>1.50m</td>          </tr>     </tbody></table>This info is used for testing! This info is used for testing!<br />This info is used for testing! This info is used for testing!<br />This info is used for testing! This info is used for testing!<br /><br /><br />Miss chen&quot;&gt;&lt;/div&gt;&lt;svg/ / / / onload=&quot;confirm(99)&quot;&nbsp;<br />&nbsp; >";
         Assert.assertFalse(testXss(content));
     }
 
@@ -1474,7 +1478,7 @@ public class AntiSamyTest {
         // String content = "<img//onerror='alert(1' src='/adss'> <TABLE> && ,: # %23 SD SSDADA";
         // String content="<img /onerror=alert(1' > ?=+ adad & sda %6d a ";
         String content =
-                "Miss chen\"></div><svg/ / / / onload=\"confirm(99)\"  adwefw>";
+                "aareresd3ssss<script></script> ssssa ";
         Assert.assertTrue(testXss(content));
     }
 

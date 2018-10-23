@@ -3,7 +3,7 @@
     <groupId>com.focustech.antisamy</groupId>
     <artifactId>antisamy</artifactId>
     <packaging>jar</packaging>
-    <version>0.7</version>
+    <version>0.8</version>
 
     <distributionManagement>
         <repository>
@@ -36,7 +36,7 @@
         <dependency>
             <groupId>org.apache.xmlgraphics</groupId>
             <artifactId>batik-css</artifactId>
-            <version>1.9.1</version>
+            <version>1.10</version>
         </dependency>
         <dependency>
             <groupId>com.focustech.nekohtml</groupId>

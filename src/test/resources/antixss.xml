@@ -1620,13 +1620,8 @@ http://www.w3.org/TR/html401/struct/global.html
 			<category-list>
 				<category value="visual"/>
 			</category-list>
-			<literal-list>
-				<literal value="auto"/>
-				<literal value="inherit"/>
-			</literal-list>
 			<regexp-list>
-				<regexp name="length"/>
-				<regexp name="percentage"/>
+				<regexp name="anything"/>
 			</regexp-list>
 		</property>
 		<property name="left" default="auto" description="">
@@ -2170,13 +2165,8 @@ http://www.w3.org/TR/html401/struct/global.html
 			<category-list>
 				<category value="visual"/>
 			</category-list>
-			<literal-list>
-				<literal value="auto"/>
-				<literal value="inherit"/>
-			</literal-list>
 			<regexp-list>
-				<regexp name="length"/>
-				<regexp name="percentage"/>
+				<regexp name="anything"/>
 			</regexp-list>
 		</property>
 		<property name="word-spacing" default="normal" description="">
@@ -2811,7 +2801,7 @@ http://www.w3.org/TR/html401/struct/global.html
 				<literal value="child"/>		
 				<literal value="inherit"/>				
 			</literal-list>
-		</property>		
+		</property>
 		<!--  end manual properties -->
 	</css-rules>
 

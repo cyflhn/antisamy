@@ -1458,8 +1458,83 @@ public class AntiSamyTest {
                 "<br />Miss chen&quot;&gt;&lt;/div&gt;&lt;svg/ / / / onload=&quot;confirm(99)&quot;&nbsp;&nbsp;adwefw<br />&nbsp; >";
         Assert.assertFalse(testXss(content));
 
-         content =
+        content =
                 ":<p style=\"color:#006600; font-family:Times New Roman, Times, serif; font-size:16px\"><em><strong>This info is used for testing</strong></em></p><img alt=\"\" height=\"300px\" src=\"image?tid=25&amp;id=qrSTmtwyrhoH&amp;cache=0&amp;lan_code=0\" srcid=\"247993505\" width=\"300px\" /><table border=\"1\" cellpadding=\"1\" cellspacing=\"1\" style=\"width:500px\">    <tbody>         <tr>                    <td colspan=\"3\" style=\"background-color:#f2fff2\">product detail</td>              </tr>           <tr>                    <td>V01</td>                    <td>red</td>                    <td>1.50m</td>          </tr>     </tbody></table>This info is used for testing! This info is used for testing!<br />This info is used for testing! This info is used for testing!<br />This info is used for testing! This info is used for testing!<br /><br /><br />Miss chen&quot;&gt;&lt;/div&gt;&lt;svg/ / / / onload=&quot;confirm(99)&quot;&nbsp;<br />&nbsp; >";
+        Assert.assertFalse(testXss(content));
+        content =
+                "<strong><span style=\"font-family:Arial, Helvetica, sans-serif;\"><span style=\"font-size:18px;\">P\n"
+                        + "lastic Room Acrylic Hotel Supplies Storage Box</span></span></strong><h3><br /><span style=\"font-size:16px;\">Thank you for your visit my shop .It is my pleasure.</span></h3><span style\n"
+                        + "=\"font-size:16px;\">Resin Product &nbsp;such as : Consumable Box .Remote Holder . Tray.Cup Mat.Soap Dispenser<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; \n"
+                        + "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Tissue Box.Towel Plate.Table Plate.Vase. etc.</span><br /><br /><br /><br /><img height=\"750px\" srcid=\"303\n"
+                        + "053515\" width=\"750px\" /><br /><br />&nbsp;<table style=\"height:689px;width:750px;\"><colgroup><col /><col /><col /><col /></colgroup><tbody><tr><td colspan=\"4\" style=\"height:39.00\n"
+                        + "pf;text-align:center;width:460.52pt;\"><strong><span style=\"font-size:20px;\"><span style=\"color:#000000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">Product&nbsp;Infor\n"
+                        + "mation</span></span></span></strong></td></tr><tr><td style=\"height:39.00pf;text-align:general;width:75.78pt;\"><span style=\"font-size:16px;\"><span style=\"color:#000000;\"><span styl\n"
+                        + "e=\"font-family:Arial, Helvetica, sans-serif;\">Name</span></span></span></td><td style=\"height:39.00pf;text-align:general;width:172.53pt;\"><span style=\"font-size:16px;\"><span style=\n"
+                        + "\"color:#000000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">Hotel&nbsp;Amenity</span></span></span></td><td style=\"height:39.00pf;text-align:general;width:136.53pt;\"><\n"
+                        + "span style=\"font-size:16px;\"><span style=\"color:#000000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">Item</span></span></span></td><td style=\"height:39.00pf;text-alig\n"
+                        + "n:general;width:210.78pt;\"><span style=\"font-size:16px;\">XLS-08</span></td></tr><tr><td style=\"height:39.00pf;text-align:general;width:75.78pt;\"><span style=\"font-size:16px;\"><spa\n"
+                        + "n style=\"color:#000000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">MOQ</span></span></span></td><td style=\"height:39.00pf;text-align:general;width:172.53pt;\"><span st\n"
+                        + "yle=\"font-size:16px;\"><span style=\"color:#000000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">50sets</span></span></span></td><td style=\"height:39.00pf;text-align:gen\n"
+                        + "eral;width:136.53pt;\"><span style=\"font-size:16px;\"><span style=\"color:#000000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">Color</span></span></span></td><td style=\\\n"
+                        + "\"height:39.00pf;text-align:general;width:210.78pt;\"><span style=\"font-size:16px;\"><span style=\"color:#000000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">As&nbsp;samp\n"
+                        + "le</span></span></span></td></tr><tr><td style=\"height:39.00pf;text-align:general;width:75.78pt;\"><span style=\"font-size:16px;\"><span style=\"color:#000000;\"><span style=\"font-fami\n"
+                        + "ly:Arial, Helvetica, sans-serif;\">Payment&nbsp;term</span></span></span></td><td style=\"height:39.00pf;text-align:general;width:172.53pt;\"><span style=\"font-size:16px;\"><span style=\n"
+                        + "\"color:#000000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">T/T,L/C,Paypal,<br />Western&nbsp;Union</span></span></span></td><td style=\"height:39.00pf;text-align:genera\n"
+                        + "l;width:136.53pt;\"><span style=\"font-size:16px;\"><span style=\"color:#000000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">Material</span></span></span></td><td style=\\\n"
+                        + "\"height:39.00pf;text-align:general;width:210.78pt;\"><span style=\"font-size:16px;\"><span style=\"color:#000000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">Material</sp\n"
+                        + "an></span></span></td></tr><tr><td style=\"height:39.00pf;text-align:general;width:75.78pt;\"><span style=\"font-size:16px;\"><span style=\"color:#000000;\"><span style=\"font-family:Ari\n"
+                        + "al, Helvetica, sans-serif;\">Logo</span></span></span></td><td style=\"height:39.00pf;text-align:general;width:172.53pt;\"><span style=\"font-size:16px;\"><span style=\"color:#000000;\">\n"
+                        + "<span style=\"font-family:Arial, Helvetica, sans-serif;\">Printed,Pressing</span></span></span></td><td style=\"height:39.00pf;text-align:general;width:136.53pt;\"><span style=\"font-siz\n"
+                        + "e:16px;\"><span style=\"color:#000000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">Usage</span></span></span></td><td style=\"height:39.00pf;text-align:general;width:210.\n"
+                        + "78pt;\"><span style=\"font-size:16px;\"><span style=\"color:#000000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">Hotel,&nbsp;estaurant,<br />Office,Home</span></span></sp\n"
+                        + "an></td></tr><tr><td style=\"height:141.00pf;text-align:general;width:75.78pt;\"><span style=\"font-size:16px;\"><span style=\"color:#000000;\"><span style=\"font-family:Arial, Helvetica\n"
+                        + ", sans-serif;\">Sample&nbsp;cost</span></span></span></td><td colspan=\"3\" style=\"height:141.00pf;text-align:center;width:481.52pt;\"><span style=\"font-size:16px;\"><span style=\"colo\n"
+                        + "r:#000000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">Customized&nbsp;sample:&nbsp;&nbsp;&nbsp;We&nbsp;will&nbsp;charge&nbsp;two&nbsp;times&nbsp;of&nbsp;<br />sample&nbs\n"
+                        + "p;fee.&nbsp;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\n"
+                        + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.When&nbsp;the&nbsp;buyer&nbsp;places&nbsp;an&nbsp;order,we&nbsp;will&nbsp;<br />return&nbsp;the&nbsp;sample&nbsp;fee.<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&\n"
+                        + "nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.The&nbsp;express&\n"
+                        + "nbsp;expense&nbsp;should&nbsp;be&nbsp;paid&nbsp;<br />by&nbsp;the&nbsp;client.&nbsp;</span></span></span></td></tr><tr><td style=\"height:39.00pf;text-align:general;width:75.78pt;\"><spa\n"
+                        + "n style=\"font-size:16px;\"><span style=\"color:#000000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">Delivery&nbsp;time</span></span></span></td><td colspan=\"3\" style=\\\n"
+                        + "\"height:39.00pf;text-align:center;width:481.52pt;\"><span style=\"font-size:16px;\"><span style=\"color:#000000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">10-25days&nbs\n"
+                        + "p;for&nbsp;quantity&nbsp;under&nbsp;100sets;25-60days&nbsp;<br />for&nbsp;100-1000sets.</span></span></span></td></tr><tr><td style=\"height:39.00pf;text-align:general;width:75.78pt;\"><\n"
+                        + "span style=\"font-size:16px;\"><span style=\"color:#000000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">Inventory</span></span></span></td><td colspan=\"3\" style=\"heigh\n"
+                        + "t:39.00pf;text-align:center;width:481.52pt;\"><span style=\"font-size:16px;\"><span style=\"color:#000000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">Customized&nbsp;pro\n"
+                        + "ducts,no&nbsp;inventory.</span></span></span></td></tr><tr><td style=\"height:64.00pf;text-align:general;width:75.78pt;\"><span style=\"font-size:16px;\"><span style=\"color:#000000;\"><\n"
+                        + "span style=\"font-family:Arial, Helvetica, sans-serif;\">Packing</span></span></span></td><td colspan=\"3\" style=\"height:64.00pf;text-align:center;width:481.52pt;\"><span style=\"font-\n"
+                        + "size:16px;\"><span style=\"color:#000000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">Within&nbsp;a&nbsp;waterproof&nbsp;membrane,outside&nbsp;carton&nbsp;packaging,<br /\n"
+                        + ">can&nbsp;make&nbsp;adjustments&nbsp;based&nbsp;on&nbsp;product&nbsp;size.</span></span></span></td></tr><tr><td style=\"height:39.00pf;text-align:general;width:75.78pt;\"><span style=\"\n"
+                        + "font-size:16px;\"><span style=\"color:#000000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">Remark</span></span></span></td><td colspan=\"3\" style=\"height:39.00pf;text-a\n"
+                        + "lign:center;width:481.52pt;\"><span style=\"font-size:16px;\"><span style=\"color:#000000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">Customers&nbsp;can&nbsp;buy&nbsp;on\n"
+                        + "e&nbsp;set&nbsp;or&nbsp;one&nbsp;of&nbsp;the&nbsp;product&nbsp;alone.</span></span></span></td></tr></tbody></table><br /><img srcid=\"303053525\" /><br /><br /><br /><span style=\"font-\n"
+                        + "size:18px;\"><strong><span style=\"font-family:Arial, Helvetica, sans-serif;\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &n\n"
+                        + "bsp;&nbsp;</span></strong></span><strong><span style=\"font-size:20px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">&nbsp; &nbsp; &nbsp;</span></span></strong><strong><spa\n"
+                        + "n style=\"font-size:20px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\"><span style=\"color:#333333;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">&nbsp; &nbs\n"
+                        + "p; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />Selected material:&nbsp;not easy to scratch, the use\n"
+                        + " of healthy and stable ink color,<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;Logo that doesn't fade, enhancing the overall level\n"
+                        + " of the hotel.</span></span></span></span><br /><br /><br /><br /><span style=\"font-size:16px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\"><span style=\"color:#333333;\"\n"
+                        + "><span style=\"font-family:Arial, Helvetica, sans-serif;\"><img srcid=\"303053535\" /></span></span></span></span></strong><br /><br /><br /><br /><br /><strong><span style=\"font-size:2\n"
+                        + "0px;\">Advantages:&nbsp;</span></strong><span style=\"font-size:18px;\"> important plasticity of polymer materials, with good transparency,<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;\n"
+                        + " &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;chemical stability and weather resistance, easy to dye, easy processing,<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nb\n"
+                        + "sp; &nbsp; &nbsp; &nbsp; &nbsp; beautiful appearance, with crystal-like transparency.</span><br /><br /><br /><br /><br /><span style=\"font-size:16px;\"><img srcid=\"303053545\" /></spa\n"
+                        + "n><br /><br /><br /><br /><strong><span style=\"font-size:20px;\">Features:&nbsp;&nbsp;1&gt; not easy to scratch, 2&gt; thickening, and durable,<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &\n"
+                        + "nbsp; &nbsp; &nbsp; &nbsp;3&gt; exquisite and beautiful, 4&gt; deep-set and fall-proof.</span></strong><br /><br /><br /><br /><img height=\"750px\" srcid=\"303053555\" width=\"750px\" /\n"
+                        + "><br /><br /><br /><br /><br /><strong><span style=\"font-size:20px;\">Simple lines: clean modernism, which gives you a comfortable feeling.<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp\n"
+                        + "; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Fashion is an endless film, and minimalism is its style.</span></strong><br /><br /><img srcid=\"303053565\" /><br /><br /><br /><br /><span style=\"f\n"
+                        + "ont-size:16px;\"><span style=\"color:#006600;\"><strong>1. How&amp;When can I get the price?&nbsp;</strong></span><br />Email us your inquiry or communicate online, state your specificat\n"
+                        + "ions (product, material, size,&nbsp;<br />quantity etc.). We usually quote within 6 hours. Please call us or inform in your email when it is urgent, we will<br />regard your inquiry prio\n"
+                        + "rity.<br /><br /><span style=\"color:#006600;\"><strong>2. How can I get samples?</strong></span></span><br /><span style=\"font-size:14px;\">We provide samples per your requests. Sample\n"
+                        + " charge required and freight collected. Sample charge<br />refundable after order placed and the quantity reaches the requirement. Free sample provided of which<br />products already exi\n"
+                        + "sted or easy to make.</span><br /><br /><span style=\"font-size:16px;\"><span style=\"color:#006600;\"><strong>3. How long can I expect to get the sample?</strong></span></span><br /><sp\n"
+                        + "an style=\"font-size:14px;\">Samples will be ready for delivery in 3-8days. 3-8days to reach via express such as DHL, FEDEX, UPS.</span><br /><br /><span style=\"font-size:16px;\"><span \n"
+                        + "style=\"color:#006600;\"><strong>4. What kinds of files do you accept for OEM?</strong></span></span><br /><span style=\"font-size:14px;\">PDF, CDR, AI, high resolution JPG</span><br /><\n"
+                        + "br /><span style=\"font-size:16px;\"><span style=\"color:#006600;\"><strong>5. Can you do the designs for us?</strong></span></span><br /><span style=\"font-size:14px;\">Design service a\n"
+                        + "vailable. State your ideas and send us high resolution images, your Logo and text, we will<br />help to carry out your ideas and send you finished files for confirmation.</span><br /><br\n"
+                        + " /><span style=\"font-size:16px;\"><span style=\"color:#006600;\"><strong>6. How to order?</strong></span></span><br /><span style=\"font-size:14px;\">1)Product information-Quantity, Spe\n"
+                        + "cification(Size,Material,Technological and Packing requirements etc.)<br />2)Delivery time. Shipping information-Company name, Street address, Phone&amp;Fax number, Destination<br />sea \n"
+                        + "port.<br />3)Forwarder's contact details if there's any in China.</span><br /><br /><span style=\"font-size:16px;\"><span style=\"color:#006600;\"><strong>7. What about the lead time for\n"
+                        + " mass production?</strong></span></span><br /><span style=\"font-size:14px;\">Normally 15-25 days, depends on the quantity and the season. Our suggestion: inquiry and place order 2 month\n"
+                        + "s<br />earlier before you need the goods arrived.</span><br /><br /><span style=\"font-size:16px;\"><span style=\"color:#006600;\"><strong>8. What is your term of delivery?</strong></spa\n"
+                        + "n></span><br /><span style=\"font-size:14px;\">We accept EXW, FOB, CIF, etc. Choose the one which is the most convenient or cost effective for you.</span>\"";
         Assert.assertFalse(testXss(content));
     }
 
@@ -1467,8 +1542,7 @@ public class AntiSamyTest {
     public void testXss8() throws Exception {
         // String content = "<img//onerror='alert(1' src='/adss'> <TABLE> && ,: # %23 SD SSDADA";
         // String content="<img /onerror=alert(1' > ?=+ adad & sda %6d a ";
-        String content =
-                "<a href=\"javascript:alert(1)\" >www.baidu.com</a>;";
+        String content = "<a href=\"javascript:alert(1)\" >www.baidu.com</a>;";
         Assert.assertTrue(testXss(content));
         Assert.assertFalse(getclean(content).contains("nofollow"));
     }
@@ -1477,9 +1551,99 @@ public class AntiSamyTest {
     public void testXss9() throws Exception {
         // String content = "<img//onerror='alert(1' src='/adss'> <TABLE> && ,: # %23 SD SSDADA";
         // String content="<img /onerror=alert(1' > ?=+ adad & sda %6d a ";
-        String content =
-                "aareresd3ssss<script></script> ssssa ";
+        String content = "aareresd3ssss<script></script> ssssa ";
         Assert.assertTrue(testXss(content));
+    }
+
+    @Test
+    public void testXss10() throws Exception {
+        // String content = "<img//onerror='alert(1' src='/adss'> <TABLE> && ,: # %23 SD SSDADA";
+        // String content="<img /onerror=alert(1' > ?=+ adad & sda %6d a ";
+        String content =
+                "/images/mail/mail-logo_en.gif></td></tr></tbody></table><table align=></td></tr></tbody><tbody><tr><td style='height:100pf'><strong>To: Yeso Insulating Products Co., Ltd.<br />Dear Ms. Linda Zong ,</strong><p style=><a href='http://Made-in-China.com'>Made-in-China.com</a> would like to let you know that you have just received a new business message which is saved in the <a href='http://membercenter.made-in-china.com/messagecenter.do <br/><br/>";
+        Assert.assertTrue(testXss(content));
+    }
+
+    @Test
+    public void testXss11() throws Exception {
+        // String content = "<img//onerror='alert(1' src='/adss'> <TABLE> && ,: # %23 SD SSDADA";
+        // String content="<img /onerror=alert(1' > ?=+ adad & sda %6d a ";
+        String content0 = "\" ";
+        String content =
+                "<strong><span style=\"font-family:Arial, Helvetica, sans-serif;\"><span style=\"font-size:18px;\">P\n"
+                        + "lastic Room Acrylic Hotel Supplies Storage Box</span></span></strong><h3><br /><span style=\"font-size:16px;\">Thank you for your visit my shop .It is my pleasure.</span></h3><span style\n"
+                        + "=\"font-size:16px;\">Resin Product &nbsp;such as : Consumable Box .Remote Holder . Tray.Cup Mat.Soap Dispenser<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; \n"
+                        + "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Tissue Box.Towel Plate.Table Plate.Vase. etc.</span><br /><br /><br /><br /><img height=\"750px\" srcid=\"303\n"
+                        + "053515\" width=\"750px\" /><br /><br />&nbsp;<table style=\"height:689px;width:750px;\"><colgroup><col /><col /><col /><col /></colgroup><tbody><tr><td colspan=\"4\" style=\"height:39.00\n"
+                        + "pf;text-align:center;width:460.52pt;\"><strong><span style=\"font-size:20px;\"><span style=\"color:#000000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">Product&nbsp;Infor\n"
+                        + "mation</span></span></span></strong></td></tr><tr><td style=\"height:39.00pf;text-align:general;width:75.78pt;\"><span style=\"font-size:16px;\"><span style=\"color:#000000;\"><span styl\n"
+                        + "e=\"font-family:Arial, Helvetica, sans-serif;\">Name</span></span></span></td><td style=\"height:39.00pf;text-align:general;width:172.53pt;\"><span style=\"font-size:16px;\"><span style=\n"
+                        + "\"color:#000000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">Hotel&nbsp;Amenity</span></span></span></td><td style=\"height:39.00pf;text-align:general;width:136.53pt;\"><\n"
+                        + "span style=\"font-size:16px;\"><span style=\"color:#000000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">Item</span></span></span></td><td style=\"height:39.00pf;text-alig\n"
+                        + "n:general;width:210.78pt;\"><span style=\"font-size:16px;\">XLS-08</span></td></tr><tr><td style=\"height:39.00pf;text-align:general;width:75.78pt;\"><span style=\"font-size:16px;\"><spa\n"
+                        + "n style=\"color:#000000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">MOQ</span></span></span></td><td style=\"height:39.00pf;text-align:general;width:172.53pt;\"><span st\n"
+                        + "yle=\"font-size:16px;\"><span style=\"color:#000000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">50sets</span></span></span></td><td style=\"height:39.00pf;text-align:gen\n"
+                        + "eral;width:136.53pt;\"><span style=\"font-size:16px;\"><span style=\"color:#000000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">Color</span></span></span></td><td style=\\\n"
+                        + "\"height:39.00pf;text-align:general;width:210.78pt;\"><span style=\"font-size:16px;\"><span style=\"color:#000000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">As&nbsp;samp\n"
+                        + "le</span></span></span></td></tr><tr><td style=\"height:39.00pf;text-align:general;width:75.78pt;\"><span style=\"font-size:16px;\"><span style=\"color:#000000;\"><span style=\"font-fami\n"
+                        + "ly:Arial, Helvetica, sans-serif;\">Payment&nbsp;term</span></span></span></td><td style=\"height:39.00pf;text-align:general;width:172.53pt;\"><span style=\"font-size:16px;\"><span style=\n"
+                        + "\"color:#000000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">T/T,L/C,Paypal,<br />Western&nbsp;Union</span></span></span></td><td style=\"height:39.00pf;text-align:genera\n"
+                        + "l;width:136.53pt;\"><span style=\"font-size:16px;\"><span style=\"color:#000000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">Material</span></span></span></td><td style=\\\n"
+                        + "\"height:39.00pf;text-align:general;width:210.78pt;\"><span style=\"font-size:16px;\"><span style=\"color:#000000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">Material</sp\n"
+                        + "an></span></span></td></tr><tr><td style=\"height:39.00pf;text-align:general;width:75.78pt;\"><span style=\"font-size:16px;\"><span style=\"color:#000000;\"><span style=\"font-family:Ari\n"
+                        + "al, Helvetica, sans-serif;\">Logo</span></span></span></td><td style=\"height:39.00pf;text-align:general;width:172.53pt;\"><span style=\"font-size:16px;\"><span style=\"color:#000000;\">\n"
+                        + "<span style=\"font-family:Arial, Helvetica, sans-serif;\">Printed,Pressing</span></span></span></td><td style=\"height:39.00pf;text-align:general;width:136.53pt;\"><span style=\"font-siz\n"
+                        + "e:16px;\"><span style=\"color:#000000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">Usage</span></span></span></td><td style=\"height:39.00pf;text-align:general;width:210.\n"
+                        + "78pt;\"><span style=\"font-size:16px;\"><span style=\"color:#000000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">Hotel,&nbsp;estaurant,<br />Office,Home</span></span></sp\n"
+                        + "an></td></tr><tr><td style=\"height:141.00pf;text-align:general;width:75.78pt;\"><span style=\"font-size:16px;\"><span style=\"color:#000000;\"><span style=\"font-family:Arial, Helvetica\n"
+                        + ", sans-serif;\">Sample&nbsp;cost</span></span></span></td><td colspan=\"3\" style=\"height:141.00pf;text-align:center;width:481.52pt;\"><span style=\"font-size:16px;\"><span style=\"colo\n"
+                        + "r:#000000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">Customized&nbsp;sample:&nbsp;&nbsp;&nbsp;We&nbsp;will&nbsp;charge&nbsp;two&nbsp;times&nbsp;of&nbsp;<br />sample&nbs\n"
+                        + "p;fee.&nbsp;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\n"
+                        + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.When&nbsp;the&nbsp;buyer&nbsp;places&nbsp;an&nbsp;order,we&nbsp;will&nbsp;<br />return&nbsp;the&nbsp;sample&nbsp;fee.<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&\n"
+                        + "nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.The&nbsp;express&\n"
+                        + "nbsp;expense&nbsp;should&nbsp;be&nbsp;paid&nbsp;<br />by&nbsp;the&nbsp;client.&nbsp;</span></span></span></td></tr><tr><td style=\"height:39.00pf;text-align:general;width:75.78pt;\"><spa\n"
+                        + "n style=\"font-size:16px;\"><span style=\"color:#000000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">Delivery&nbsp;time</span></span></span></td><td colspan=\"3\" style=\\\n"
+                        + "\"height:39.00pf;text-align:center;width:481.52pt;\"><span style=\"font-size:16px;\"><span style=\"color:#000000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">10-25days&nbs\n"
+                        + "p;for&nbsp;quantity&nbsp;under&nbsp;100sets;25-60days&nbsp;<br />for&nbsp;100-1000sets.</span></span></span></td></tr><tr><td style=\"height:39.00pf;text-align:general;width:75.78pt;\"><\n"
+                        + "span style=\"font-size:16px;\"><span style=\"color:#000000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">Inventory</span></span></span></td><td colspan=\"3\" style=\"heigh\n"
+                        + "t:39.00pf;text-align:center;width:481.52pt;\"><span style=\"font-size:16px;\"><span style=\"color:#000000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">Customized&nbsp;pro\n"
+                        + "ducts,no&nbsp;inventory.</span></span></span></td></tr><tr><td style=\"height:64.00pf;text-align:general;width:75.78pt;\"><span style=\"font-size:16px;\"><span style=\"color:#000000;\"><\n"
+                        + "span style=\"font-family:Arial, Helvetica, sans-serif;\">Packing</span></span></span></td><td colspan=\"3\" style=\"height:64.00pf;text-align:center;width:481.52pt;\"><span style=\"font-\n"
+                        + "size:16px;\"><span style=\"color:#000000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">Within&nbsp;a&nbsp;waterproof&nbsp;membrane,outside&nbsp;carton&nbsp;packaging,<br /\n"
+                        + ">can&nbsp;make&nbsp;adjustments&nbsp;based&nbsp;on&nbsp;product&nbsp;size.</span></span></span></td></tr><tr><td style=\"height:39.00pf;text-align:general;width:75.78pt;\"><span style=\"\n"
+                        + "font-size:16px;\"><span style=\"color:#000000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">Remark</span></span></span></td><td colspan=\"3\" style=\"height:39.00pf;text-a\n"
+                        + "lign:center;width:481.52pt;\"><span style=\"font-size:16px;\"><span style=\"color:#000000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">Customers&nbsp;can&nbsp;buy&nbsp;on\n"
+                        + "e&nbsp;set&nbsp;or&nbsp;one&nbsp;of&nbsp;the&nbsp;product&nbsp;alone.</span></span></span></td></tr></tbody></table><br /><img srcid=\"303053525\" /><br /><br /><br /><span style=\"font-\n"
+                        + "size:18px;\"><strong><span style=\"font-family:Arial, Helvetica, sans-serif;\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &n\n"
+                        + "bsp;&nbsp;</span></strong></span><strong><span style=\"font-size:20px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">&nbsp; &nbsp; &nbsp;</span></span></strong><strong><spa\n"
+                        + "n style=\"font-size:20px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\"><span style=\"color:#333333;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">&nbsp; &nbs\n"
+                        + "p; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />Selected material:&nbsp;not easy to scratch, the use\n"
+                        + " of healthy and stable ink color,<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;Logo that doesn't fade, enhancing the overall level\n"
+                        + " of the hotel.</span></span></span></span><br /><br /><br /><br /><span style=\"font-size:16px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\"><span style=\"color:#333333;\"\n"
+                        + "><span style=\"font-family:Arial, Helvetica, sans-serif;\"><img srcid=\"303053535\" /></span></span></span></span></strong><br /><br /><br /><br /><br /><strong><span style=\"font-size:2\n"
+                        + "0px;\">Advantages:&nbsp;</span></strong><span style=\"font-size:18px;\"> important plasticity of polymer materials, with good transparency,<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;\n"
+                        + " &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;chemical stability and weather resistance, easy to dye, easy processing,<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nb\n"
+                        + "sp; &nbsp; &nbsp; &nbsp; &nbsp; beautiful appearance, with crystal-like transparency.</span><br /><br /><br /><br /><br /><span style=\"font-size:16px;\"><img srcid=\"303053545\" /></spa\n"
+                        + "n><br /><br /><br /><br /><strong><span style=\"font-size:20px;\">Features:&nbsp;&nbsp;1&gt; not easy to scratch, 2&gt; thickening, and durable,<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &\n"
+                        + "nbsp; &nbsp; &nbsp; &nbsp;3&gt; exquisite and beautiful, 4&gt; deep-set and fall-proof.</span></strong><br /><br /><br /><br /><img height=\"750px\" srcid=\"303053555\" width=\"750px\" /\n"
+                        + "><br /><br /><br /><br /><br /><strong><span style=\"font-size:20px;\">Simple lines: clean modernism, which gives you a comfortable feeling.<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp\n"
+                        + "; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Fashion is an endless film, and minimalism is its style.</span></strong><br /><br /><img srcid=\"303053565\" /><br /><br /><br /><br /><span style=\"f\n"
+                        + "ont-size:16px;\"><span style=\"color:#006600;\"><strong>1. How&amp;When can I get the price?&nbsp;</strong></span><br />Email us your inquiry or communicate online, state your specificat\n"
+                        + "ions (product, material, size,&nbsp;<br />quantity etc.). We usually quote within 6 hours. Please call us or inform in your email when it is urgent, we will<br />regard your inquiry prio\n"
+                        + "rity.<br /><br /><span style=\"color:#006600;\"><strong>2. How can I get samples?</strong></span></span><br /><span style=\"font-size:14px;\">We provide samples per your requests. Sample\n"
+                        + " charge required and freight collected. Sample charge<br />refundable after order placed and the quantity reaches the requirement. Free sample provided of which<br />products already exi\n"
+                        + "sted or easy to make.</span><br /><br /><span style=\"font-size:16px;\"><span style=\"color:#006600;\"><strong>3. How long can I expect to get the sample?</strong></span></span><br /><sp\n"
+                        + "an style=\"font-size:14px;\">Samples will be ready for delivery in 3-8days. 3-8days to reach via express such as DHL, FEDEX, UPS.</span><br /><br /><span style=\"font-size:16px;\"><span \n"
+                        + "style=\"color:#006600;\"><strong>4. What kinds of files do you accept for OEM?</strong></span></span><br /><span style=\"font-size:14px;\">PDF, CDR, AI, high resolution JPG</span><br /><\n"
+                        + "br /><span style=\"font-size:16px;\"><span style=\"color:#006600;\"><strong>5. Can you do the designs for us?</strong></span></span><br /><span style=\"font-size:14px;\">Design service a\n"
+                        + "vailable. State your ideas and send us high resolution images, your Logo and text, we will<br />help to carry out your ideas and send you finished files for confirmation.</span><br /><br\n"
+                        + " /><span style=\"font-size:16px;\"><span style=\"color:#006600;\"><strong>6. How to order?</strong></span></span><br /><span style=\"font-size:14px;\">1)Product information-Quantity, Spe\n"
+                        + "cification(Size,Material,Technological and Packing requirements etc.)<br />2)Delivery time. Shipping information-Company name, Street address, Phone&amp;Fax number, Destination<br />sea \n"
+                        + "port.<br />3)Forwarder's contact details if there's any in China.</span><br /><br /><span style=\"font-size:16px;\"><span style=\"color:#006600;\"><strong>7. What about the lead time for\n"
+                        + " mass production?</strong></span></span><br /><span style=\"font-size:14px;\">Normally 15-25 days, depends on the quantity and the season. Our suggestion: inquiry and place order 2 month\n"
+                        + "s<br />earlier before you need the goods arrived.</span><br /><br /><span style=\"font-size:16px;\"><span style=\"color:#006600;\"><strong>8. What is your term of delivery?</strong></spa\n"
+                        + "n></span><br /><span style=\"font-size:14px;\">We accept EXW, FOB, CIF, etc. Choose the one which is the most convenient or cost effective for you.</span>\"";
+        Assert.assertFalse(testXss(content));
     }
 
     @Test

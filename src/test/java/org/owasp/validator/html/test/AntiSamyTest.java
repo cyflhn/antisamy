@@ -1459,6 +1459,14 @@ public class AntiSamyTest {
         Assert.assertFalse(testXss(content));
 
         content =
+                "<z a= <br />Miss chen&quot;&gt;&lt;/div&gt;&lt;svg/ / / / onload=&quot;confirm(99)&quot;&nbsp;&nbsp;adwefw<br />&nbsp; >";
+        Assert.assertFalse(testXss(content));
+
+        content =
+                "<z a=Thanks for your interested in our cnc glass machinery ZXX-1325B, which can processing glass with drilling ,notching and grinding once time. >";
+        Assert.assertFalse(testXss(content));
+
+        content =
                 ":<p style=\"color:#006600; font-family:Times New Roman, Times, serif; font-size:16px\"><em><strong>This info is used for testing</strong></em></p><img alt=\"\" height=\"300px\" src=\"image?tid=25&amp;id=qrSTmtwyrhoH&amp;cache=0&amp;lan_code=0\" srcid=\"247993505\" width=\"300px\" /><table border=\"1\" cellpadding=\"1\" cellspacing=\"1\" style=\"width:500px\">    <tbody>         <tr>                    <td colspan=\"3\" style=\"background-color:#f2fff2\">product detail</td>              </tr>           <tr>                    <td>V01</td>                    <td>red</td>                    <td>1.50m</td>          </tr>     </tbody></table>This info is used for testing! This info is used for testing!<br />This info is used for testing! This info is used for testing!<br />This info is used for testing! This info is used for testing!<br /><br /><br />Miss chen&quot;&gt;&lt;/div&gt;&lt;svg/ / / / onload=&quot;confirm(99)&quot;&nbsp;<br />&nbsp; >";
         Assert.assertFalse(testXss(content));
         content =
@@ -1561,6 +1569,8 @@ public class AntiSamyTest {
         // String content="<img /onerror=alert(1' > ?=+ adad & sda %6d a ";
         String content =
                 "/images/mail/mail-logo_en.gif></td></tr></tbody></table><table align=></td></tr></tbody><tbody><tr><td style='height:100pf'><strong>To: Yeso Insulating Products Co., Ltd.<br />Dear Ms. Linda Zong ,</strong><p style=><a href='http://Made-in-China.com'>Made-in-China.com</a> would like to let you know that you have just received a new business message which is saved in the <a href='http://membercenter.made-in-china.com/messagecenter.do <br/><br/>";
+        Assert.assertTrue(testXss(content));
+        content = "<z a=222\" onfocus='alert(1)' />";
         Assert.assertTrue(testXss(content));
     }
 

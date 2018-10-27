@@ -1559,7 +1559,7 @@ public class AntiSamyTest {
     public void testXss9() throws Exception {
         // String content = "<img//onerror='alert(1' src='/adss'> <TABLE> && ,: # %23 SD SSDADA";
         // String content="<img /onerror=alert(1' > ?=+ adad & sda %6d a ";
-        String content = "aareresd3ssss<script></script> ssssa ";
+        String content = "<<iframe src=\"javascript:alert(233)\">iframe src=\"javascript:alert(233)\"><</ifram ";
         Assert.assertTrue(testXss(content));
     }
 

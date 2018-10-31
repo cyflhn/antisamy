@@ -20,6 +20,17 @@ public class AntiSamyAttrTest {
         // String content="<img /onerror=alert(1' > ?=+ adad & sda %6d a ";
         String content = "<z a=\"\"<script></script> <a onclick='aa' >";
         Assert.assertTrue(testXss(content));
+
+        content = "<z a=<assa\" <script   onclick='aa' >";
+        Assert.assertTrue(testXss(content));
+    }
+
+    @Test
+    public void testXss2() throws Exception {
+        // String content = "<img//onerror='alert(1' src='/adss'> <TABLE> && ,: # %23 SD SSDADA";
+        // String content="<img /onerror=alert(1' > ?=+ adad & sda %6d a ";
+        String content = "<z a=\"<\"<script></script> >";
+        Assert.assertFalse(testXss(content));
     }
 
     private boolean testXss(String content) throws PolicyException {

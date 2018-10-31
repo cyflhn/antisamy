@@ -15,6 +15,11 @@ public class AntiSamyExt extends AntiSamy {
         return new AntisamyDOMScannerExt(policy).scan(taintedHTML);
     }
 
+    public CleanResults scan(String taintedHTML, Policy policy, boolean scanAttr)
+            throws ScanException, PolicyException {
+        return new AntisamyDOMScannerExt(policy).scan(taintedHTML, scanAttr);
+    }
+
     public MultiCleanResults scan(Map<String, String[]> taintedHTML, Policy policy)
             throws ScanException, PolicyException {
         Iterator<Map.Entry<String, String[]>> iterator = taintedHTML.entrySet().iterator();

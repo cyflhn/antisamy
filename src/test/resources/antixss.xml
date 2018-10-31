@@ -1537,10 +1537,7 @@ http://www.w3.org/TR/html401/struct/global.html
 				<literal value="inherit"/>
 			</literal-list>
 			<regexp-list>
-				<regexp name="absolute-size"/>
-				<regexp name="relative-size"/>
-				<regexp name="length"/>
-				<regexp name="percentage"/>
+				<regexp name="anything"/>
 			</regexp-list>
 		</property>
 		<property name="font-size-adjust" default="none" description="">

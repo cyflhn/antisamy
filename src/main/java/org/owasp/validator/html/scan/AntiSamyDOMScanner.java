@@ -235,7 +235,7 @@ public class AntiSamyDOMScanner extends AbstractAntiSamyScanner {
 
     private boolean isEscapeStr(char[] array,int pos,int finalpos, String escapeStr){
         if(pos + escapeStr.length() < finalpos){
-            return escapeStr.endsWith(new String(array,pos,escapeStr.length()));
+            return escapeStr.equals(new String(array,pos,escapeStr.length()));
         }
         return false;
     }
@@ -251,7 +251,7 @@ public class AntiSamyDOMScanner extends AbstractAntiSamyScanner {
             boolean previousInjection = results.getNumberOfErrors() > 0;
             if((singleQuotePositions != null || doubleQuotePositions != null) && equalPositions != null){
                 char[] htmlarray = html.toCharArray();
-                int finalIndex = htmlarray.length - 1;
+                int finalIndex = htmlarray.length;
                 Integer[] equalPositionsArray =  equalPositions.toArray(new Integer[equalPositions.size()]);
                 for(int i = 0 ;i < equalPositionsArray.length; i++ ){
                     int posForAttrName = equalPositionsArray[i];
@@ -267,7 +267,7 @@ public class AntiSamyDOMScanner extends AbstractAntiSamyScanner {
                     }
                     if(posForAttrName + 1 < originNoneBlankPos && policy.getEventAttributeByName(html.substring(posForAttrName + 1, originNoneBlankPos + 1)) != null){
                         posForAttrValue = skipBlank(htmlarray, posForAttrValue, nextPos,false);
-                        if(!isEscapeStr(htmlarray,posForAttrValue,nextPos,ESCAPE_DOUBLE_QUOTE) && !isEscapeStr(htmlarray,posForAttrValue,finalIndex,ESCAPE_SINGLE_QUOTE)){
+                        if(!isEscapeStr(htmlarray,posForAttrValue,nextPos,ESCAPE_DOUBLE_QUOTE) && !isEscapeStr(htmlarray,posForAttrValue,nextPos,ESCAPE_SINGLE_QUOTE)){
                             errorMessages.add("illegal attribute from pos:" + posForAttrName);
                             for( ;posForAttrName != originEqualPos; ){
                                 htmlarray[posForAttrName] = ' ';

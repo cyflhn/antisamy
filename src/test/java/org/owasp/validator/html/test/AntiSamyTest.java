@@ -1456,15 +1456,15 @@ public class AntiSamyTest {
         // String content="<img /onerror=alert(1' > ?=+ adad & sda %6d a ";
         String content =
                 "<br />Miss chen&quot;&gt;&lt;/div&gt;&lt;svg/ / / / onload=&quot;confirm(99)&quot;&nbsp;&nbsp;adwefw<br />&nbsp; >";
-        Assert.assertFalse(testXss(content));
+        Assert.assertFalse(testXssWithAttr(content));
 
         content =
                 "<z a= <br />Miss chen&quot;&gt;&lt;/div&gt;&lt;svg/ / / / onload=&quot;confirm(99)&quot;&nbsp;&nbsp;adwefw<br />&nbsp; >";
-        Assert.assertFalse(testXss(content));
+        Assert.assertFalse(testXssWithAttr(content));
 
         content =
                 "<z a=Thanks for your interested in our cnc glass machinery ZXX-1325B, which can processing glass with drilling ,notching and grinding once time. >";
-        Assert.assertFalse(testXss(content));
+        Assert.assertFalse(testXssWithAttr(content));
 
         content =
                 ":<p style=\"color:#006600; font-family:Times New Roman, Times, serif; font-size:16px\"><em><strong>This info is used for testing</strong></em></p><img alt=\"\" height=\"300px\" src=\"image?tid=25&amp;id=qrSTmtwyrhoH&amp;cache=0&amp;lan_code=0\" srcid=\"247993505\" width=\"300px\" /><table border=\"1\" cellpadding=\"1\" cellspacing=\"1\" style=\"width:500px\">    <tbody>         <tr>                    <td colspan=\"3\" style=\"background-color:#f2fff2\">product detail</td>              </tr>           <tr>                    <td>V01</td>                    <td>red</td>                    <td>1.50m</td>          </tr>     </tbody></table>This info is used for testing! This info is used for testing!<br />This info is used for testing! This info is used for testing!<br />This info is used for testing! This info is used for testing!<br /><br /><br />Miss chen&quot;&gt;&lt;/div&gt;&lt;svg/ / / / onload=&quot;confirm(99)&quot;&nbsp;<br />&nbsp; >";
@@ -1543,6 +1543,146 @@ public class AntiSamyTest {
                         + " mass production?</strong></span></span><br /><span style=\"font-size:14px;\">Normally 15-25 days, depends on the quantity and the season. Our suggestion: inquiry and place order 2 month\n"
                         + "s<br />earlier before you need the goods arrived.</span><br /><br /><span style=\"font-size:16px;\"><span style=\"color:#006600;\"><strong>8. What is your term of delivery?</strong></spa\n"
                         + "n></span><br /><span style=\"font-size:14px;\">We accept EXW, FOB, CIF, etc. Choose the one which is the most convenient or cost effective for you.</span>\"";
+        Assert.assertFalse(testXssWithAttr(content));
+
+        content =
+                "<br /><u><span style=\"color:#0066cc;\"><span style=\"font-size:24px;\"><strong>Equipment Introduct\n" +
+                        "ion</strong></span></span></u><br /><br /><span style=\"font-size:18px;\"><span style=\"color:#990000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\"><strong><span style=\"f\n" +
+                        "ont-family:Arial, Helvetica, sans-serif;\"><strong>Working principle:</strong></span></strong></span></span><br /><span style=\"font-family:Arial, Helvetica, sans-serif;\"><strong><span \n" +
+                        "style=\"font-family:Arial, Helvetica, sans-serif;\"><strong>The basket washing machine is washed with high pressure spray. The main cleaning agent is about 80 </strong></span></strong><s\n" +
+                        "trong><span style=\"font-family:Arial, Helvetica, sans-serif;\"><strong>&ordm;C</strong></span></strong><strong><span style=\"font-family:Arial, Helvetica, sans-serif;\"><strong>&nbsp;ho\n" +
+                        "t alkali water, and the main cleaning force is about 80 </strong></span></strong><strong><span style=\"font-family:Arial, Helvetica, sans-serif;\"><strong>&ordm;C</strong></span></strong\n" +
+                        "><strong><span style=\"font-family:Arial, Helvetica, sans-serif;\"><strong>&nbsp;hot water. The circulating water tank is sprinkled with horizontal stainless steel centrifugal pump, and \n" +
+                        "the basket is flushed from the upper, lower, left and right four directions. They are equipped with two filtering devices to clean up booty at any time. There are separate draining and c\n" +
+                        "leaning valves for each water tank, and the same discharge is cut off after discharge. The equipment consists of hot alkali water spray section, hot water spray section, clean water spra\n" +
+                        "y section, disinfection water spray section and drying section, in which the spray section and drying section of the disinfectant water can be matched according to the requirements of th\n" +
+                        "e customer.<br /><br /><img srcid=\"121172932\" /></strong></span></strong></span><br /><br /><span style=\"font-family:Arial, Helvetica, sans-serif;\"><strong><img srcid=\"121172942\" /\n" +
+                        "></strong></span><br /><br /><span style=\"color:#990000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\"><strong><span style=\"font-family:Arial, Helvetica, sans-serif;\"><s\n" +
+                        "trong>Scope of application:</strong></span></strong></span></span><br /><span style=\"font-family:Arial, Helvetica, sans-serif;\"><strong><span style=\"font-family:Arial, Helvetica, sans\n" +
+                        "-serif;\"><strong>The basket washing machine is mainly used for slaughtering, meat, poultry, vegetables, fruits, drinks, brewing and other food processing plants, food logistics centers \n" +
+                        "and distribution centers. It is suitable for cleaning and sterilizing all kinds of baskets, pallets, boxes and so on, so as to prevent the pollution of food.</strong></span></strong></sp\n" +
+                        "an><br /><br /><br /><img srcid=\"121172952\" /><br /><img srcid=\"121172962\" /><br /><br /><br /><br /><br /><br /><br /><span style=\"color:#990000;\"><span style=\"font-family:Arial,\n" +
+                        " Helvetica, sans-serif;\"><strong><span style=\"font-family:Arial, Helvetica, sans-serif;\"><strong>Equipment features:</strong></span></strong></span></span><br /><span style=\"font-fam\n" +
+                        "ily:Arial, Helvetica, sans-serif;\"><strong><span style=\"font-family:Arial, Helvetica, sans-serif;\"><strong>1. the washing machine is made of SUS304 stainless steel except for motors, \n" +
+                        "motor supports and nozzles, and the nozzle is temperature fast dismantling plastic nozzle.</strong></span></strong></span><br /><span style=\"font-family:Arial, Helvetica, sans-serif;\">\n" +
+                        "<strong><span style=\"font-family:Arial, Helvetica, sans-serif;\"><strong>2. water tanks are cleaned by the horizontal stainless steel centrifugal pump, and the baskets are sprinkled at \n" +
+                        "the same four directions at the same time. The water tank has two filter devices to clean up the stolen goods at any time; the water tank has a separate discharge valve and the pipe is d\n" +
+                        "ischarged in a uniform discharge.</strong></span></strong></span><br /><span style=\"font-family:Arial, Helvetica, sans-serif;\"><strong><span style=\"font-family:Arial, Helvetica, sans-\n" +
+                        "serif;\"><strong>3. groups were divided into three groups of spray tubes, the first group was hot alkaline water, the second group was 80 </strong></span></strong><strong>&nbsp;</strong>\n" +
+                        "<strong><span style=\"font-family:Arial, Helvetica, sans-serif;\"><strong>&ordm;C</strong></span></strong><strong><span style=\"font-family:Arial, Helvetica, sans-serif;\"><strong>&nbsp;\n" +
+                        "hot water and the third group was tap water. Each group had a double double filter water tank. The third sets of tap water were recycled to second water tank, and some dirty water was di\n" +
+                        "scharged after heating. The first and second water tanks had steam heating pipes in the first and second tanks, and the temperature was from normal to 95</strong></span></strong><strong>\n" +
+                        "&nbsp;</strong><strong><span style=\"font-family:Arial, Helvetica, sans-serif;\"><span style=\"color:#000000;\"><strong>degree&nbsp;</strong></span></span></strong><strong><span style=\"\n" +
+                        "font-family:Arial, Helvetica, sans-serif;\"><span style=\"color:#000000;\"><strong>centigrade</strong></span></span></strong><strong><span style=\"font-family:Arial, Helvetica, sans-seri\n" +
+                        "f;\"><strong>&nbsp;. Free setting, automatic temperature control.</strong></span></strong></span><br /><span style=\"font-family:Arial, Helvetica, sans-serif;\"><strong><span style=\"fon\n" +
+                        "t-family:Arial, Helvetica, sans-serif;\"><strong>4.</strong></span></strong><strong>&nbsp;</strong><strong><span style=\"font-family:Arial, Helvetica, sans-serif;\"><strong>&nbsp;the two\n" +
+                        " sides of the washing room are movable waterproof doors, and the two ends are sealed with soft curtain to prevent water from splashing, so that they can be cleaned and repaired at any ti\n" +
+                        "me.</strong></span></strong></span><br /><span style=\"font-family:Arial, Helvetica, sans-serif;\"><strong><span style=\"font-family:Arial, Helvetica, sans-serif;\"><strong>5.</strong></\n" +
+                        "span></strong><strong>&nbsp;</strong><strong><span style=\"font-family:Arial, Helvetica, sans-serif;\"><strong>the equipment is equipped with stainless steel electrical control box, all \n" +
+                        "power centralized control.</strong></span></strong></span></span><br /><br /><br /><img srcid=\"121172972\" /><br /><br />&nbsp;\"";
+        Assert.assertFalse(testXssWithAttr(content));
+
+        content =
+                "<br /><span style=\"font-size:20px;\"><u><span style=\"color:#006600;\"><strong><strong><span styl\n" +
+                        "e=\"font-family:Arial, Helvetica, sans-serif;\">Product Description</span></strong></strong></span></u></span><br /><br /><strong><span style=\"color:#6600cc;\">GENERAL DESCRIPTION</span\n" +
+                        "><br />MC hot air circulating oven uses is equipped with low-noise and thermostable axial flow fan and automatic temperature control system. The entire circulatory system is sealed, impr\n" +
+                        "oving the thermal efficiency of oven from traditional 3-7% in drying room to the current 35-45%, with the highest thermal efficiency up to 50%. The design success of GR hot air circulati\n" +
+                        "ng oven make our hot air circulation oven has reached the advanced level at home and abroad. It has saved a lot of energy for our country and improved the economic efficiency of enterpri\n" +
+                        "ses.&nbsp;</strong><br /><br />&nbsp;<img srcid=\"112133832\" /><br /><br /><br /><br /><strong><strong><span style=\"font-size:24px;\"><span style=\"color:#333399;\"><span style=\"font-\n" +
+                        "family:Arial, Helvetica, sans-serif;\">Equipment</span></span></span></strong></strong><strong><strong><span style=\"font-size:24px;\"><span style=\"color:#333399;\"><span style=\"font-f\n" +
+                        "amily:Arial, Helvetica, sans-serif;\">&nbsp;P</span></span></span></strong></strong><strong><strong><span style=\"font-size:24px;\"><span style=\"color:#333399;\"><span style=\"font-fami\n" +
+                        "ly:Arial, Helvetica, sans-serif;\">arameter</span></span></span></strong></strong><table style=\"width:779px;\"><tbody><tr><td style=\"width:55px;\"><span style=\"font-size:12px;\"><span\n" +
+                        " style=\"font-family:Calibri;\">M</span></span><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">odel</span></span></td><td style=\"width:72px;\">\n" +
+                        "<span style=\"font-size:12px;\"><span style=\"font-family:Calibri;\">S</span></span><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">ize</span></\n" +
+                        "span></td><td style=\"width:38px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">Cart(set)</span></span></td><td style=\"width:65px;\"><span \n" +
+                        "style=\"font-size:12px;\"><span style=\"font-family:Calibri;\">B</span></span><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">aking pan(Piece)</\n" +
+                        "span></span></td><td style=\"width:65px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Calibri;\">P</span></span><span style=\"font-size:12px;\"><span style=\"font-family:A\n" +
+                        "rial, Helvetica, sans-serif;\">ower source</span></span></td><td style=\"width:68px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Calibri;\">H</span></span><span style=\"f\n" +
+                        "ont-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">eating method</span></span></td><td style=\"width:79px;\"><span style=\"font-size:12px;\"><span style=\"font-fa\n" +
+                        "mily:Calibri;\">O</span></span><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">perating temperature</span></span></td><td style=\"width:65px;\">\n" +
+                        "<span style=\"font-size:12px;\"><span style=\"font-family:Calibri;\">S</span></span><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">ize of bakin\n" +
+                        "g pan</span></span></td><td style=\"width:70px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Calibri;\">C</span></span><span style=\"font-size:12px;\"><span style=\"font-f\n" +
+                        "amily:Arial, Helvetica, sans-serif;\">ontrol system</span></span></td><td style=\"width:153px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Calibri;\">S</span></span><span\n" +
+                        " style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">team pressure</span></span></td><td style=\"width:51px;\"><span style=\"font-size:12px;\"><span style\n" +
+                        "=\"font-family:Calibri;\">W</span></span><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">eight</span></span><span style=\"font-size:12px;\"><spa\n" +
+                        "n style=\"font-family:Arial, Helvetica, sans-serif;\">/kg</span></span>&nbsp;</td></tr><tr><td style=\"width:55px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helv\n" +
+                        "etica, sans-serif;\">MC-HG</span></span><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">F</span></span><span style=\"font-size:12px;\"><span sty\n" +
+                        "le=\"font-family:Arial, Helvetica, sans-serif;\">-24</span></span></td><td style=\"width:72px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\"\n" +
+                        ">1400*1400*2600mm</span></span></td><td style=\"width:38px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">1</span></span></td><td style=\"wi\n" +
+                        "dth:65px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">24</span></span></td><td rowspan=\"6\" style=\"width:65px;\"><span style=\"font-size\n" +
+                        ":12px;\"><span style=\"font-family:Calibri;\">C</span></span><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">ustomize</span></span><br />&nbsp;<\n" +
+                        "/td><td rowspan=\"6\" style=\"width:68px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Calibri;\">S</span></span><span style=\"font-size:12px;\"><span style=\"font-family:\n" +
+                        "Arial, Helvetica, sans-serif;\">team heating or electrical heating</span></span></td><td rowspan=\"6\" style=\"width:79px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Ari\n" +
+                        "al, Helvetica, sans-serif;\">0-</span></span><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">3</span></span><span style=\"font-size:12px;\"><spa\n" +
+                        "n style=\"font-family:Arial, Helvetica, sans-serif;\">00<span style=\"font-family:Arial, Helvetica, sans-serif;\">&ordm;C</span></span></span></td><td rowspan=\"6\" style=\"width:65px;\"\n" +
+                        "><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">64</span></span><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, san\n" +
+                        "s-serif;\">0*</span></span><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">46</span></span><span style=\"font-size:12px;\"><span style=\"font-fa\n" +
+                        "mily:Arial, Helvetica, sans-serif;\">0*45mm</span></span></td><td rowspan=\"6\" style=\"width:70px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Calibri;\">A</span></span>\n" +
+                        "<span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">utomatic control</span></span></td><td style=\"width:153px;\"><span style=\"font-size:12px;\"><s\n" +
+                        "pan style=\"font-family:Arial, Helvetica, sans-serif;\">10.0.2-0.8Mpa(2-8kg/com)</span></span></td><td style=\"width:51px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Ari\n" +
+                        "al, Helvetica, sans-serif;\">500</span></span></td></tr><tr><td style=\"width:55px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">MC-HG</spa\n" +
+                        "n></span><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">F</span></span><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helveti\n" +
+                        "ca, sans-serif;\">-48</span></span></td><td style=\"width:72px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">1400*2400*2600mm</span></span>\n" +
+                        "</td><td style=\"width:38px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">2</span></span></td><td style=\"width:65px;\"><span style=\"font-\n" +
+                        "size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">48</span></span></td><td style=\"width:153px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Arial, He\n" +
+                        "lvetica, sans-serif;\">11.0.2-0.8Mpa(2-8kg/com)</span></span></td><td style=\"width:51px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">8</s\n" +
+                        "pan></span><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">00</span></span></td></tr><tr><td style=\"width:55px;\"><span style=\"font-size:12px;\n" +
+                        "\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">MC-HG</span></span><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">F</span></span><\n" +
+                        "span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">-96</span></span></td><td style=\"width:72px;\"><span style=\"font-size:12px;\"><span style=\"fon\n" +
+                        "t-family:Arial, Helvetica, sans-serif;\">2400*2400*2600mm</span></span></td><td style=\"width:38px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-ser\n" +
+                        "if;\">4</span></span></td><td style=\"width:65px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">96</span></span></td><td style=\"width:153px\n" +
+                        ";\"><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">12.0.2-0.8Mpa(2-8kg/com)</span></span></td><td style=\"width:51px;\"><span style=\"font-size\n" +
+                        ":12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">1</span></span><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">0</span></span\n" +
+                        "><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">00</span></span></td></tr><tr><td style=\"width:55px;\"><span style=\"font-size:12px;\"><span s\n" +
+                        "tyle=\"font-family:Arial, Helvetica, sans-serif;\">MC-HG</span></span><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">F</span></span><span style\n" +
+                        "=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">-144</span></span></td><td style=\"width:72px;\"><span style=\"font-size:12px;\"><span style=\"font-family:\n" +
+                        "Arial, Helvetica, sans-serif;\">3500*2400*2600mm</span></span></td><td style=\"width:38px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">6</\n" +
+                        "span></span></td><td style=\"width:65px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">144</span></span></td><td style=\"width:153px;\"><spa\n" +
+                        "n style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">13.0.2-0.8Mpa(2-8kg/com)</span></span></td><td style=\"width:51px;\"><span style=\"font-size:12px;\"\n" +
+                        "><span style=\"font-family:Arial, Helvetica, sans-serif;\">15</span></span><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">00</span></span></td>\n" +
+                        "</tr><tr><td style=\"width:55px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">MC-HG</span></span><span style=\"font-size:12px;\"><span styl\n" +
+                        "e=\"font-family:Arial, Helvetica, sans-serif;\">F</span></span><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">-192</span></span></td><td style=\n" +
+                        "\"width:72px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">4500*2400*2600mm</span></span></td><td style=\"width:38px;\"><span style=\"font-\n" +
+                        "size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">8</span></span></td><td style=\"width:65px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helv\n" +
+                        "etica, sans-serif;\">192</span></span></td><td style=\"width:153px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">14.0.2-0.8Mpa(2-8kg/com)</\n" +
+                        "span></span></td><td style=\"width:51px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">20</span></span><span style=\"font-size:12px;\"><span\n" +
+                        " style=\"font-family:Arial, Helvetica, sans-serif;\">00</span></span></td></tr><tr><td style=\"width:55px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, s\n" +
+                        "ans-serif;\">MC-HG</span></span><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">F</span></span><span style=\"font-size:12px;\"><span style=\"fon\n" +
+                        "t-family:Arial, Helvetica, sans-serif;\">-288</span></span></td><td style=\"width:72px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">5500*2\n" +
+                        "400*2600mm</span></span></td><td style=\"width:38px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">12</span></span></td><td style=\"width:65\n" +
+                        "px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">288</span></span></td><td style=\"width:153px;\"><span style=\"font-size:12px;\"><span sty\n" +
+                        "le=\"font-family:Arial, Helvetica, sans-serif;\">15.0.2-0.8Mpa(2-8kg/com)</span></span></td><td style=\"width:51px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Hel\n" +
+                        "vetica, sans-serif;\">280</span></span><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">0</span></span></td></tr><tr><td style=\"height:33px;widt\n" +
+                        "h:55px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Calibri;\">N</span></span><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">ot\n" +
+                        "e </span></span></td><td colspan=\"10\" style=\"height:33px;width:725px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Calibri;\">W</span></span><span style=\"font-size:12p\n" +
+                        "x;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">e can design the equipments depend on the requirements</span></span></td></tr></tbody></table><br /><br /><br /><strong><sp\n" +
+                        "an style=\"color:#6600cc;\">CHARACTERISTIC</span><br />1. Heating sources include steam, electricity, far infrared, dual-use of steam and electricity, all for users to choose;<br />2. Us\n" +
+                        "ing temperature: steam heating 50 ~ 140&ordm;C, the highest 150&ordm;C;<br />3. Electricity, far infrared temperature 50 ~ 350&ordm;C;<br />4. It is equipped with automatic control syste\n" +
+                        "m and computer control system for users to choose;<br />5. Commonly used steam pressure 0.02-0.8Mpa (0.2 ~ 8kg / m2);<br />6. It is equipped with electric heating, valued 15KW calculated\n" +
+                        " according to type I, practical 5-8kw / h;<br />7. If there is any special requirement please specify in order.<br />Price of non-standard oven is negotiable.<br />Please specify in orde\n" +
+                        "r if using temperature is more than 140&ordm;C or less than 60&ordm;C.<br />Our baking car and baking tray are in uniform size, so they are interchangeable;<br />Baking tray size: 640 &t\n" +
+                        "imes; 460 &times; 45 (mm)</strong><br /><br /><img srcid=\"112133842\" /><br /><br /><span style=\"font-size:14px;\"><u><span style=\"color:#006600;\"><strong><strong><span style=\"font-\n" +
+                        "family:Arial, Helvetica, sans-serif;\">&nbsp;Details for dryer</span></strong></strong></span></u><br /><strong><strong><span style=\"color:#000000;\"><span style=\"font-family:Arial, He\n" +
+                        "lvetica, sans-serif;\">&nbsp; This equipment is mainly used in drying</span></span></strong></strong>&nbsp;<strong><strong><span style=\"color:#000000;\"><span style=\"font-family:Arial,\n" +
+                        " Helvetica, sans-serif;\">vegetables, fruit, seafood, flowers, such as ginseng, red ginseng, ginseng, angelica, cordyceps sinensis, honeysuckle, conventional, schisandra, astragalus and \n" +
+                        "konjac, yam, maize seed, tobacco seeds, pumpkin, onion, spinach, brake, wild, carrots, celery, cowpea, chili, beans, tomatoes, mushrooms, mushrooms, agaric, garlic, ginger, raisins, kiwi\n" +
+                        " fruit, banana, litchi, longan, apple, hawthorn, persimmon, scallops, dried fish, kelp, vinasse, chrysanthemum, rose dry food processing, etc.&nbsp;</span></span></strong></strong></span\n" +
+                        "><br /><br /><img srcid=\"112133852\" /><br /><br /><br /><span style=\"font-size:14px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\"><u><strong><span style=\"color:#006600\n" +
+                        ";\">Features of dryer &nbsp;:</span></strong></u><br /><br /><span style=\"color:#000000;\">1, vegetable drier , high thermal efficiency, save energy.</span><br /><span style=\"color:#00\n" +
+                        "0000;\">2, the use of forced ventilation effect, and equips with adjustable air distributing plate, uniform material drying,&nbsp;Heat source can use steam, hot water, electricity, far i\n" +
+                        "nfrared, choose widely.</span><br /><span style=\"color:#000000;\">3, low noise, running balance.Temperature control, easy installation and maintenance.</span></span></span><br /><br /><\n" +
+                        "br /><br /><span style=\"font-size:20px;\"><strong>&nbsp;</strong></span><br /><span style=\"color:#006600;\"><span style=\"font-size:20px;\"><strong>Service:<br />pre-sale service</stro\n" +
+                        "ng></span></span><br /><strong>We Invite customers to visit our company and communicate on technical requirements face to face.<br />sale service<br />Responsible for debugging the equip\n" +
+                        "ment according to customers' requirements of various technical data. Our engineers will train our customers about equipment features and operation key points to make sure the equipment r\n" +
+                        "unning in the best condition.</strong><br /><br /><span style=\"color:#006600;\"><span style=\"font-size:20px;\"><strong>After-sale service</strong></span></span><br /><strong>We provide\n" +
+                        " installation, debugging, maintenance, training and other services; Provide relevant technical data, equipment, software and related GMP certification materials;Set up after-sales servic\n" +
+                        "e hotline, and arrange personnel to visit customers every year to know more customer needs,like customer operation problems in the process of production equipment.</strong><br /><br /><s\n" +
+                        "pan style=\"color:#006600;\"><span style=\"font-size:20px;\"><strong>Quality promise</strong></span></span><br /><strong>Our company promises strictly operate the ISO9001 quality system \n" +
+                        "certification standards and pharmaceutical equipment GMP audit requirements,promise we provide new equipment. Advanced technology,good quality.Equipment operation safe reliable, affordab\n" +
+                        "le, easy to maintain.<br />Equipment warranty period is one year,all the parts for the equipment choose well-known brand.<br />During the warranty when equipment have problem in quality \n" +
+                        "like equipment failure and damage,the company for free maintenance or replacement.</strong><br /><br /><span style=\"color:#990099;\"><span style=\"font-size:24px;\"><strong>&nbsp; We lo\n" +
+                        "ok forward to cooperating with partners from all over the world to build win-win cooperation relationship in long term. Welcome for your visiting.</strong></span></span><br /><br /><span\n" +
+                        " style=\"font-size:24px;\"><strong><span style=\"font-family:Arial, Helvetica, sans-serif;\"><img srcid=\"112133862\" /></span></strong></span>\"";
         Assert.assertFalse(testXss(content));
     }
 
@@ -1551,112 +1691,138 @@ public class AntiSamyTest {
         // String content = "<img//onerror='alert(1' src='/adss'> <TABLE> && ,: # %23 SD SSDADA";
         // String content="<img /onerror=alert(1' > ?=+ adad & sda %6d a ";
         String content = "<a href=\"javascript:alert(1)\" >www.baidu.com</a>;";
-        Assert.assertTrue(testXss(content));
+        Assert.assertTrue(testXssWithAttr(content));
         Assert.assertFalse(getclean(content).contains("nofollow"));
     }
 
     @Test
     public void testXss9() throws Exception {
-        // String content = "<img//onerror='alert(1' src='/adss'> <TABLE> && ,: # %23 SD SSDADA";
-        // String content="<img /onerror=alert(1' > ?=+ adad & sda %6d a ";
-        String content = "\">><svg/onload=[1].find(function(){with(`docomen\\x74`);body.appendChild(createElement(\"script\")).src=\"http://xss.tv/xxx\"})>";
+        String content =
+                "\">><svg/onload=[1].find(function(){with(`docomen\\x74`);body.appendChild(createElement(\"script\")).src=\"http://xss.tv/xxx\"})>";
+        Assert.assertTrue(testXss(content));
+
+        content = "\" sada\" \" <img src=\"javascript:\" > \"";
         Assert.assertTrue(testXss(content));
     }
 
     @Test
     public void testXss10() throws Exception {
-        // String content = "<img//onerror='alert(1' src='/adss'> <TABLE> && ,: # %23 SD SSDADA";
-        // String content="<img /onerror=alert(1' > ?=+ adad & sda %6d a ";
         String content =
                 "/images/mail/mail-logo_en.gif></td></tr></tbody></table><table align=></td></tr></tbody><tbody><tr><td style='height:100pf'><strong>To: Yeso Insulating Products Co., Ltd.<br />Dear Ms. Linda Zong ,</strong><p style=><a href='http://Made-in-China.com'>Made-in-China.com</a> would like to let you know that you have just received a new business message which is saved in the <a href='http://membercenter.made-in-china.com/messagecenter.do <br/><br/>";
         Assert.assertTrue(testXss(content));
         content = "a=222\" onfocus='alert(1)' />";
-        Assert.assertTrue(testXss(content));
+        Assert.assertTrue(testXssWithAttr(content));
 
         content = "a=222\" onfocus  ='alert(1)' />";
-        Assert.assertTrue(testXss(content));
+        Assert.assertTrue(testXssWithAttr(content));
+        content = "a=222\" onfocus  ='alert(1)' />";
+        Assert.assertTrue(testXssWithAttr(content));
     }
 
     @Test
     public void testXss11() throws Exception {
-        // String content = "<img//onerror='alert(1' src='/adss'> <TABLE> && ,: # %23 SD SSDADA";
-        // String content="<img /onerror=alert(1' > ?=+ adad & sda %6d a ";
-        String content0 = "\" ";
         String content =
-                "<strong><span style=\"font-family:Arial, Helvetica, sans-serif;\"><span style=\"font-size:18px;\">P\n"
-                        + "lastic Room Acrylic Hotel Supplies Storage Box</span></span></strong><h3><br /><span style=\"font-size:16px;\">Thank you for your visit my shop .It is my pleasure.</span></h3><span style\n"
-                        + "=\"font-size:16px;\">Resin Product &nbsp;such as : Consumable Box .Remote Holder . Tray.Cup Mat.Soap Dispenser<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; \n"
-                        + "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Tissue Box.Towel Plate.Table Plate.Vase. etc.</span><br /><br /><br /><br /><img height=\"750px\" srcid=\"303\n"
-                        + "053515\" width=\"750px\" /><br /><br />&nbsp;<table style=\"height:689px;width:750px;\"><colgroup><col /><col /><col /><col /></colgroup><tbody><tr><td colspan=\"4\" style=\"height:39.00\n"
-                        + "pf;text-align:center;width:460.52pt;\"><strong><span style=\"font-size:20px;\"><span style=\"color:#000000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">Product&nbsp;Infor\n"
-                        + "mation</span></span></span></strong></td></tr><tr><td style=\"height:39.00pf;text-align:general;width:75.78pt;\"><span style=\"font-size:16px;\"><span style=\"color:#000000;\"><span styl\n"
-                        + "e=\"font-family:Arial, Helvetica, sans-serif;\">Name</span></span></span></td><td style=\"height:39.00pf;text-align:general;width:172.53pt;\"><span style=\"font-size:16px;\"><span style=\n"
-                        + "\"color:#000000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">Hotel&nbsp;Amenity</span></span></span></td><td style=\"height:39.00pf;text-align:general;width:136.53pt;\"><\n"
-                        + "span style=\"font-size:16px;\"><span style=\"color:#000000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">Item</span></span></span></td><td style=\"height:39.00pf;text-alig\n"
-                        + "n:general;width:210.78pt;\"><span style=\"font-size:16px;\">XLS-08</span></td></tr><tr><td style=\"height:39.00pf;text-align:general;width:75.78pt;\"><span style=\"font-size:16px;\"><spa\n"
-                        + "n style=\"color:#000000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">MOQ</span></span></span></td><td style=\"height:39.00pf;text-align:general;width:172.53pt;\"><span st\n"
-                        + "yle=\"font-size:16px;\"><span style=\"color:#000000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">50sets</span></span></span></td><td style=\"height:39.00pf;text-align:gen\n"
-                        + "eral;width:136.53pt;\"><span style=\"font-size:16px;\"><span style=\"color:#000000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">Color</span></span></span></td><td style=\\\n"
-                        + "\"height:39.00pf;text-align:general;width:210.78pt;\"><span style=\"font-size:16px;\"><span style=\"color:#000000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">As&nbsp;samp\n"
-                        + "le</span></span></span></td></tr><tr><td style=\"height:39.00pf;text-align:general;width:75.78pt;\"><span style=\"font-size:16px;\"><span style=\"color:#000000;\"><span style=\"font-fami\n"
-                        + "ly:Arial, Helvetica, sans-serif;\">Payment&nbsp;term</span></span></span></td><td style=\"height:39.00pf;text-align:general;width:172.53pt;\"><span style=\"font-size:16px;\"><span style=\n"
-                        + "\"color:#000000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">T/T,L/C,Paypal,<br />Western&nbsp;Union</span></span></span></td><td style=\"height:39.00pf;text-align:genera\n"
-                        + "l;width:136.53pt;\"><span style=\"font-size:16px;\"><span style=\"color:#000000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">Material</span></span></span></td><td style=\\\n"
-                        + "\"height:39.00pf;text-align:general;width:210.78pt;\"><span style=\"font-size:16px;\"><span style=\"color:#000000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">Material</sp\n"
-                        + "an></span></span></td></tr><tr><td style=\"height:39.00pf;text-align:general;width:75.78pt;\"><span style=\"font-size:16px;\"><span style=\"color:#000000;\"><span style=\"font-family:Ari\n"
-                        + "al, Helvetica, sans-serif;\">Logo</span></span></span></td><td style=\"height:39.00pf;text-align:general;width:172.53pt;\"><span style=\"font-size:16px;\"><span style=\"color:#000000;\">\n"
-                        + "<span style=\"font-family:Arial, Helvetica, sans-serif;\">Printed,Pressing</span></span></span></td><td style=\"height:39.00pf;text-align:general;width:136.53pt;\"><span style=\"font-siz\n"
-                        + "e:16px;\"><span style=\"color:#000000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">Usage</span></span></span></td><td style=\"height:39.00pf;text-align:general;width:210.\n"
-                        + "78pt;\"><span style=\"font-size:16px;\"><span style=\"color:#000000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">Hotel,&nbsp;estaurant,<br />Office,Home</span></span></sp\n"
-                        + "an></td></tr><tr><td style=\"height:141.00pf;text-align:general;width:75.78pt;\"><span style=\"font-size:16px;\"><span style=\"color:#000000;\"><span style=\"font-family:Arial, Helvetica\n"
-                        + ", sans-serif;\">Sample&nbsp;cost</span></span></span></td><td colspan=\"3\" style=\"height:141.00pf;text-align:center;width:481.52pt;\"><span style=\"font-size:16px;\"><span style=\"colo\n"
-                        + "r:#000000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">Customized&nbsp;sample:&nbsp;&nbsp;&nbsp;We&nbsp;will&nbsp;charge&nbsp;two&nbsp;times&nbsp;of&nbsp;<br />sample&nbs\n"
-                        + "p;fee.&nbsp;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\n"
-                        + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.When&nbsp;the&nbsp;buyer&nbsp;places&nbsp;an&nbsp;order,we&nbsp;will&nbsp;<br />return&nbsp;the&nbsp;sample&nbsp;fee.<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&\n"
-                        + "nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.The&nbsp;express&\n"
-                        + "nbsp;expense&nbsp;should&nbsp;be&nbsp;paid&nbsp;<br />by&nbsp;the&nbsp;client.&nbsp;</span></span></span></td></tr><tr><td style=\"height:39.00pf;text-align:general;width:75.78pt;\"><spa\n"
-                        + "n style=\"font-size:16px;\"><span style=\"color:#000000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">Delivery&nbsp;time</span></span></span></td><td colspan=\"3\" style=\\\n"
-                        + "\"height:39.00pf;text-align:center;width:481.52pt;\"><span style=\"font-size:16px;\"><span style=\"color:#000000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">10-25days&nbs\n"
-                        + "p;for&nbsp;quantity&nbsp;under&nbsp;100sets;25-60days&nbsp;<br />for&nbsp;100-1000sets.</span></span></span></td></tr><tr><td style=\"height:39.00pf;text-align:general;width:75.78pt;\"><\n"
-                        + "span style=\"font-size:16px;\"><span style=\"color:#000000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">Inventory</span></span></span></td><td colspan=\"3\" style=\"heigh\n"
-                        + "t:39.00pf;text-align:center;width:481.52pt;\"><span style=\"font-size:16px;\"><span style=\"color:#000000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">Customized&nbsp;pro\n"
-                        + "ducts,no&nbsp;inventory.</span></span></span></td></tr><tr><td style=\"height:64.00pf;text-align:general;width:75.78pt;\"><span style=\"font-size:16px;\"><span style=\"color:#000000;\"><\n"
-                        + "span style=\"font-family:Arial, Helvetica, sans-serif;\">Packing</span></span></span></td><td colspan=\"3\" style=\"height:64.00pf;text-align:center;width:481.52pt;\"><span style=\"font-\n"
-                        + "size:16px;\"><span style=\"color:#000000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">Within&nbsp;a&nbsp;waterproof&nbsp;membrane,outside&nbsp;carton&nbsp;packaging,<br /\n"
-                        + ">can&nbsp;make&nbsp;adjustments&nbsp;based&nbsp;on&nbsp;product&nbsp;size.</span></span></span></td></tr><tr><td style=\"height:39.00pf;text-align:general;width:75.78pt;\"><span style=\"\n"
-                        + "font-size:16px;\"><span style=\"color:#000000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">Remark</span></span></span></td><td colspan=\"3\" style=\"height:39.00pf;text-a\n"
-                        + "lign:center;width:481.52pt;\"><span style=\"font-size:16px;\"><span style=\"color:#000000;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">Customers&nbsp;can&nbsp;buy&nbsp;on\n"
-                        + "e&nbsp;set&nbsp;or&nbsp;one&nbsp;of&nbsp;the&nbsp;product&nbsp;alone.</span></span></span></td></tr></tbody></table><br /><img srcid=\"303053525\" /><br /><br /><br /><span style=\"font-\n"
-                        + "size:18px;\"><strong><span style=\"font-family:Arial, Helvetica, sans-serif;\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &n\n"
-                        + "bsp;&nbsp;</span></strong></span><strong><span style=\"font-size:20px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">&nbsp; &nbsp; &nbsp;</span></span></strong><strong><spa\n"
-                        + "n style=\"font-size:20px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\"><span style=\"color:#333333;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">&nbsp; &nbs\n"
-                        + "p; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />Selected material:&nbsp;not easy to scratch, the use\n"
-                        + " of healthy and stable ink color,<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;Logo that doesn't fade, enhancing the overall level\n"
-                        + " of the hotel.</span></span></span></span><br /><br /><br /><br /><span style=\"font-size:16px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\"><span style=\"color:#333333;\"\n"
-                        + "><span style=\"font-family:Arial, Helvetica, sans-serif;\"><img srcid=\"303053535\" /></span></span></span></span></strong><br /><br /><br /><br /><br /><strong><span style=\"font-size:2\n"
-                        + "0px;\">Advantages:&nbsp;</span></strong><span style=\"font-size:18px;\"> important plasticity of polymer materials, with good transparency,<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;\n"
-                        + " &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;chemical stability and weather resistance, easy to dye, easy processing,<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nb\n"
-                        + "sp; &nbsp; &nbsp; &nbsp; &nbsp; beautiful appearance, with crystal-like transparency.</span><br /><br /><br /><br /><br /><span style=\"font-size:16px;\"><img srcid=\"303053545\" /></spa\n"
-                        + "n><br /><br /><br /><br /><strong><span style=\"font-size:20px;\">Features:&nbsp;&nbsp;1&gt; not easy to scratch, 2&gt; thickening, and durable,<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &\n"
-                        + "nbsp; &nbsp; &nbsp; &nbsp;3&gt; exquisite and beautiful, 4&gt; deep-set and fall-proof.</span></strong><br /><br /><br /><br /><img height=\"750px\" srcid=\"303053555\" width=\"750px\" /\n"
-                        + "><br /><br /><br /><br /><br /><strong><span style=\"font-size:20px;\">Simple lines: clean modernism, which gives you a comfortable feeling.<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp\n"
-                        + "; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Fashion is an endless film, and minimalism is its style.</span></strong><br /><br /><img srcid=\"303053565\" /><br /><br /><br /><br /><span style=\"f\n"
-                        + "ont-size:16px;\"><span style=\"color:#006600;\"><strong>1. How&amp;When can I get the price?&nbsp;</strong></span><br />Email us your inquiry or communicate online, state your specificat\n"
-                        + "ions (product, material, size,&nbsp;<br />quantity etc.). We usually quote within 6 hours. Please call us or inform in your email when it is urgent, we will<br />regard your inquiry prio\n"
-                        + "rity.<br /><br /><span style=\"color:#006600;\"><strong>2. How can I get samples?</strong></span></span><br /><span style=\"font-size:14px;\">We provide samples per your requests. Sample\n"
-                        + " charge required and freight collected. Sample charge<br />refundable after order placed and the quantity reaches the requirement. Free sample provided of which<br />products already exi\n"
-                        + "sted or easy to make.</span><br /><br /><span style=\"font-size:16px;\"><span style=\"color:#006600;\"><strong>3. How long can I expect to get the sample?</strong></span></span><br /><sp\n"
-                        + "an style=\"font-size:14px;\">Samples will be ready for delivery in 3-8days. 3-8days to reach via express such as DHL, FEDEX, UPS.</span><br /><br /><span style=\"font-size:16px;\"><span \n"
-                        + "style=\"color:#006600;\"><strong>4. What kinds of files do you accept for OEM?</strong></span></span><br /><span style=\"font-size:14px;\">PDF, CDR, AI, high resolution JPG</span><br /><\n"
-                        + "br /><span style=\"font-size:16px;\"><span style=\"color:#006600;\"><strong>5. Can you do the designs for us?</strong></span></span><br /><span style=\"font-size:14px;\">Design service a\n"
-                        + "vailable. State your ideas and send us high resolution images, your Logo and text, we will<br />help to carry out your ideas and send you finished files for confirmation.</span><br /><br\n"
-                        + " /><span style=\"font-size:16px;\"><span style=\"color:#006600;\"><strong>6. How to order?</strong></span></span><br /><span style=\"font-size:14px;\">1)Product information-Quantity, Spe\n"
-                        + "cification(Size,Material,Technological and Packing requirements etc.)<br />2)Delivery time. Shipping information-Company name, Street address, Phone&amp;Fax number, Destination<br />sea \n"
-                        + "port.<br />3)Forwarder's contact details if there's any in China.</span><br /><br /><span style=\"font-size:16px;\"><span style=\"color:#006600;\"><strong>7. What about the lead time for\n"
-                        + " mass production?</strong></span></span><br /><span style=\"font-size:14px;\">Normally 15-25 days, depends on the quantity and the season. Our suggestion: inquiry and place order 2 month\n"
-                        + "s<br />earlier before you need the goods arrived.</span><br /><br /><span style=\"font-size:16px;\"><span style=\"color:#006600;\"><strong>8. What is your term of delivery?</strong></spa\n"
-                        + "n></span><br /><span style=\"font-size:14px;\">We accept EXW, FOB, CIF, etc. Choose the one which is the most convenient or cost effective for you.</span>\"";
-        Assert.assertFalse(testXss(content));
+                "<br /><span style=\"font-size:20px;\"><u><span style=\"color:#006600;\"><strong><strong><span styl\n" +
+                        "e=\"font-family:Arial, Helvetica, sans-serif;\">Product Description</span></strong></strong></span></u></span><br /><br /><strong><span style=\"color:#6600cc;\">GENERAL DESCRIPTION</span\n" +
+                        "><br />MC hot air circulating oven uses is equipped with low-noise and thermostable axial flow fan and automatic temperature control system. The entire circulatory system is sealed, impr\n" +
+                        "oving the thermal efficiency of oven from traditional 3-7% in drying room to the current 35-45%, with the highest thermal efficiency up to 50%. The design success of GR hot air circulati\n" +
+                        "ng oven make our hot air circulation oven has reached the advanced level at home and abroad. It has saved a lot of energy for our country and improved the economic efficiency of enterpri\n" +
+                        "ses.&nbsp;</strong><br /><br />&nbsp;<img srcid=\"112133832\" /><br /><br /><br /><br /><strong><strong><span style=\"font-size:24px;\"><span style=\"color:#333399;\"><span style=\"font-\n" +
+                        "family:Arial, Helvetica, sans-serif;\">Equipment</span></span></span></strong></strong><strong><strong><span style=\"font-size:24px;\"><span style=\"color:#333399;\"><span style=\"font-f\n" +
+                        "amily:Arial, Helvetica, sans-serif;\">&nbsp;P</span></span></span></strong></strong><strong><strong><span style=\"font-size:24px;\"><span style=\"color:#333399;\"><span style=\"font-fami\n" +
+                        "ly:Arial, Helvetica, sans-serif;\">arameter</span></span></span></strong></strong><table style=\"width:779px;\"><tbody><tr><td style=\"width:55px;\"><span style=\"font-size:12px;\"><span\n" +
+                        " style=\"font-family:Calibri;\">M</span></span><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">odel</span></span></td><td style=\"width:72px;\">\n" +
+                        "<span style=\"font-size:12px;\"><span style=\"font-family:Calibri;\">S</span></span><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">ize</span></\n" +
+                        "span></td><td style=\"width:38px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">Cart(set)</span></span></td><td style=\"width:65px;\"><span \n" +
+                        "style=\"font-size:12px;\"><span style=\"font-family:Calibri;\">B</span></span><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">aking pan(Piece)</\n" +
+                        "span></span></td><td style=\"width:65px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Calibri;\">P</span></span><span style=\"font-size:12px;\"><span style=\"font-family:A\n" +
+                        "rial, Helvetica, sans-serif;\">ower source</span></span></td><td style=\"width:68px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Calibri;\">H</span></span><span style=\"f\n" +
+                        "ont-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">eating method</span></span></td><td style=\"width:79px;\"><span style=\"font-size:12px;\"><span style=\"font-fa\n" +
+                        "mily:Calibri;\">O</span></span><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">perating temperature</span></span></td><td style=\"width:65px;\">\n" +
+                        "<span style=\"font-size:12px;\"><span style=\"font-family:Calibri;\">S</span></span><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">ize of bakin\n" +
+                        "g pan</span></span></td><td style=\"width:70px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Calibri;\">C</span></span><span style=\"font-size:12px;\"><span style=\"font-f\n" +
+                        "amily:Arial, Helvetica, sans-serif;\">ontrol system</span></span></td><td style=\"width:153px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Calibri;\">S</span></span><span\n" +
+                        " style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">team pressure</span></span></td><td style=\"width:51px;\"><span style=\"font-size:12px;\"><span style\n" +
+                        "=\"font-family:Calibri;\">W</span></span><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">eight</span></span><span style=\"font-size:12px;\"><spa\n" +
+                        "n style=\"font-family:Arial, Helvetica, sans-serif;\">/kg</span></span>&nbsp;</td></tr><tr><td style=\"width:55px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helv\n" +
+                        "etica, sans-serif;\">MC-HG</span></span><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">F</span></span><span style=\"font-size:12px;\"><span sty\n" +
+                        "le=\"font-family:Arial, Helvetica, sans-serif;\">-24</span></span></td><td style=\"width:72px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\"\n" +
+                        ">1400*1400*2600mm</span></span></td><td style=\"width:38px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">1</span></span></td><td style=\"wi\n" +
+                        "dth:65px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">24</span></span></td><td rowspan=\"6\" style=\"width:65px;\"><span style=\"font-size\n" +
+                        ":12px;\"><span style=\"font-family:Calibri;\">C</span></span><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">ustomize</span></span><br />&nbsp;<\n" +
+                        "/td><td rowspan=\"6\" style=\"width:68px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Calibri;\">S</span></span><span style=\"font-size:12px;\"><span style=\"font-family:\n" +
+                        "Arial, Helvetica, sans-serif;\">team heating or electrical heating</span></span></td><td rowspan=\"6\" style=\"width:79px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Ari\n" +
+                        "al, Helvetica, sans-serif;\">0-</span></span><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">3</span></span><span style=\"font-size:12px;\"><spa\n" +
+                        "n style=\"font-family:Arial, Helvetica, sans-serif;\">00<span style=\"font-family:Arial, Helvetica, sans-serif;\">&ordm;C</span></span></span></td><td rowspan=\"6\" style=\"width:65px;\"\n" +
+                        "><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">64</span></span><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, san\n" +
+                        "s-serif;\">0*</span></span><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">46</span></span><span style=\"font-size:12px;\"><span style=\"font-fa\n" +
+                        "mily:Arial, Helvetica, sans-serif;\">0*45mm</span></span></td><td rowspan=\"6\" style=\"width:70px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Calibri;\">A</span></span>\n" +
+                        "<span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">utomatic control</span></span></td><td style=\"width:153px;\"><span style=\"font-size:12px;\"><s\n" +
+                        "pan style=\"font-family:Arial, Helvetica, sans-serif;\">10.0.2-0.8Mpa(2-8kg/com)</span></span></td><td style=\"width:51px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Ari\n" +
+                        "al, Helvetica, sans-serif;\">500</span></span></td></tr><tr><td style=\"width:55px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">MC-HG</spa\n" +
+                        "n></span><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">F</span></span><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helveti\n" +
+                        "ca, sans-serif;\">-48</span></span></td><td style=\"width:72px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">1400*2400*2600mm</span></span>\n" +
+                        "</td><td style=\"width:38px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">2</span></span></td><td style=\"width:65px;\"><span style=\"font-\n" +
+                        "size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">48</span></span></td><td style=\"width:153px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Arial, He\n" +
+                        "lvetica, sans-serif;\">11.0.2-0.8Mpa(2-8kg/com)</span></span></td><td style=\"width:51px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">8</s\n" +
+                        "pan></span><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">00</span></span></td></tr><tr><td style=\"width:55px;\"><span style=\"font-size:12px;\n" +
+                        "\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">MC-HG</span></span><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">F</span></span><\n" +
+                        "span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">-96</span></span></td><td style=\"width:72px;\"><span style=\"font-size:12px;\"><span style=\"fon\n" +
+                        "t-family:Arial, Helvetica, sans-serif;\">2400*2400*2600mm</span></span></td><td style=\"width:38px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-ser\n" +
+                        "if;\">4</span></span></td><td style=\"width:65px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">96</span></span></td><td style=\"width:153px\n" +
+                        ";\"><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">12.0.2-0.8Mpa(2-8kg/com)</span></span></td><td style=\"width:51px;\"><span style=\"font-size\n" +
+                        ":12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">1</span></span><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">0</span></span\n" +
+                        "><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">00</span></span></td></tr><tr><td style=\"width:55px;\"><span style=\"font-size:12px;\"><span s\n" +
+                        "tyle=\"font-family:Arial, Helvetica, sans-serif;\">MC-HG</span></span><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">F</span></span><span style\n" +
+                        "=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">-144</span></span></td><td style=\"width:72px;\"><span style=\"font-size:12px;\"><span style=\"font-family:\n" +
+                        "Arial, Helvetica, sans-serif;\">3500*2400*2600mm</span></span></td><td style=\"width:38px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">6</\n" +
+                        "span></span></td><td style=\"width:65px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">144</span></span></td><td style=\"width:153px;\"><spa\n" +
+                        "n style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">13.0.2-0.8Mpa(2-8kg/com)</span></span></td><td style=\"width:51px;\"><span style=\"font-size:12px;\"\n" +
+                        "><span style=\"font-family:Arial, Helvetica, sans-serif;\">15</span></span><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">00</span></span></td>\n" +
+                        "</tr><tr><td style=\"width:55px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">MC-HG</span></span><span style=\"font-size:12px;\"><span styl\n" +
+                        "e=\"font-family:Arial, Helvetica, sans-serif;\">F</span></span><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">-192</span></span></td><td style=\n" +
+                        "\"width:72px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">4500*2400*2600mm</span></span></td><td style=\"width:38px;\"><span style=\"font-\n" +
+                        "size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">8</span></span></td><td style=\"width:65px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helv\n" +
+                        "etica, sans-serif;\">192</span></span></td><td style=\"width:153px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">14.0.2-0.8Mpa(2-8kg/com)</\n" +
+                        "span></span></td><td style=\"width:51px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">20</span></span><span style=\"font-size:12px;\"><span\n" +
+                        " style=\"font-family:Arial, Helvetica, sans-serif;\">00</span></span></td></tr><tr><td style=\"width:55px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, s\n" +
+                        "ans-serif;\">MC-HG</span></span><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">F</span></span><span style=\"font-size:12px;\"><span style=\"fon\n" +
+                        "t-family:Arial, Helvetica, sans-serif;\">-288</span></span></td><td style=\"width:72px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">5500*2\n" +
+                        "400*2600mm</span></span></td><td style=\"width:38px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">12</span></span></td><td style=\"width:65\n" +
+                        "px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">288</span></span></td><td style=\"width:153px;\"><span style=\"font-size:12px;\"><span sty\n" +
+                        "le=\"font-family:Arial, Helvetica, sans-serif;\">15.0.2-0.8Mpa(2-8kg/com)</span></span></td><td style=\"width:51px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Hel\n" +
+                        "vetica, sans-serif;\">280</span></span><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">0</span></span></td></tr><tr><td style=\"height:33px;widt\n" +
+                        "h:55px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Calibri;\">N</span></span><span style=\"font-size:12px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">ot\n" +
+                        "e </span></span></td><td colspan=\"10\" style=\"height:33px;width:725px;\"><span style=\"font-size:12px;\"><span style=\"font-family:Calibri;\">W</span></span><span style=\"font-size:12p\n" +
+                        "x;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\">e can design the equipments depend on the requirements</span></span></td></tr></tbody></table><br /><br /><br /><strong><sp\n" +
+                        "an style=\"color:#6600cc;\">CHARACTERISTIC</span><br />1. Heating sources include steam, electricity, far infrared, dual-use of steam and electricity, all for users to choose;<br />2. Us\n" +
+                        "ing temperature: steam heating 50 ~ 140&ordm;C, the highest 150&ordm;C;<br />3. Electricity, far infrared temperature 50 ~ 350&ordm;C;<br />4. It is equipped with automatic control syste\n" +
+                        "m and computer control system for users to choose;<br />5. Commonly used steam pressure 0.02-0.8Mpa (0.2 ~ 8kg / m2);<br />6. It is equipped with electric heating, valued 15KW calculated\n" +
+                        " according to type I, practical 5-8kw / h;<br />7. If there is any special requirement please specify in order.<br />Price of non-standard oven is negotiable.<br />Please specify in orde\n" +
+                        "r if using temperature is more than 140&ordm;C or less than 60&ordm;C.<br />Our baking car and baking tray are in uniform size, so they are interchangeable;<br />Baking tray size: 640 &t\n" +
+                        "imes; 460 &times; 45 (mm)</strong><br /><br /><img srcid=\"112133842\" /><br /><br /><span style=\"font-size:14px;\"><u><span style=\"color:#006600;\"><strong><strong><span style=\"font-\n" +
+                        "family:Arial, Helvetica, sans-serif;\">&nbsp;Details for dryer</span></strong></strong></span></u><br /><strong><strong><span style=\"color:#000000;\"><span style=\"font-family:Arial, He\n" +
+                        "lvetica, sans-serif;\">&nbsp; This equipment is mainly used in drying</span></span></strong></strong>&nbsp;<strong><strong><span style=\"color:#000000;\"><span style=\"font-family:Arial,\n" +
+                        " Helvetica, sans-serif;\">vegetables, fruit, seafood, flowers, such as ginseng, red ginseng, ginseng, angelica, cordyceps sinensis, honeysuckle, conventional, schisandra, astragalus and \n" +
+                        "konjac, yam, maize seed, tobacco seeds, pumpkin, onion, spinach, brake, wild, carrots, celery, cowpea, chili, beans, tomatoes, mushrooms, mushrooms, agaric, garlic, ginger, raisins, kiwi\n" +
+                        " fruit, banana, litchi, longan, apple, hawthorn, persimmon, scallops, dried fish, kelp, vinasse, chrysanthemum, rose dry food processing, etc.&nbsp;</span></span></strong></strong></span\n" +
+                        "><br /><br /><img srcid=\"112133852\" /><br /><br /><br /><span style=\"font-size:14px;\"><span style=\"font-family:Arial, Helvetica, sans-serif;\"><u><strong><span style=\"color:#006600\n" +
+                        ";\">Features of dryer &nbsp;:</span></strong></u><br /><br /><span style=\"color:#000000;\">1, vegetable drier , high thermal efficiency, save energy.</span><br /><span style=\"color:#00\n" +
+                        "0000;\">2, the use of forced ventilation effect, and equips with adjustable air distributing plate, uniform material drying,&nbsp;Heat source can use steam, hot water, electricity, far i\n" +
+                        "nfrared, choose widely.</span><br /><span style=\"color:#000000;\">3, low noise, running balance.Temperature control, easy installation and maintenance.</span></span></span><br /><br /><\n" +
+                        "br /><br /><span style=\"font-size:20px;\"><strong>&nbsp;</strong></span><br /><span style=\"color:#006600;\"><span style=\"font-size:20px;\"><strong>Service:<br />pre-sale service</stro\n" +
+                        "ng></span></span><br /><strong>We Invite customers to visit our company and communicate on technical requirements face to face.<br />sale service<br />Responsible for debugging the equip\n" +
+                        "ment according to customers' requirements of various technical data. Our engineers will train our customers about equipment features and operation key points to make sure the equipment r\n" +
+                        "unning in the best condition.</strong><br /><br /><span style=\"color:#006600;\"><span style=\"font-size:20px;\"><strong>After-sale service</strong></span></span><br /><strong>We provide\n" +
+                        " installation, debugging, maintenance, training and other services; Provide relevant technical data, equipment, software and related GMP certification materials;Set up after-sales servic\n" +
+                        "e hotline, and arrange personnel to visit customers every year to know more customer needs,like customer operation problems in the process of production equipment.</strong><br /><br /><s\n" +
+                        "pan style=\"color:#006600;\"><span style=\"font-size:20px;\"><strong>Quality promise</strong></span></span><br /><strong>Our company promises strictly operate the ISO9001 quality system \n" +
+                        "certification standards and pharmaceutical equipment GMP audit requirements,promise we provide new equipment. Advanced technology,good quality.Equipment operation safe reliable, affordab\n" +
+                        "le, easy to maintain.<br />Equipment warranty period is one year,all the parts for the equipment choose well-known brand.<br />During the warranty when equipment have problem in quality \n" +
+                        "like equipment failure and damage,the company for free maintenance or replacement.</strong><br /><br /><span style=\"color:#990099;\"><span style=\"font-size:24px;\"><strong>&nbsp; We lo\n" +
+                        "ok forward to cooperating with partners from all over the world to build win-win cooperation relationship in long term. Welcome for your visiting.</strong></span></span><br /><br /><span\n" +
+                        " style=\"font-size:24px;\"><strong><span style=\"font-family:Arial, Helvetica, sans-serif;\"><img srcid=\"112133862\" /></span></strong></span>\" sadads &quot;&gt;&lt;textarea autofocus onfocus=&quot;alert(1) &gt;sdad ";
+        Assert.assertFalse(testXssWithAttr(content));
     }
 
     @Test
@@ -1672,6 +1838,26 @@ public class AntiSamyTest {
         AntiSamyExt as = new AntiSamyExt();
         try {
             CleanResults cr = as.scan(content, policy);
+            System.out.println(cr.getNumberOfErrors());
+            System.out.println(cr.getCleanHTML());
+            return cr.getNumberOfErrors() > 0;
+        }
+        catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        finally {
+            Locale.setDefault(defaultLocal);
+        }
+        return false;
+    }
+
+    private boolean testXssWithAttr(String content) throws PolicyException {
+        Policy policy = Policy.getInstance(this.getClass().getResourceAsStream("/antixss.xml"));
+        Locale defaultLocal = Locale.getDefault();
+        Locale.setDefault(Locale.ENGLISH);
+        AntiSamyExt as = new AntiSamyExt();
+        try {
+            CleanResults cr = as.scan(content, policy, true);
             System.out.println(cr.getNumberOfErrors());
             System.out.println(cr.getCleanHTML());
             return cr.getNumberOfErrors() > 0;

@@ -25,6 +25,8 @@ package org.owasp.validator.html.scan;
 
 import org.apache.batik.css.parser.ParseException;
 import org.apache.xerces.dom.DocumentImpl;
+import org.cyberneko.html.CharPosition;
+import org.cyberneko.html.HTMLConfiguration;
 import org.cyberneko.html.parsers.DOMFragmentParser;
 import org.owasp.validator.css.CssScanner;
 import org.owasp.validator.css.ExternalCssScanner;
@@ -71,6 +73,8 @@ public class AntiSamyDOMScanner extends AbstractAntiSamyScanner {
             Pattern.compile("<?!?\\[\\s*(?:end)?if[^]]*\\]>?");
 
     private static final Queue<CachedItem> cachedItems = new ConcurrentLinkedQueue<CachedItem>();
+    private static final String ESCAPE_SINGLE_QUOTE = "&#x27;";
+    private static final String ESCAPE_DOUBLE_QUOTE = "&quot;";
 
     static class CachedItem {
         private final DOMFragmentParser parser;
@@ -95,6 +99,10 @@ public class AntiSamyDOMScanner extends AbstractAntiSamyScanner {
         super();
     }
 
+    public CleanResults scan(String html) throws ScanException {
+        return scan(html,false);
+    }
+
     /**
      * This is where the magic lives.
      *
@@ -106,7 +114,7 @@ public class AntiSamyDOMScanner extends AbstractAntiSamyScanner {
      *         representation, as well as some scan statistics.
      * @throws ScanException
      */
-    public CleanResults scan(String html) throws ScanException {
+    public CleanResults scan(String html,boolean scanAttr) throws ScanException {
 
         if (html == null) {
             throw new ScanException(new NullPointerException("Null input"));
@@ -193,6 +201,9 @@ public class AntiSamyDOMScanner extends AbstractAntiSamyScanner {
             results = new CleanResults(startOfScan, cleanHtml, dom, errorMessages);
 
             cachedItems.add( cachedItem);
+            if(scanAttr){
+                scanAttr(html, startOfScan, parser);
+            }
             return results;
 
 
@@ -203,6 +214,80 @@ public class AntiSamyDOMScanner extends AbstractAntiSamyScanner {
             throw new ScanException(e);
         }
 
+    }
+
+    private boolean isBlankChar(char c){
+       return (Character.isSpaceChar(c) || c == '\t');
+    }
+
+    private int skipBlank(char[] array, int pos,int finalpos,boolean backSkip){
+        if(backSkip){
+            while ( pos > finalpos && isBlankChar(array[pos])){
+                pos--;
+            }
+        }else{
+            while ( pos < finalpos && isBlankChar(array[pos])){
+                pos++;
+            }
+        }
+        return pos;
+    }
+
+    private boolean isEscapeStr(char[] array,int pos,int finalpos, String escapeStr){
+        if(pos + escapeStr.length() < finalpos){
+            return escapeStr.endsWith(new String(array,pos,escapeStr.length()));
+        }
+        return false;
+    }
+
+    private void scanAttr(String html, long startOfScan, DOMFragmentParser parser) throws SAXNotRecognizedException, SAXNotSupportedException {
+        Object position = parser.getProperty(HTMLConfiguration.PROPERTY_CUSTOM_CHAR_POS);
+        if(position != null ){
+            CharPosition charPosition = (CharPosition) position;
+            Set<Integer> singleQuotePositions = charPosition.getCharPositions('\'');
+            Set<Integer> doubleQuotePositions = charPosition.getCharPositions('"');
+            Set<Integer> equalPositions = charPosition.getCharPositions('=');
+            boolean attrInjection = false;
+            boolean previousInjection = results.getNumberOfErrors() > 0;
+            if((singleQuotePositions != null || doubleQuotePositions != null) && equalPositions != null){
+                char[] htmlarray = html.toCharArray();
+                int finalIndex = htmlarray.length - 1;
+                Integer[] equalPositionsArray =  equalPositions.toArray(new Integer[equalPositions.size()]);
+                for(int i = 0 ;i < equalPositionsArray.length; i++ ){
+                    int posForAttrName = equalPositionsArray[i];
+                    int originEqualPos = posForAttrName;
+                    int posForAttrValue = originEqualPos + 1;
+                    int prevPos = i==0 ? -1: equalPositionsArray[i-1];
+                    int nextPos = i==equalPositionsArray.length - 1 ? finalIndex: equalPositionsArray[i + 1];
+                    posForAttrName--;
+                    posForAttrName = skipBlank(htmlarray,posForAttrName,prevPos,true);
+                    int originNoneBlankPos = posForAttrName;
+                    while( posForAttrName > prevPos && Character.isLetter(htmlarray[posForAttrName])){
+                        posForAttrName--;
+                    }
+                    if(posForAttrName + 1 < originNoneBlankPos && policy.getEventAttributeByName(html.substring(posForAttrName + 1, originNoneBlankPos + 1)) != null){
+                        posForAttrValue = skipBlank(htmlarray, posForAttrValue, nextPos,false);
+                        if(!isEscapeStr(htmlarray,posForAttrValue,nextPos,ESCAPE_DOUBLE_QUOTE) && !isEscapeStr(htmlarray,posForAttrValue,finalIndex,ESCAPE_SINGLE_QUOTE)){
+                            errorMessages.add("illegal attribute from pos:" + posForAttrName);
+                            for( ;posForAttrName != originEqualPos; ){
+                                htmlarray[posForAttrName] = ' ';
+                                posForAttrName++;
+                            }
+                            attrInjection = true;
+                        }
+                    }
+                }
+                String cleanHtml = "";
+                if(attrInjection){
+                    if(!previousInjection){
+                        cleanHtml = new String(htmlarray);
+                    }else{
+                        cleanHtml = "";
+                    }
+                    results = new CleanResults(startOfScan, cleanHtml, dom, errorMessages);
+                }
+            }
+        }
     }
 
     static DOMFragmentParser getDomParser()

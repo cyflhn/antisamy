@@ -3,7 +3,7 @@
     <groupId>com.focustech.antisamy</groupId>
     <artifactId>antisamy</artifactId>
     <packaging>jar</packaging>
-    <version>0.8</version>
+    <version>0.9-SNAPSHOT</version>
 
     <distributionManagement>
         <repository>
@@ -41,7 +41,7 @@
         <dependency>
             <groupId>com.focustech.nekohtml</groupId>
             <artifactId>nekohtml</artifactId>
-            <version>0.6</version>
+            <version>0.7-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>

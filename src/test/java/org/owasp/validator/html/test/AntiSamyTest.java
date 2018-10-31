@@ -1570,7 +1570,10 @@ public class AntiSamyTest {
         String content =
                 "/images/mail/mail-logo_en.gif></td></tr></tbody></table><table align=></td></tr></tbody><tbody><tr><td style='height:100pf'><strong>To: Yeso Insulating Products Co., Ltd.<br />Dear Ms. Linda Zong ,</strong><p style=><a href='http://Made-in-China.com'>Made-in-China.com</a> would like to let you know that you have just received a new business message which is saved in the <a href='http://membercenter.made-in-china.com/messagecenter.do <br/><br/>";
         Assert.assertTrue(testXss(content));
-        content = "<z a=222\" onfocus='alert(1)' />";
+        content = "a=222\" onfocus='alert(1)' />";
+        Assert.assertTrue(testXss(content));
+
+        content = "a=222\" onfocus  ='alert(1)' />";
         Assert.assertTrue(testXss(content));
     }
 
@@ -1674,6 +1677,7 @@ public class AntiSamyTest {
             return cr.getNumberOfErrors() > 0;
         }
         catch (Exception ex) {
+            ex.printStackTrace();
         }
         finally {
             Locale.setDefault(defaultLocal);

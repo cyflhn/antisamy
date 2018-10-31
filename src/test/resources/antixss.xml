@@ -2873,6 +2873,7 @@ http://www.w3.org/TR/html401/struct/global.html
 		<attribute name="onfocusin" />
 		<attribute name="onfocusout" />
 		<attribute name="onhelp" />
+		<attribute name="onhashchange" />
 		<attribute name="onkeydown" />
 		<attribute name="onkeypress" />
 		<attribute name="onkeyup" />

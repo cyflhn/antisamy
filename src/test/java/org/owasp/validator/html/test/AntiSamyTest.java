@@ -1717,6 +1717,9 @@ public class AntiSamyTest {
         Assert.assertTrue(testXssWithAttr(content));
         content = "a=222\" onfocus  ='alert(1)' />";
         Assert.assertTrue(testXssWithAttr(content));
+
+        content = "adsdds \"><marquee/onstart=confirm(2)>/onstart=confirm(1)>";
+        Assert.assertTrue(testXssWithAttr(content));
     }
 
     @Test

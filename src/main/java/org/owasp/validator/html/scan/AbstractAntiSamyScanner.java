@@ -41,7 +41,20 @@ public abstract class AbstractAntiSamyScanner {
 
 	protected boolean isNofollowAnchors = false;
 	protected boolean isValidateParamAsEmbed = false;
+    protected static InternalPolicy attrPolicy;
+    protected static final String PAD_END_STR = " >";
+    protected static final String PAD_END_GT_STR = ">";
+    protected static final String PAD_START_QUOTE_STR = "<z a=\"";
+    protected static final String PAD_START_SINGLE_QUOTE_STR = "<z a='";
+    protected static final String PAD_START_STR_FOR_END = "</z>";
 
+    static {
+        try{
+            attrPolicy =  (InternalPolicy) Policy.getInstance(AbstractAntiSamyScanner.class.getResourceAsStream("/antixss_attr.xml"));
+        }catch (Exception ex){
+            throw new RuntimeException(ex);
+        }
+    }
 	public abstract CleanResults scan(String html) throws ScanException;
 
 	/** @noinspection UnusedDeclaration TODO: Investigate */

@@ -24,6 +24,7 @@
 package org.owasp.validator.html.scan;
 
 import org.apache.batik.css.parser.ParseException;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.xerces.dom.DocumentImpl;
 import org.cyberneko.html.CharPosition;
 import org.cyberneko.html.HTMLConfiguration;
@@ -240,53 +241,56 @@ public class AntiSamyDOMScanner extends AbstractAntiSamyScanner {
         return false;
     }
 
-    private void scanAttr(String html, long startOfScan, DOMFragmentParser parser) throws SAXNotRecognizedException, SAXNotSupportedException {
-        Object position = parser.getProperty(HTMLConfiguration.PROPERTY_CUSTOM_CHAR_POS);
-        if(position != null ){
-            CharPosition charPosition = (CharPosition) position;
-            Set<Integer> singleQuotePositions = charPosition.getCharPositions('\'');
-            Set<Integer> doubleQuotePositions = charPosition.getCharPositions('"');
-            Set<Integer> equalPositions = charPosition.getCharPositions('=');
-            boolean attrInjection = false;
-            boolean previousInjection = results.getNumberOfErrors() > 0;
-            if((singleQuotePositions != null || doubleQuotePositions != null) && equalPositions != null){
-                char[] htmlarray = html.toCharArray();
-                int finalIndex = htmlarray.length;
-                Integer[] equalPositionsArray =  equalPositions.toArray(new Integer[equalPositions.size()]);
-                for(int i = 0 ;i < equalPositionsArray.length; i++ ){
-                    int posForAttrName = equalPositionsArray[i];
-                    int originEqualPos = posForAttrName;
-                    int posForAttrValue = originEqualPos + 1;
-                    int prevPos = i==0 ? -1: equalPositionsArray[i-1];
-                    int nextPos = i==equalPositionsArray.length - 1 ? finalIndex: equalPositionsArray[i + 1];
-                    posForAttrName--;
-                    posForAttrName = skipBlank(htmlarray,posForAttrName,prevPos,true);
-                    int originNoneBlankPos = posForAttrName;
-                    while( posForAttrName > prevPos && Character.isLetter(htmlarray[posForAttrName])){
-                        posForAttrName--;
-                    }
-                    if(posForAttrName + 1 < originNoneBlankPos && policy.getEventAttributeByName(html.substring(posForAttrName + 1, originNoneBlankPos + 1)) != null){
-                        posForAttrValue = skipBlank(htmlarray, posForAttrValue, nextPos,false);
-                        if(!isEscapeStr(htmlarray,posForAttrValue,nextPos,ESCAPE_DOUBLE_QUOTE) && !isEscapeStr(htmlarray,posForAttrValue,nextPos,ESCAPE_SINGLE_QUOTE)){
-                            errorMessages.add("illegal attribute from pos:" + posForAttrName);
-                            for( ;posForAttrName != originEqualPos; ){
-                                htmlarray[posForAttrName] = ' ';
-                                posForAttrName++;
-                            }
-                            attrInjection = true;
-                        }
-                    }
-                }
-                String cleanHtml = "";
-                if(attrInjection){
-                    if(!previousInjection){
-                        cleanHtml = new String(htmlarray);
+    private String getCleanResult(boolean padStart, boolean padEnd, String cleanVal) {
+        if (padStart) {
+            if (cleanVal.startsWith(PAD_START_SINGLE_QUOTE_STR)) {
+                cleanVal = StringUtils.stripStart(cleanVal, PAD_START_SINGLE_QUOTE_STR);
+            }else if (cleanVal.startsWith(PAD_START_QUOTE_STR)) {
+                cleanVal = StringUtils.stripStart(cleanVal, PAD_START_QUOTE_STR);
+            }
+            if (cleanVal.endsWith(PAD_START_STR_FOR_END)) {
+                cleanVal = StringUtils.stripEnd(cleanVal, PAD_START_STR_FOR_END);
+            }
+        }
+        if (padEnd && (cleanVal.endsWith(PAD_END_STR))) {
+            cleanVal = StringUtils.stripEnd(cleanVal, PAD_END_STR);
+        }
+        return cleanVal;
+    }
+
+    private void scanAttr(String html, long startOfScan, DOMFragmentParser parser){
+        try{
+            Object position = parser.getProperty(HTMLConfiguration.PROPERTY_CUSTOM_CHAR_POS);
+            if(position != null ){
+                CharPosition charPosition = (CharPosition) position;
+                Set<Integer> singleQuotePositions = charPosition.getCharPositions('\'');
+                Set<Integer> doubleQuotePositions = charPosition.getCharPositions('"');
+                Set<Integer> equalPositions = charPosition.getCharPositions('=');
+                boolean padStart = false,padEnd = false;
+                boolean previousInjection = results.getNumberOfErrors() > 0;
+                if((singleQuotePositions != null || doubleQuotePositions != null) && equalPositions != null){
+                    String rechkString = previousInjection? results.getCleanHTML(): html;
+                    if(doubleQuotePositions != null){
+                        rechkString = PAD_START_QUOTE_STR + rechkString;
+                        padStart = true;
                     }else{
-                        cleanHtml = "";
+                        rechkString = PAD_START_SINGLE_QUOTE_STR + rechkString;
+                        padStart = true;
                     }
-                    results = new CleanResults(startOfScan, cleanHtml, dom, errorMessages);
+                    if(!rechkString.endsWith(PAD_END_GT_STR)){
+                        rechkString += PAD_END_STR;
+                        padEnd = true;
+                    }
+                    AntiSamyDOMScanner attrScaner = new AntiSamyDOMScanner(attrPolicy);
+                    CleanResults attrScanResult =  attrScaner.scan(rechkString);
+                    if(attrScanResult.getNumberOfErrors() > 0){
+                        attrScanResult.getErrorMessages().addAll(errorMessages);
+                        results = new CleanResults(startOfScan, getCleanResult(padStart,padEnd,attrScanResult.getCleanHTML()), attrScanResult.getCleanXMLDocumentFragment(), attrScanResult.getErrorMessages());
+                    }
                 }
             }
+        }catch (Exception ex) {
+            throw new RuntimeException(ex);
         }
     }
 

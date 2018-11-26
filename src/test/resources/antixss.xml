@@ -2842,6 +2842,7 @@ http://www.w3.org/TR/html401/struct/global.html
 		<attribute name="onbeforeunload" />
 		<attribute name="onhashchange" />
 		<attribute name="onload" />
+		<attribute name="onloadend" />
 		<attribute name="onoffline" />
 		<attribute name="ononline" />
 		<attribute name="onreadystatechange" />
@@ -2911,8 +2912,44 @@ http://www.w3.org/TR/html401/struct/global.html
 		<attribute name="onpropertychange" />
 		<attribute name="onsearch" />
 		<attribute name="onmessage" />
-
-
+		<attribute name="oncheckboxstatechange" />
+		<attribute name="onradiostatechange" />
+		<attribute name="onpageshow" />
+		<attribute name="onpagehide" />
+		<attribute name="onmessageerror" />
+		<attribute name="onprogress" />
+		<attribute name="onpointercancel" />
+		<attribute name="onpointerdown" />
+		<attribute name="onpointerleave" />
+		<attribute name="onpointerlockchange" />
+		<attribute name="onpointerlockerror" />
+		<attribute name="onpointermove" />
+		<attribute name="onpointerout" />
+		<attribute name="onpointerover" />
+		<attribute name="onpointerup" />
+		<attribute name="onwheel" />
+		<attribute name="ondomactivate" />
+		<attribute name="ondomattributenamechanged" />
+		<attribute name="ondomattrmodified" />
+		<attribute name="ondomcharacterdatamodified" />
+		<attribute name="ondomcontentloaded" />
+		<attribute name="ondomelementnamechanged" />
+		<attribute name="ondomfocusin" />
+		<attribute name="ondomfocusout" />
+		<attribute name="ondomnodeinserted" />
+		<attribute name="ondomnodeinsertedintodocument" />
+		<attribute name="ondomnoderemoved" />
+		<attribute name="ondomnoderemovedfromdocument" />
+		<attribute name="ondomsubtreemodified" />
+		<attribute name="onfullscreenchange" />
+		<attribute name="onfullscreenerror" />
+		<attribute name="ondatachange" />
+		<attribute name="ondataerror" />
+		<attribute name="ondommousescroll" />
+		<attribute name="ondragdrop" />
+		<attribute name="ondragexit" />
+		<attribute name="onunderflow" />
+		<attribute name="onoverflow" />
 	</event-attributes>
 
 </anti-samy-rules>

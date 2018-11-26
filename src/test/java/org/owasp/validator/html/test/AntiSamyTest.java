@@ -1831,6 +1831,18 @@ public class AntiSamyTest {
     }
 
     @Test
+    public void testXss12() throws Exception {
+        String content = "asd<style>@import url(\"http://attacker.org/malicious.css\");</style>";
+        Assert.assertTrue(testXssWithAttr(content));
+
+        content = "<img STYLE=\"background-image:url(javascript:alert(1))\">";
+        Assert.assertTrue(testXssWithAttr(content));
+        content = "\" sda> asd<style>@import url(\"http://attacker.org/malicious.css\");</style>";
+        Assert.assertTrue(testXssWithAttr(content));
+
+    }
+
+    @Test
     public void testPattern() throws Exception {
         Pattern pattern = Pattern.compile(".*", Pattern.DOTALL);
         Assert.assertTrue(pattern.matcher("按 按住 Ctrl 并单击 跟随链接\n" + "mailto:glasshm@hotmail.com").matches());

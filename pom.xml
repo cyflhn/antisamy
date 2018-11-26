@@ -41,7 +41,7 @@
         <dependency>
             <groupId>com.focustech.nekohtml</groupId>
             <artifactId>nekohtml</artifactId>
-            <version>0.7</version>
+            <version>0.8-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>

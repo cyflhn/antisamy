@@ -543,6 +543,8 @@ http://www.w3.org/TR/html401/struct/global.html
 		<!-- Tags related to JavaScript -->
 
 		<tag name="script" action="remove"/>
+		<tag name="vedio" action="remove"/>
+		<tag name="audio" action="remove"/>
 		<tag name="noscript" action="validate"/> <!-- although no javascript can fire inside a noscript tag, css is still a viable attack vector -->
 
 

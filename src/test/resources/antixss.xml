@@ -544,7 +544,6 @@ http://www.w3.org/TR/html401/struct/global.html
 
 		<tag name="script" action="remove"/>
 		<tag name="vedio" action="remove"/>
-		<tag name="audio" action="remove"/>
 		<tag name="noscript" action="validate"/> <!-- although no javascript can fire inside a noscript tag, css is still a viable attack vector -->
 
 
@@ -2952,6 +2951,26 @@ http://www.w3.org/TR/html401/struct/global.html
 		<attribute name="ondragexit" />
 		<attribute name="onunderflow" />
 		<attribute name="onoverflow" />
+		<attribute name="oncanplay" />
+		<attribute name="oncanplaythrough" />
+		<attribute name="ondurationchange" />
+		<attribute name="onemptied" />
+		<attribute name="onended" />
+		<attribute name="onloadeddata" />
+		<attribute name="onloadedmetadata" />
+		<attribute name="onloadstart" />
+		<attribute name="onpause" />
+		<attribute name="onplay" />
+		<attribute name="onplaying" />
+		<attribute name="onprogress" />
+		<attribute name="onratechange" />
+		<attribute name="onseeked" />
+		<attribute name="onseeking" />
+		<attribute name="onstalled" />
+		<attribute name="onsuspend" />
+		<attribute name="ontimeupdate" />
+		<attribute name="onvolumechange" />
+		<attribute name="onwaiting" />
 	</event-attributes>
 
 </anti-samy-rules>

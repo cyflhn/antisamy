@@ -348,6 +348,8 @@ http://www.w3.org/TR/html401/struct/global.html
 		<attribute name="ontimeupdate" />
 		<attribute name="onvolumechange" />
 		<attribute name="onwaiting" />
+		<attribute name="ontoggle" />
+		<attribute name="onstorage" />
 	</event-attributes>
 
 </anti-samy-rules>

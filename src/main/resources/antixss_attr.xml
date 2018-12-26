@@ -351,6 +351,9 @@ http://www.w3.org/TR/html401/struct/global.html
 		<attribute name="ontoggle" />
 		<attribute name="onstorage" />
 		<attribute name="onshow" />
+		<attribute name="onformchange" />
+		<attribute name="onforminput" />
+		<attribute name="oninvalid" />
 	</event-attributes>
 
 </anti-samy-rules>

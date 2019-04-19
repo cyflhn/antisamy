@@ -354,6 +354,7 @@ http://www.w3.org/TR/html401/struct/global.html
 		<attribute name="onformchange" />
 		<attribute name="onforminput" />
 		<attribute name="oninvalid" />
+		<attribute name="formaction" />
 	</event-attributes>
 
 </anti-samy-rules>

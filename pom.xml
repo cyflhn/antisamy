@@ -3,7 +3,7 @@
     <groupId>com.focustech.antisamy</groupId>
     <artifactId>antisamy</artifactId>
     <packaging>jar</packaging>
-    <version>1.0.6</version>
+    <version>1.0.7-SNAPSHOT</version>
 
     <distributionManagement>
         <repository>
@@ -25,6 +25,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jdk.version>1.6</jdk.version>
+        <nekohtml.version>0.9-SNAPSHOT</nekohtml.version>
     </properties>
 
     <dependencies>
@@ -41,7 +42,7 @@
         <dependency>
             <groupId>com.focustech.nekohtml</groupId>
             <artifactId>nekohtml</artifactId>
-            <version>0.8</version>
+            <version>${nekohtml.version}</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>

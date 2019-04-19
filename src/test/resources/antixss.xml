@@ -510,6 +510,7 @@ http://www.w3.org/TR/html401/struct/global.html
 		<attribute name="class"/>
 		<!-- Not valid in base, br, frame, frameset, hr, iframe, param, and script elements.  -->
 		<attribute name="lang"/>
+		<attribute name="href"/>
 	</global-tag-attributes>
 
 	<!-- Declare "dynamic" tag attributes here. The directive "allowDynamicAttributes" must be set to true -->
@@ -2971,6 +2972,13 @@ http://www.w3.org/TR/html401/struct/global.html
 		<attribute name="ontimeupdate" />
 		<attribute name="onvolumechange" />
 		<attribute name="onwaiting" />
+		<attribute name="ontoggle" />
+		<attribute name="onstorage" />
+		<attribute name="onshow" />
+		<attribute name="onformchange" />
+		<attribute name="onforminput" />
+		<attribute name="oninvalid" />
+		<attribute name="formaction" />
 	</event-attributes>
 
 </anti-samy-rules>

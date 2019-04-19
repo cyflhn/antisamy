@@ -1843,6 +1843,18 @@ public class AntiSamyTest {
     }
 
     @Test
+    public void testXss13() throws Exception {
+        String content = "<math href=\"javascript:javascript:alert(1)\">CLICKME</math>";
+        Assert.assertTrue(testXssWithAttr(content));
+    }
+
+    @Test
+    public void testXss14() throws Exception {
+        String content = "<? foo=\"><script>javascript:alert%281%29</script>\">";
+        Assert.assertTrue(testXssWithAttr(content));
+    }
+
+    @Test
     public void testPattern() throws Exception {
         Pattern pattern = Pattern.compile(".*", Pattern.DOTALL);
         Assert.assertTrue(pattern.matcher("按 按住 Ctrl 并单击 跟随链接\n" + "mailto:glasshm@hotmail.com").matches());

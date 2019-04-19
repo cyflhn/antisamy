@@ -33,6 +33,12 @@ public class AntiSamyAttrTest {
         Assert.assertFalse(testXss(content));
     }
 
+    @Test
+    public void testXss3() throws Exception {
+        String content = "<form><button formaction=\"javascript:javascript:alert(1)\">X";
+        Assert.assertTrue(testXss(content));
+    }
+
     private boolean testXss(String content) throws PolicyException {
         Policy policy = Policy.getInstance(this.getClass().getResourceAsStream("/antixss_attr.xml"));
         Locale defaultLocal = Locale.getDefault();

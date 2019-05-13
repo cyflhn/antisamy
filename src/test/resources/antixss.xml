@@ -13,7 +13,7 @@ http://www.w3.org/TR/html401/struct/global.html
 	<directives>
 		<directive name="omitXmlDeclaration" value="true"/>
 		<directive name="omitDoctypeDeclaration" value="true"/>
-		<directive name="maxInputSize" value="50000000"/>
+		<directive name="maxInputSize" value="100000000"/>
 		<directive name="useXHTML" value="true"/>
 		<directive name="formatOutput" value="true"/>
 		<directive name="nofollowAnchors" value="false" />
@@ -793,6 +793,11 @@ http://www.w3.org/TR/html401/struct/global.html
 
 			<!--  onInvalid="filterTag" has been removed as per suggestion at OWASP SJ 2007 - just "name" is valid -->
 			<attribute name="href"/>
+			<attribute name="xlink:href">
+					<literal-list>
+						<literal value=""/>
+					</literal-list>
+			</attribute>
 			<attribute name="onFocus"/>
 			<attribute name="onBlur"/>
 			<attribute name="nohref">
@@ -927,6 +932,12 @@ http://www.w3.org/TR/html401/struct/global.html
 
 		<tag name="link" action="validate">
 			<attribute name="href">
+				<literal-list>
+					<literal value=""/>
+				</literal-list>
+			</attribute>
+
+			<attribute name="xlink:href">
 				<literal-list>
 					<literal value=""/>
 				</literal-list>

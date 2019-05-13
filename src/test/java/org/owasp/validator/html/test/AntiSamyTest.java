@@ -1855,6 +1855,18 @@ public class AntiSamyTest {
     }
 
     @Test
+    public void testXss15() throws Exception {
+        String content = "https://sa.made-in-china.com/tag_search_product/Pump_hhn_1.html?' onmouseover='alert(9945)' bad='";
+        Assert.assertTrue(testXssWithAttr(content));
+    }
+
+    @Test
+    public void testXss16() throws Exception {
+        String content = "https://login.made-in-china.com/?errorTitle=.&errorDesc=<math><link xlink:href=javascript:alert(document.cookie)><button class=\"btn btn-main\" id=\"sign-in-submit\" tabindex=\"5\" type=\"submit\">XSS</button>";
+        Assert.assertTrue(testXssWithAttr(content));
+    }
+
+    @Test
     public void testPattern() throws Exception {
         Pattern pattern = Pattern.compile(".*", Pattern.DOTALL);
         Assert.assertTrue(pattern.matcher("按 按住 Ctrl 并单击 跟随链接\n" + "mailto:glasshm@hotmail.com").matches());
